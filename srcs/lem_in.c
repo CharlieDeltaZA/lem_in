@@ -6,10 +6,14 @@
 /*   By: cdiogo <marvin@42.fr>                      +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2019/08/13 16:19:08 by cdiogo            #+#    #+#             */
-/*   Updated: 2019/08/13 16:19:43 by cdiogo           ###   ########.fr       */
+/*   Updated: 2019/08/15 14:36:55 by cdiogo           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "../includes/lem_in.h"
 
 //TODO :)
+int		main(int ac, char **av)
+{
+	return (0);
+}
