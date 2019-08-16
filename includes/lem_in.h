@@ -8,8 +8,10 @@ typedef struct		s_rooms
 	char			*name;
 	int				x;
 	int				y;
+	int				start;
+	int				end;
 	// links?
 	struct s_rooms	*next;
-}					t_rooms
+}					t_rooms;
 
 #endif
