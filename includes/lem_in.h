@@ -14,4 +14,6 @@ typedef struct		s_rooms
 	struct s_rooms	*next;
 }					t_rooms;
 
+void				read_map(void);
+
 #endif
