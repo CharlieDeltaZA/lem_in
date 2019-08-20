@@ -49,5 +49,7 @@ int					check_ants(char *line);
 void				error_out(int code);
 int					is_command(char *line);
 int					is_comment(char *line);
+int					is_room(char *line);
+int					is_link(char *line);
 
 #endif
