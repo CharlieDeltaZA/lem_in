@@ -6,7 +6,7 @@
 /*   By: cdiogo <marvin@42.fr>                      +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2019/08/19 16:15:37 by cdiogo            #+#    #+#             */
-/*   Updated: 2019/08/20 12:04:24 by cdiogo           ###   ########.fr       */
+/*   Updated: 2019/08/20 13:10:42 by cdiogo           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -48,6 +48,14 @@ int		read_line(char *line, int check)
 		if (num_ants <= 0)
 			error_out(ANTS);
 		printf("Num Ants: %d\n", num_ants);
+	}
+	if (is_command(line))
+	{
+		printf("Found Command: %s\n", line);
+	}
+	if (is_comment(line))
+	{
+		printf("Found Comment: %s\n", line);
 	}
 	printf("Line: %d \t %s\n", check, line);
 	return (0);

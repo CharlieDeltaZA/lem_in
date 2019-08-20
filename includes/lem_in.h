@@ -11,7 +11,12 @@
 ** Macros
 */
 
-# define ANTS 1
+enum				e_error_codes
+{
+	ANTS = 1,
+	DUP_ROOM,
+	DUP_LINK
+};
 
 typedef struct		s_rooms
 {
@@ -38,9 +43,11 @@ int					read_line(char *line, int check);
 int					check_ants(char *line);
 
 /*
-** Error funcs
+** Error & Validation funcs
 */
 
 void				error_out(int code);
+int					is_command(char *line);
+int					is_comment(char *line);
 
 #endif
