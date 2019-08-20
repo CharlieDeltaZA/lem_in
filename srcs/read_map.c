@@ -6,7 +6,7 @@
 /*   By: cdiogo <marvin@42.fr>                      +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2019/08/19 16:15:37 by cdiogo            #+#    #+#             */
-/*   Updated: 2019/08/20 11:08:07 by cdiogo           ###   ########.fr       */
+/*   Updated: 2019/08/20 11:34:55 by cdiogo           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -40,12 +40,10 @@ void	read_map(void)
 int		read_line(char *line, int check)
 {
 	//TODO
-	// static int	check;
 	int			num_ants;
 
 	if (check == 1 && line)
 	{
-		// check = 0;
 		num_ants = check_ants(line);
 		if (num_ants <= 0)
 			error_out(ANTS);
