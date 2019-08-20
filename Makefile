@@ -7,7 +7,7 @@
 NAME = lem-in
 LIB = libft
 CC = gcc
-FLAGS = -Wall -Werror -Wextra -g
+FLAGS = -Wall -Werror -Wextra
 SRC_DIR = ./srcs/
 OBJ_DIR = ./srcs/
 INC_DIR = ./includes/
@@ -26,8 +26,12 @@ $(LIB): relib cleanlib
 	@$(CC) $(FLAGS) $(OPTIONS) -c $< -o $@
 
 $(NAME): $(OBJ)
-	@$(CC) -o $(NAME) $(FLAGS) $(OPTIONS) $(OBJ) 
+	@$(CC) -o $(NAME) $(FLAGS) $(OPTIONS) $(OBJ)
 	@echo "[$(NAME)] compiled"
+
+debug: $(LIB)
+	@$(CC) -o $(NAME) $(FLAGS) $(OPTIONS) ./srcs/*.c -g
+	@echo "Debug binary compiled"
 
 clean:
 	@/bin/rm -f $(OBJ_DIR)*.o

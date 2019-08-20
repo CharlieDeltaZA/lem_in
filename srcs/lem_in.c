@@ -6,7 +6,7 @@
 /*   By: cdiogo <marvin@42.fr>                      +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2019/08/13 16:19:08 by cdiogo            #+#    #+#             */
-/*   Updated: 2019/08/19 16:19:45 by cdiogo           ###   ########.fr       */
+/*   Updated: 2019/08/20 12:04:12 by cdiogo           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -28,6 +28,7 @@ int		main(int ac, char **av)
 			ft_putendl_fd("Too many args, uhm. HOW DO I HANDLE THIS?", 1);
 			return (0);
 		}
+	av += 1;
 	read_map();
 	// ??? Run the algo that does things and stuff
 	return (0);

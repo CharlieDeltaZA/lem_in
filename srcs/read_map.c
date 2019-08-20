@@ -6,7 +6,7 @@
 /*   By: cdiogo <marvin@42.fr>                      +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2019/08/19 16:15:37 by cdiogo            #+#    #+#             */
-/*   Updated: 2019/08/20 11:34:55 by cdiogo           ###   ########.fr       */
+/*   Updated: 2019/08/20 12:04:24 by cdiogo           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -50,4 +50,5 @@ int		read_line(char *line, int check)
 		printf("Num Ants: %d\n", num_ants);
 	}
 	printf("Line: %d \t %s\n", check, line);
+	return (0);
 }
