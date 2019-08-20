@@ -7,14 +7,15 @@
 NAME = lem-in
 LIB = libft
 CC = gcc
-FLAGS = -Wall -Werror -Wextra
+FLAGS = -Wall -Werror -Wextra -g
 SRC_DIR = ./srcs/
 OBJ_DIR = ./srcs/
 INC_DIR = ./includes/
 OPTIONS = -I$(INC_DIR) -I./libft -lft -L./libft
 HDR = ./includes/lem_in.h
 
-OBJ = $(OBJ_DIR)lem_in.o
+OBJ = $(OBJ_DIR)lem_in.o $(OBJ_DIR)read_map.o $(OBJ_DIR)checks.o
+OBJ += $(OBJ_DIR)errors.o
 
 all: $(LIB) $(NAME)
 
