@@ -6,7 +6,7 @@
 /*   By: cdiogo <marvin@42.fr>                      +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2019/08/13 16:19:08 by cdiogo            #+#    #+#             */
-/*   Updated: 2019/08/20 12:04:12 by cdiogo           ###   ########.fr       */
+/*   Updated: 2019/08/22 10:50:53 by cdiogo           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -24,10 +24,7 @@ int		main(int ac, char **av)
 	// must display input, empty line, then moves
 	// ^^ Input = num ants, ##commands, rooms, links
 	if (ac > 1)
-		{
-			ft_putendl_fd("Too many args, uhm. HOW DO I HANDLE THIS?", 1);
-			return (0);
-		}
+		error_out(BAD_INPUT);
 	av += 1;
 	read_map();
 	// ??? Run the algo that does things and stuff

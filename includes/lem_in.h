@@ -13,9 +13,14 @@
 
 enum				e_error_codes
 {
-	ANTS = 1,
+	NO_ANTS = 1,
 	DUP_ROOM,
-	DUP_LINK
+	DUP_LINK,
+	NO_START,
+	NO_END,
+	NO_X,
+	NO_Y,
+	BAD_INPUT
 };
 
 typedef struct		s_rooms

@@ -6,7 +6,7 @@
 /*   By: cdiogo <marvin@42.fr>                      +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2019/08/19 16:15:37 by cdiogo            #+#    #+#             */
-/*   Updated: 2019/08/22 08:42:53 by cdiogo           ###   ########.fr       */
+/*   Updated: 2019/08/22 10:45:04 by cdiogo           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -46,7 +46,7 @@ int		read_line(char *line, int check)
 	{
 		num_ants = check_ants(line);
 		if (num_ants <= 0)
-			error_out(ANTS);
+			error_out(NO_ANTS);
 		printf("Num Ants: %d\n", num_ants);
 	}
 	if (is_command(line))
