@@ -51,5 +51,6 @@ int					is_command(char *line);
 int					is_comment(char *line);
 int					is_room(char *line);
 int					is_link(char *line);
+int					count_words(char const *str, char delim, int index);
 
 #endif

@@ -6,7 +6,7 @@
 /*   By: cdiogo <marvin@42.fr>                      +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2019/08/20 10:17:39 by cdiogo            #+#    #+#             */
-/*   Updated: 2019/08/20 16:29:19 by cdiogo           ###   ########.fr       */
+/*   Updated: 2019/08/22 08:57:00 by cdiogo           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -59,10 +59,13 @@ int		is_comment(char *line)
 
 int		is_room(char *line)
 {
-	
+	if (count_words(line, ' ', 0) == 3 && line[0] != '#')
+		return (1);
+	return (0);
 }
 
 int		is_link(char *line)
 {
-	
+
+	return (0);
 }
