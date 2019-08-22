@@ -6,7 +6,7 @@
 /*   By: cdiogo <marvin@42.fr>                      +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2019/08/20 10:17:39 by cdiogo            #+#    #+#             */
-/*   Updated: 2019/08/22 11:11:37 by cdiogo           ###   ########.fr       */
+/*   Updated: 2019/08/22 12:05:37 by cdiogo           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -45,7 +45,7 @@ int		is_command(char *line)
 			return (1);
 		}
 		else
-			return (0);
+			error_out(BAD_COMMAND);
 	}
 	return (0);
 }

@@ -6,7 +6,7 @@
 /*   By: cdiogo <marvin@42.fr>                      +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2019/08/19 16:15:37 by cdiogo            #+#    #+#             */
-/*   Updated: 2019/08/22 11:43:58 by cdiogo           ###   ########.fr       */
+/*   Updated: 2019/08/22 12:09:20 by cdiogo           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -33,6 +33,8 @@ int		read_line(char *line, int check)
 	//TODO
 	int			num_ants;
 
+	if (!line[0])
+		error_out(EMPTY_LINE);
 	if (check == 1 && line)
 	{
 		num_ants = check_ants(line);
@@ -48,14 +50,14 @@ int		read_line(char *line, int check)
 	{
 		printf("Found Comment: %s\n", line);
 	}
-	// if (is_room(line))
-	// {
-	// 	printf("Found Room\n");
-	// }
-	// if (is_link(line))
-	// {
-	// 	printf("Found Link\n");
-	// }
+	if (is_room(line))
+	{
+		printf("Found Room\n");
+	}
+	if (is_link(line))
+	{
+		printf("Found Link\n");
+	}
 	printf("Line: %d \t %s\n", check, line);
 	return (0);
 }

@@ -6,7 +6,7 @@
 /*   By: cdiogo <marvin@42.fr>                      +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2019/08/20 10:43:46 by cdiogo            #+#    #+#             */
-/*   Updated: 2019/08/22 10:51:31 by cdiogo           ###   ########.fr       */
+/*   Updated: 2019/08/22 12:13:38 by cdiogo           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -26,5 +26,16 @@ void	error_out(int code)
 		ft_putendl_col_fd(RED, "ERROR : No End Room found", 2);
 	if (code == BAD_INPUT)
 		ft_putendl_col_fd(RED, "ERROR : Bad Input", 2);
+	if (code == BAD_COMMAND)
+		ft_putendl_col_fd(RED, "ERROR : Bad Command", 2);
+	if (code == EMPTY_LINE)
+		ft_putendl_col_fd(RED, "ERROR : Empty Line", 2);
 	exit(1);
+}
+
+// Pass in things to free, and the error enum
+void	free_and_error(int msg)
+{
+	//Free things and then error out with msg
+	error_out(msg);
 }

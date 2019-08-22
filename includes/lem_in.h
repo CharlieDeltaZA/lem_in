@@ -20,7 +20,9 @@ enum				e_error_codes
 	NO_END,
 	NO_X,
 	NO_Y,
-	BAD_INPUT
+	BAD_INPUT,
+	BAD_COMMAND,
+	EMPTY_LINE
 };
 
 typedef struct		s_rooms
@@ -51,6 +53,7 @@ int					check_ants(char *line);
 ** Error & Validation funcs
 */
 
+void				free_and_error(int msg);
 void				error_out(int code);
 int					is_command(char *line);
 int					is_comment(char *line);
