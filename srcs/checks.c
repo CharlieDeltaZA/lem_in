@@ -6,11 +6,13 @@
 /*   By: cdiogo <marvin@42.fr>                      +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2019/08/20 10:17:39 by cdiogo            #+#    #+#             */
-/*   Updated: 2019/08/22 08:57:00 by cdiogo           ###   ########.fr       */
+/*   Updated: 2019/08/22 11:11:37 by cdiogo           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "../includes/lem_in.h"
+
+// THESE CHECKS ARE VERY BASIC AND SHOULD BE UPDATED TO BE MORE ROBUST!
 
 int		check_ants(char *line)
 {
@@ -19,7 +21,7 @@ int		check_ants(char *line)
 		if (ft_atoi(line) <= 0)
 			return (-1);
 		else
-			return (ft_atoi(line));		
+			return (ft_atoi(line));
 	}
 	return (-42);
 }
@@ -43,7 +45,7 @@ int		is_command(char *line)
 			return (1);
 		}
 		else
-			return (0);	
+			return (0);
 	}
 	return (0);
 }
@@ -66,6 +68,14 @@ int		is_room(char *line)
 
 int		is_link(char *line)
 {
+	int	i;
 
+	i = 0;
+	while (line[i])
+	{
+		if (line[i] == '-')
+			return (1);
+		i++;
+	}
 	return (0);
 }
