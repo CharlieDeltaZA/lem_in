@@ -6,7 +6,7 @@
 /*   By: cdiogo <marvin@42.fr>                      +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2019/08/13 16:19:08 by cdiogo            #+#    #+#             */
-/*   Updated: 2019/08/22 10:50:53 by cdiogo           ###   ########.fr       */
+/*   Updated: 2019/08/22 14:32:54 by cdiogo           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -27,6 +27,9 @@ int		main(int ac, char **av)
 		error_out(BAD_INPUT);
 	av += 1;
 	read_map();
+	ft_putendl("");
+	ft_putendl_col_fd(YELLOW, "Algo Things Here", 1);
+	//ALGO_FUNC_HERE
 	// ??? Run the algo that does things and stuff
 	return (0);
 }

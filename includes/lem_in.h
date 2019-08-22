@@ -25,6 +25,13 @@ enum				e_error_codes
 	EMPTY_LINE
 };
 
+typedef struct			s_content
+{
+	char				*content;
+	struct s_content	*next;
+}						t_content;
+
+
 typedef struct		s_rooms
 {
 	char			*name;
@@ -44,10 +51,13 @@ void				read_map(void);
 int					read_line(char *line, int check);
 
 /*
-**  Input Validation
+**  t_content funcs
 */
 
-int					check_ants(char *line);
+t_content			*init_content(t_content **file, char *line);
+void				add_tail(t_content **head, t_content *node);
+t_content			*create_node(char *line);
+void				print_content(t_content **head);
 
 /*
 ** Error & Validation funcs
@@ -55,6 +65,7 @@ int					check_ants(char *line);
 
 void				free_and_error(int msg);
 void				error_out(int code);
+int					check_ants(char *line);
 int					is_command(char *line);
 int					is_comment(char *line);
 int					is_room(char *line);

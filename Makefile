@@ -15,7 +15,8 @@ OPTIONS = -I$(INC_DIR) -I./libft -lft -L./libft
 HDR = ./includes/lem_in.h
 
 OBJ = $(OBJ_DIR)lem_in.o $(OBJ_DIR)read_map.o $(OBJ_DIR)checks.o
-OBJ += $(OBJ_DIR)errors.o $(OBJ_DIR)checks2.o
+OBJ += $(OBJ_DIR)checks2.o $(OBJ_DIR)errors.o $(OBJ_DIR)list_content.o
+OBJ += $(OBJ_DIR)list_rooms.o
 
 all: $(LIB) $(NAME)
 
