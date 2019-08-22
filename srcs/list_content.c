@@ -6,14 +6,43 @@
 /*   By: cdiogo <marvin@42.fr>                      +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2019/08/22 12:21:07 by cdiogo            #+#    #+#             */
-/*   Updated: 2019/08/22 14:43:40 by cdiogo           ###   ########.fr       */
+/*   Updated: 2019/08/22 15:57:45 by cdiogo           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "../includes/lem_in.h"
 
 //Ops for t_content
-t_content	*init_content(t_content **file, char *line)
+static t_content	*create_node(char *line)
+{
+	t_content	*node;
+
+	node = (t_content*)malloc(sizeof(t_content));
+	if (node)
+	{
+		node->content = line;
+		node->next = NULL;
+	}
+	return (node);
+}
+
+static void			add_tail(t_content **head, t_content *node)
+{
+	t_content	*tmp;
+
+	if (!(head) || (!(node)))
+		return ;
+	tmp = *head;
+	if (tmp)
+	{
+		while (tmp->next)
+			tmp = tmp->next;
+		tmp->next = node;
+		// node->prev = tmp;
+	}
+}
+
+t_content			*init_content(t_content **file, char *line)
 {
 	t_content	*node;
 	t_content	*head;
@@ -31,36 +60,7 @@ t_content	*init_content(t_content **file, char *line)
 	return (head);
 }
 
-t_content	*create_node(char *line)
-{
-	t_content	*node;
-
-	node = (t_content*)malloc(sizeof(t_content));
-	if (node)
-	{
-		node->content = line;
-		node->next = NULL;
-	}
-	return (node);
-}
-
-void		add_tail(t_content **head, t_content *node)
-{
-	t_content	*tmp;
-
-	if (!(head) || (!(node)))
-		return ;
-	tmp = *head;
-	if (tmp)
-	{
-		while (tmp->next)
-			tmp = tmp->next;
-		tmp->next = node;
-		// node->prev = tmp;
-	}
-}
-
-void		print_content(t_content **head)
+void				print_content(t_content **head)
 {
 	t_content	*node;
 

@@ -55,8 +55,6 @@ int					read_line(char *line, int check);
 */
 
 t_content			*init_content(t_content **file, char *line);
-void				add_tail(t_content **head, t_content *node);
-t_content			*create_node(char *line);
 void				print_content(t_content **head);
 
 /*
