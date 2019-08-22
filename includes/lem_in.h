@@ -56,6 +56,7 @@ int					read_line(char *line, int check);
 
 t_content			*init_content(t_content **file, char *line);
 void				print_content(t_content **head);
+void				free_content(t_content **head);
 
 /*
 ** Error & Validation funcs

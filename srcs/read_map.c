@@ -6,7 +6,7 @@
 /*   By: cdiogo <marvin@42.fr>                      +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2019/08/19 16:15:37 by cdiogo            #+#    #+#             */
-/*   Updated: 2019/08/22 14:35:54 by cdiogo           ###   ########.fr       */
+/*   Updated: 2019/08/22 16:34:16 by cdiogo           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -27,9 +27,11 @@ void	read_map(void)
 		if (!is_comment(line))
 			file = init_content(&file, line);
 		count++;
+		// free(line);
 	}
 	ft_putendl("====================");
 	print_content(&file);
+	// free_content(&file);
 }
 
 int		read_line(char *line, int check)
