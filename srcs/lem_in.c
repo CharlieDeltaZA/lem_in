@@ -3,16 +3,15 @@
 /*                                                        :::      ::::::::   */
 /*   lem_in.c                                           :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: cdiogo <marvin@42.fr>                      +#+  +:+       +#+        */
+/*   By: jhansen <marvin@42.fr>                     +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2019/08/13 16:19:08 by cdiogo            #+#    #+#             */
-/*   Updated: 2019/08/22 16:23:21 by cdiogo           ###   ########.fr       */
+/*   Updated: 2019/08/23 11:58:31 by jhansen          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "../includes/lem_in.h"
 
-//TODO :)
 int		main(int ac, char **av)
 {
 	// lots of error checking
@@ -23,14 +22,16 @@ int		main(int ac, char **av)
 	// gnl to read input from a file?
 	// must display input, empty line, then moves
 	// ^^ Input = num ants, ##commands, rooms, links
+
 	if (ac > 1)
 		error_out(BAD_INPUT);
 	av += 1;
 	read_map();
 	ft_putendl("");
 	ft_putendl_col_fd(YELLOW, "Algo Things Here", 1);
+
 	//ALGO_FUNC_HERE
 	// ??? Run the algo that does things and stuff
-	while(1);
+	//while(1); //tests for leaks
 	return (0);
 }
