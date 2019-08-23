@@ -6,7 +6,7 @@
 /*   By: cdiogo <marvin@42.fr>                      +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2019/08/22 12:20:31 by cdiogo            #+#    #+#             */
-/*   Updated: 2019/08/23 09:39:07 by cdiogo           ###   ########.fr       */
+/*   Updated: 2019/08/23 09:48:09 by cdiogo           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -22,9 +22,9 @@ static t_rooms	*create_node(char *line)
 	if (node)
 	{
 		// node->name = ft_strdup(line);
-		node->name = get_name(line); //combine these 3 get funcs into 1?
-		node->x = get_x(line);
-		node->y = get_y(line);
+		node->name = "help";//get_name(line); //combine these 3 get funcs into 1?
+		node->x = 0;//get_x(line);
+		node->y = 0;//get_y(line);
 		node->start = 0; //something to check for an activated bit
 		node->end = 0; //something to check for an activated bit
 		// links???

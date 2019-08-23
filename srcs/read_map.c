@@ -6,7 +6,7 @@
 /*   By: cdiogo <marvin@42.fr>                      +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2019/08/19 16:15:37 by cdiogo            #+#    #+#             */
-/*   Updated: 2019/08/23 09:13:38 by cdiogo           ###   ########.fr       */
+/*   Updated: 2019/08/23 09:47:21 by cdiogo           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -58,10 +58,12 @@ int		read_line(char *line, int check)
 	}
 	if (is_room(line))
 	{
+		//validate room
 		printf("Found Room\n");
 	}
 	if (is_link(line))
 	{
+		//validate link?
 		printf("Found Link\n");
 	}
 	printf("Line: %d \t %s\n", check, line);
