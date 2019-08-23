@@ -6,7 +6,7 @@
 /*   By: cdiogo <marvin@42.fr>                      +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2019/08/13 16:19:08 by cdiogo            #+#    #+#             */
-/*   Updated: 2019/08/23 15:24:01 by cdiogo           ###   ########.fr       */
+/*   Updated: 2019/08/23 15:50:05 by cdiogo           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -24,8 +24,7 @@ int		main(int ac, char **av)
 	// ^^ Input = num ants, ##commands, rooms, links
 
 	if (ac > 1)
-		ft_putendl_fd("usage: ./lem-in < [path/to/map]", 1);
-		// error_out(BAD_INPUT);
+		error_out(BAD_INPUT);
 	av += 1;
 	read_map();
 	ft_putendl("");

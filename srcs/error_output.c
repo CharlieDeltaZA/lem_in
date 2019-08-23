@@ -3,10 +3,10 @@
 /*                                                        :::      ::::::::   */
 /*   error_output.c                                     :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: jhansen <marvin@42.fr>                     +#+  +:+       +#+        */
+/*   By: cdiogo <marvin@42.fr>                      +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2019/08/20 10:43:46 by cdiogo            #+#    #+#             */
-/*   Updated: 2019/08/23 11:57:00 by jhansen          ###   ########.fr       */
+/*   Updated: 2019/08/23 15:44:57 by cdiogo           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -25,7 +25,8 @@ void	error_out(int code)
 	if (code == NO_END)
 		ft_putendl_col_fd(RED, "ERROR : No End Room found", 2);
 	if (code == BAD_INPUT)
-		ft_putendl_col_fd(RED, "ERROR : Bad Input", 2);
+		ft_putendl_col_fd(WHITE, "usage: ./lem-in < [path/to/map]", 2);
+		// ft_putendl_col_fd(RED, "ERROR : Bad Input", 2);
 	if (code == BAD_COMMAND)
 		ft_putendl_col_fd(RED, "ERROR : Bad Command", 2);
 	if (code == EMPTY_LINE)
