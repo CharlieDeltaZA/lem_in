@@ -34,6 +34,10 @@ debug: $(LIB)
 	@$(CC) -o $(NAME) $(FLAGS) $(OPTIONS) ./srcs/*.c -g
 	@echo "Debug binary compiled"
 
+cdebug:
+	@/bin/rm -rf ./lem-in.dSYM
+	@echo "Debug cleaned"
+
 clean:
 	@/bin/rm -f $(OBJ_DIR)*.o
 	@echo "Object files removed"

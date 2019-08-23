@@ -6,7 +6,7 @@
 /*   By: cdiogo <marvin@42.fr>                      +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2019/08/22 12:21:07 by cdiogo            #+#    #+#             */
-/*   Updated: 2019/08/22 16:30:43 by cdiogo           ###   ########.fr       */
+/*   Updated: 2019/08/23 09:08:21 by cdiogo           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -20,7 +20,7 @@ static t_content	*create_node(char *line)
 	node = (t_content*)malloc(sizeof(t_content));
 	if (node)
 	{
-		node->content = line;
+		node->content = ft_strdup(line);
 		node->next = NULL;
 	}
 	return (node);
@@ -38,7 +38,6 @@ static void			add_tail(t_content **head, t_content *node)
 		while (tmp->next)
 			tmp = tmp->next;
 		tmp->next = node;
-		// node->prev = tmp;
 	}
 }
 
@@ -86,6 +85,7 @@ void				free_content(t_content **head)
 	while (current)
 	{
 		next = current->next;
+		free(current->content);
 		free(current);
 		current = next;
 	}
