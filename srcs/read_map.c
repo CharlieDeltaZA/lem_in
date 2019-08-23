@@ -6,7 +6,7 @@
 /*   By: cdiogo <marvin@42.fr>                      +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2019/08/19 16:15:37 by cdiogo            #+#    #+#             */
-/*   Updated: 2019/08/23 09:09:02 by cdiogo           ###   ########.fr       */
+/*   Updated: 2019/08/23 09:13:38 by cdiogo           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -29,7 +29,7 @@ void	read_map(void)
 		count++;
 		free(line);
 	}
-	ft_putendl("====================");
+	ft_putendl("===================="); //remove
 	print_content(&file);
 	free_content(&file);
 }

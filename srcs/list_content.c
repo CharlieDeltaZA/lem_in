@@ -6,7 +6,7 @@
 /*   By: cdiogo <marvin@42.fr>                      +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2019/08/22 12:21:07 by cdiogo            #+#    #+#             */
-/*   Updated: 2019/08/23 09:08:21 by cdiogo           ###   ########.fr       */
+/*   Updated: 2019/08/23 09:31:23 by cdiogo           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -49,13 +49,13 @@ t_content			*init_content(t_content **file, char *line)
 	head = *file;
 	if (head)
 	{
-		ft_putendl("Node Creation");
+		// ft_putendl("Node Creation");
 		node = create_node(line);
 		add_tail(&head, node);
 	}
 	else
 	{
-		ft_putendl("Head Creation");
+		// ft_putendl("Head Creation");
 		head = create_node(line);
 	}
 	return (head);

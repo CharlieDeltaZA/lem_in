@@ -59,6 +59,13 @@ void				print_content(t_content **head);
 void				free_content(t_content **head);
 
 /*
+**	t_rooms funcs
+*/
+
+t_rooms				*init_rooms(t_rooms **file, char *line);
+void				free_rooms(t_rooms **head);
+
+/*
 ** Error & Validation funcs
 */
 
