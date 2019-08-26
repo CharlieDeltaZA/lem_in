@@ -6,11 +6,11 @@
 /*   By: cdiogo <marvin@42.fr>                      +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2019/08/20 10:43:46 by cdiogo            #+#    #+#             */
-/*   Updated: 2019/08/23 15:44:57 by cdiogo           ###   ########.fr       */
+/*   Updated: 2019/08/26 09:59:44 by cdiogo           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#include "../includes/lem_in.h"
+#include "../../includes/lem_in.h"
 
 void	error_out(int code)
 {

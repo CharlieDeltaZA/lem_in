@@ -6,11 +6,11 @@
 /*   By: cdiogo <marvin@42.fr>                      +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2019/08/22 12:20:31 by cdiogo            #+#    #+#             */
-/*   Updated: 2019/08/26 08:49:04 by cdiogo           ###   ########.fr       */
+/*   Updated: 2019/08/26 09:59:51 by cdiogo           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#include "../includes/lem_in.h"
+#include "../../includes/lem_in.h"
 
 // Ops for t_rooms
 static t_rooms		*create_node(char *line)

@@ -3,14 +3,14 @@
 /*                                                        :::      ::::::::   */
 /*   check_errors_two.c                                 :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: jhansen <marvin@42.fr>                     +#+  +:+       +#+        */
+/*   By: cdiogo <marvin@42.fr>                      +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2019/08/22 08:37:21 by cdiogo            #+#    #+#             */
-/*   Updated: 2019/08/23 11:57:43 by jhansen          ###   ########.fr       */
+/*   Updated: 2019/08/26 09:59:38 by cdiogo           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#include "../includes/lem_in.h"
+#include "../../includes/lem_in.h"
 
 int		count_words(char const *str, char delim, int index)
 {

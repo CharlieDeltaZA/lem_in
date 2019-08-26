@@ -6,11 +6,11 @@
 /*   By: cdiogo <marvin@42.fr>                      +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2019/08/13 16:19:08 by cdiogo            #+#    #+#             */
-/*   Updated: 2019/08/23 15:50:05 by cdiogo           ###   ########.fr       */
+/*   Updated: 2019/08/26 09:59:27 by cdiogo           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#include "../includes/lem_in.h"
+#include "../../includes/lem_in.h"
 
 int		main(int ac, char **av)
 {

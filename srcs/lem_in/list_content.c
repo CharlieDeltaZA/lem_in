@@ -6,11 +6,11 @@
 /*   By: cdiogo <marvin@42.fr>                      +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2019/08/22 12:21:07 by cdiogo            #+#    #+#             */
-/*   Updated: 2019/08/23 09:31:23 by cdiogo           ###   ########.fr       */
+/*   Updated: 2019/08/26 09:59:56 by cdiogo           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#include "../includes/lem_in.h"
+#include "../../includes/lem_in.h"
 
 //Ops for t_content
 static t_content	*create_node(char *line)
