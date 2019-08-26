@@ -3,10 +3,10 @@
 /*                                                        :::      ::::::::   */
 /*   error_output.c                                     :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: cdiogo <marvin@42.fr>                      +#+  +:+       +#+        */
+/*   By: jhansen <marvin@42.fr>                     +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2019/08/20 10:43:46 by cdiogo            #+#    #+#             */
-/*   Updated: 2019/08/26 09:59:44 by cdiogo           ###   ########.fr       */
+/*   Updated: 2019/08/26 14:32:42 by jhansen          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -31,12 +31,11 @@ void	error_out(int code)
 		ft_putendl_col_fd(RED, "ERROR : Bad Command", 2);
 	if (code == EMPTY_LINE)
 		ft_putendl_col_fd(RED, "ERROR : Empty Line", 2);
-	exit(1);
 }
 
 // Pass in things to free, and the error enum
-void	free_and_error(int msg)
+void	free_and_error(char *line)
 {
-	//Free things and then error out with msg
-	error_out(msg);
+	//Free things
+	error_out(BAD_INPUT);
 }

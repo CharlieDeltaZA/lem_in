@@ -1,18 +1,16 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   check_errors_one.c                                 :+:      :+:    :+:   */
+/*   line_type_one.c                                    :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: cdiogo <marvin@42.fr>                      +#+  +:+       +#+        */
+/*   By: jhansen <marvin@42.fr>                     +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2019/08/20 10:17:39 by cdiogo            #+#    #+#             */
-/*   Updated: 2019/08/26 09:59:33 by cdiogo           ###   ########.fr       */
+/*   Updated: 2019/08/26 14:20:01 by jhansen          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "../../includes/lem_in.h"
-
-// THESE CHECKS ARE VERY BASIC AND SHOULD BE UPDATED TO BE MORE ROBUST!
 
 int		check_ants(char *line)
 {

@@ -6,7 +6,7 @@
 /*   By: jhansen <marvin@42.fr>                     +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2019/08/13 16:19:08 by cdiogo            #+#    #+#             */
-/*   Updated: 2019/08/26 12:09:13 by jhansen          ###   ########.fr       */
+/*   Updated: 2019/08/26 13:22:25 by jhansen          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -21,7 +21,7 @@ int		main(int ac, char **av)
 	// must display input, empty line, then moves
 	// ^^ Input = num ants, ##commands, rooms, links
 
-	av++;
+	av = av + 1;
 	read_map(); 		//checks each line of text that it is valid. Shoves input into corresponding list members if it is valid.
 	ft_putendl("");
 	//while(1); 		//tests for leaks
