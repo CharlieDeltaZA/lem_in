@@ -6,7 +6,7 @@
 /*   By: cdiogo <marvin@42.fr>                      +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2019/08/26 10:30:14 by cdiogo            #+#    #+#             */
-/*   Updated: 2019/08/26 10:40:10 by cdiogo           ###   ########.fr       */
+/*   Updated: 2019/08/26 12:45:29 by cdiogo           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -24,7 +24,7 @@ int main()
 	SDL_Window* win = SDL_CreateWindow("GAME", // creates a window 
 									SDL_WINDOWPOS_CENTERED, 
 									SDL_WINDOWPOS_CENTERED, 
-									1000, 1000, 0); 
+									1920, 1080, 0); 
 
 	// triggers the program that controls 
 	// your graphics hardware and sets flags 
@@ -57,16 +57,16 @@ int main()
 	dest.h /= 6; 
 
 	// sets initial x-position of object 
-	dest.x = (1000 - dest.w) / 2; 
+	dest.x = (1920 - dest.w) / 2; 
 
 	// sets initial y-position of object 
-	dest.y = (1000 - dest.h) / 2; 
+	dest.y = (1080 - dest.h) / 2; 
 
 	// controls annimation loop 
 	int close = 0; 
 
 	// speed of box 
-	int speed = 300; 
+	int speed = 600; 
 
 	// annimation loop 
 	while (!close) { 
@@ -86,35 +86,38 @@ int main()
 				switch (event.key.keysym.scancode) { 
 				case SDL_SCANCODE_W: 
 				case SDL_SCANCODE_UP: 
-					dest.y -= speed / 30; 
+					dest.y -= speed / 60; 
 					break; 
 				case SDL_SCANCODE_A: 
 				case SDL_SCANCODE_LEFT: 
-					dest.x -= speed / 30; 
+					dest.x -= speed / 60; 
 					break; 
 				case SDL_SCANCODE_S: 
 				case SDL_SCANCODE_DOWN: 
-					dest.y += speed / 30; 
+					dest.y += speed / 60; 
 					break; 
 				case SDL_SCANCODE_D: 
 				case SDL_SCANCODE_RIGHT: 
-					dest.x += speed / 30; 
+					dest.x += speed / 60; 
+					break; 
+				case SDL_SCANCODE_Q:
+					close = 1;
 					break; 
 				} 
 			} 
 		} 
 
 		// right boundary 
-		if (dest.x + dest.w > 1000) 
-			dest.x = 1000 - dest.w; 
+		if (dest.x + dest.w > 1920) 
+			dest.x = 1920 - dest.w; 
 
 		// left boundary 
 		if (dest.x < 0) 
 			dest.x = 0; 
 
 		// bottom boundary 
-		if (dest.y + dest.h > 1000) 
-			dest.y = 1000 - dest.h; 
+		if (dest.y + dest.h > 1080) 
+			dest.y = 1080 - dest.h; 
 
 		// upper boundary 
 		if (dest.y < 0) 

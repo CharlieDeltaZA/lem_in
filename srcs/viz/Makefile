@@ -1,0 +1,7 @@
+INCLUDES = -I$(HOME)/.brew/include/
+HEADERS = -I$(HOME)/.brew/include/
+SDL_L = $(HOME)/.brew/lib/
+LIBS = $(HEADERS) -L$(SDL_L) -lSDL2 -lSDL2_gfx -lSDL2_ttf -lSDL2_image 
+
+all:
+	gcc $(LIBS) v_main.c
