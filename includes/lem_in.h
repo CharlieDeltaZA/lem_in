@@ -6,7 +6,7 @@
 /*   By: jhansen <marvin@42.fr>                     +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2019/08/26 08:40:20 by cdiogo            #+#    #+#             */
-/*   Updated: 2019/08/26 15:02:29 by jhansen          ###   ########.fr       */
+/*   Updated: 2019/08/26 16:01:30 by jhansen          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -54,19 +54,28 @@ typedef struct			s_rooms
 }						t_rooms;
 
 /*
-** Reading & Checking of Input
+** Reading & Recognising of Line Input
 */
 
 void					read_map();
 int						check_line(char *line);
-int						check_ants(char *line);
 int						is_command(char *line);
 int						is_comment(char *line);
 int						is_room(char *line);
 int						is_link(char *line);
+int						is_ant(char *line);
 int						count_words(char const *str, char delim, int index);
 void					free_and_error(t_content *file, t_rooms *node, int msg);
 void					error_out(int code);
+
+/*
+** Error checking of ALL
+*/
+
+int						valid_ants(char *line);
+int						valid_command(char *line);
+int						valid_link(char *line);
+int						valid_room(char *line);
 
 /*
 **  t_content funcs
