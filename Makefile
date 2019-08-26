@@ -19,8 +19,8 @@ LHDR = ./includes/lem_in.h
 VHDR = ./includes/viz.h
 
 OBJ = $(LOBJ_DIR)lem_in.o $(LOBJ_DIR)read_map.o $(LOBJ_DIR)check_errors_one.o
-OBJ += $(LOBJ_DIR)check_errors_two.o $(LOBJ_DIR)error_output.o $(LOBJ_DIR)list_content.o
-OBJ += $(LOBJ_DIR)list_rooms.o
+OBJ += $(LOBJ_DIR)check_errors_two.o $(LOBJ_DIR)error_output.o $(LOBJ_DIR)content_ops.o
+OBJ += $(LOBJ_DIR)rooms_ops.o
 
 OBJ_V = $(VOBJ_DIR)v_main.o
 

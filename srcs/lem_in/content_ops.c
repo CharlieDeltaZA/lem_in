@@ -1,23 +1,22 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   list_content.c                                     :+:      :+:    :+:   */
+/*   content_ops.c                                      :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: cdiogo <marvin@42.fr>                      +#+  +:+       +#+        */
+/*   By: jhansen <marvin@42.fr>                     +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2019/08/22 12:21:07 by cdiogo            #+#    #+#             */
-/*   Updated: 2019/08/26 09:59:56 by cdiogo           ###   ########.fr       */
+/*   Updated: 2019/08/26 12:07:51 by jhansen          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "../../includes/lem_in.h"
 
-//Ops for t_content
 static t_content	*create_node(char *line)
 {
 	t_content	*node;
 
-	node = (t_content*)malloc(sizeof(t_content));
+	node = (t_content *)malloc(sizeof(t_content));
 	if (node)
 	{
 		node->content = ft_strdup(line);
@@ -49,13 +48,11 @@ t_content			*init_content(t_content **file, char *line)
 	head = *file;
 	if (head)
 	{
-		// ft_putendl("Node Creation");
 		node = create_node(line);
 		add_tail(&head, node);
 	}
 	else
 	{
-		// ft_putendl("Head Creation");
 		head = create_node(line);
 	}
 	return (head);

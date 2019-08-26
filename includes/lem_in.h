@@ -3,10 +3,10 @@
 /*                                                        :::      ::::::::   */
 /*   lem_in.h                                           :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: cdiogo <marvin@42.fr>                      +#+  +:+       +#+        */
+/*   By: jhansen <marvin@42.fr>                     +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2019/08/26 08:40:20 by cdiogo            #+#    #+#             */
-/*   Updated: 2019/08/26 08:47:59 by cdiogo           ###   ########.fr       */
+/*   Updated: 2019/08/26 11:55:59 by jhansen          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -50,16 +50,23 @@ typedef struct			s_rooms
 	int					y;
 	int					start;
 	int					end;
-	// links?
 	struct s_rooms		*next;
 }						t_rooms;
 
 /*
-** Reading of Input
+** Reading & Checking of Input
 */
 
-void					read_map(void);
-int						read_line(char *line, int check);
+void					read_map();
+int						check_line(char *line);
+int						check_ants(char *line);
+int						is_command(char *line);
+int						is_comment(char *line);
+int						is_room(char *line);
+int						is_link(char *line);
+int						count_words(char const *str, char delim, int index);
+void					free_and_error(int msg);
+void					error_out(int code);
 
 /*
 **  t_content funcs
@@ -75,18 +82,5 @@ void					free_content(t_content **head);
 
 t_rooms					*init_rooms(t_rooms **file, char *line);
 void					free_rooms(t_rooms **head);
-
-/*
-** Error & Validation funcs
-*/
-
-void					free_and_error(int msg);
-void					error_out(int code);
-int						check_ants(char *line);
-int						is_command(char *line);
-int						is_comment(char *line);
-int						is_room(char *line);
-int						is_link(char *line);
-int						count_words(char const *str, char delim, int index);
 
 #endif
