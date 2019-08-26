@@ -6,7 +6,7 @@
 /*   By: jhansen <marvin@42.fr>                     +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2019/08/19 16:15:37 by cdiogo            #+#    #+#             */
-/*   Updated: 2019/08/26 14:42:27 by jhansen          ###   ########.fr       */
+/*   Updated: 2019/08/26 15:02:34 by jhansen          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -53,14 +53,16 @@ void	read_map(void)
 {
 	char		*line;
 	t_content	*file;
+	t_rooms		*head;
 
+	head = NULL;
 	file = NULL;
 	while (get_next_line(0, &line))
 	{
 		if (check_line(line) > 0)
 			init_content(&file, line);
 		else
-			free_and_error(line);
+			free_and_error(file, head, BAD_INPUT);
 		free(line);
 	}
 	//function to fill t_rooms here using 'file' node
