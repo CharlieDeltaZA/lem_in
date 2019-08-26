@@ -11,11 +11,12 @@ CC = gcc
 FLAGS = -Wall -Werror -Wextra
 LSRC_DIR = ./srcs/lem_in/
 LOBJ_DIR = ./srcs/lem_in/
-VSRC_DIR = ./srcs//viz/
+VSRC_DIR = ./srcs/viz/
 VOBJ_DIR = ./srcs/viz/
 INC_DIR = ./includes/
 OPTIONS = -I$(INC_DIR) -I./libft -lft -L./libft
-HDR = ./includes/lem_in.h
+LHDR = ./includes/lem_in.h
+VHDR = ./includes/viz.h
 
 OBJ = $(LOBJ_DIR)lem_in.o $(LOBJ_DIR)read_map.o $(LOBJ_DIR)check_errors_one.o
 OBJ += $(LOBJ_DIR)check_errors_two.o $(LOBJ_DIR)error_output.o $(LOBJ_DIR)list_content.o
