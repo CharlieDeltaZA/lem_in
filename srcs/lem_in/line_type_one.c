@@ -6,7 +6,7 @@
 /*   By: jhansen <marvin@42.fr>                     +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2019/08/20 10:17:39 by cdiogo            #+#    #+#             */
-/*   Updated: 2019/08/26 16:39:17 by jhansen          ###   ########.fr       */
+/*   Updated: 2019/08/26 17:37:58 by jhansen          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -14,16 +14,18 @@
 
 int		is_command(char *line)
 {
-	// char	*tmp;
+	char	*tmp;
 
-	// tmp = line;
+	tmp = line;
 	if (line[0] == '#' && line[1] == '#')
 	{
-		// tmp += 2;
-		// if (ft_strequ("start", tmp))
-		// 	return (1);
-		// else if (ft_strequ("end", tmp))
+		tmp += 2;
+		if (ft_strequ("start", tmp))
 			return (1);
+		else if (ft_strequ("end", tmp))
+			return (1);
+		else
+			return (3);
 	}
 	return (0);
 }
@@ -62,9 +64,15 @@ int		is_ant(char *line)
 	int	i;
 
 	i = 0;
-	while ((line[i] == ' ' || line[i] == '\t') && line[i] != '\0')		//NOT DONE
+	while ((line[i] == ' ' || line[i] == '\t') && line[i] != '\0')
 		i++;
-	
+	while (line[i] != '\0' && line[i] >= '0' && line[i] <= '9')
+		i++;
+	while ((line[i] == ' ' || line[i] == '\t') && line[i] != '\0') 	//should i loop over psaces at the end also?
+		i++;
+	if (line[i] == '\0')
+		return (1);
+	return (0);
 }
 
 int		is_room(char *line)
@@ -74,7 +82,16 @@ int		is_room(char *line)
 	i = 0;
 	while ((line[i] == ' ' || line[i] == '\t') && line[i] != '\0')
 		i++;
-	if (count_words(&line[i], ' ', 0) == 3 && line[i] != 'L' && line[i] != '#')  //DONE??
-		return (1);
+	if (count_words(&line[i], ' ', 0) == 3 && line[i] != 'L' && line[i] != '#')
+	{
+		i = 0;
+		while ((line[i] == ' ' || line[i] == '\t') && line[i] != '\0')
+			i++;
+		//add here
+		while ((line[i] == ' ' || line[i] == '\t') && line[i] != '\0')		//should i loop over spaces at the end also?
+			i++;
+		if (line[i] == '\0')
+			return (0);
+	}
 	return (0);
 }

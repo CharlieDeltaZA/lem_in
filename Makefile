@@ -20,7 +20,7 @@ VHDR = ./includes/viz.h
 
 OBJ = $(LOBJ_DIR)lem_in.o $(LOBJ_DIR)read_map.o $(LOBJ_DIR)line_type_one.o
 OBJ += $(LOBJ_DIR)line_type_two.o $(LOBJ_DIR)error_output.o $(LOBJ_DIR)content_ops.o
-OBJ += $(LOBJ_DIR)rooms_ops.o $(LOBJ_DIR)valid_line_type.o
+OBJ += $(LOBJ_DIR)rooms_ops.o $(LOBJ_DIR)validate_all.o
 
 OBJ_V = $(VOBJ_DIR)v_main.o
 
