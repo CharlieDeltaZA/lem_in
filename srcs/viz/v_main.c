@@ -6,7 +6,7 @@
 /*   By: cdiogo <marvin@42.fr>                      +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2019/08/26 10:30:14 by cdiogo            #+#    #+#             */
-/*   Updated: 2019/08/26 12:45:29 by cdiogo           ###   ########.fr       */
+/*   Updated: 2019/08/26 15:14:32 by cdiogo           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -66,7 +66,7 @@ int main()
 	int close = 0; 
 
 	// speed of box 
-	int speed = 600; 
+	int speed = 300; 
 
 	// annimation loop 
 	while (!close) { 
@@ -86,19 +86,19 @@ int main()
 				switch (event.key.keysym.scancode) { 
 				case SDL_SCANCODE_W: 
 				case SDL_SCANCODE_UP: 
-					dest.y -= speed / 60; 
+					dest.y -= speed / 30; 
 					break; 
 				case SDL_SCANCODE_A: 
 				case SDL_SCANCODE_LEFT: 
-					dest.x -= speed / 60; 
+					dest.x -= speed / 30; 
 					break; 
 				case SDL_SCANCODE_S: 
 				case SDL_SCANCODE_DOWN: 
-					dest.y += speed / 60; 
+					dest.y += speed / 30; 
 					break; 
 				case SDL_SCANCODE_D: 
 				case SDL_SCANCODE_RIGHT: 
-					dest.x += speed / 60; 
+					dest.x += speed / 30; 
 					break; 
 				case SDL_SCANCODE_Q:
 					close = 1;
