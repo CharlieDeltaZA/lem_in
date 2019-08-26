@@ -6,7 +6,7 @@
 /*   By: jhansen <marvin@42.fr>                     +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2019/08/26 14:37:27 by jhansen           #+#    #+#             */
-/*   Updated: 2019/08/26 14:39:21 by jhansen          ###   ########.fr       */
+/*   Updated: 2019/08/26 15:46:14 by jhansen          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -22,9 +22,16 @@ int		valid_link(char *line)
 
 }
 
-int		valid_ant(char *line)
+int		valid_ants(char *line)
 {
-
+	if (ft_str_is_numeric(line))
+	{
+		if (ft_atoi(line) <= 0)
+			return (-1);
+		else
+			return (ft_atoi(line));
+	}
+	return (-42);
 }
 
 int		valid_room(char *line)

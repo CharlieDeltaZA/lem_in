@@ -6,23 +6,11 @@
 /*   By: jhansen <marvin@42.fr>                     +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2019/08/20 10:17:39 by cdiogo            #+#    #+#             */
-/*   Updated: 2019/08/26 14:20:01 by jhansen          ###   ########.fr       */
+/*   Updated: 2019/08/26 15:47:03 by jhansen          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "../../includes/lem_in.h"
-
-int		check_ants(char *line)
-{
-	if (ft_str_is_numeric(line))
-	{
-		if (ft_atoi(line) <= 0)
-			return (-1);
-		else
-			return (ft_atoi(line));
-	}
-	return (-42);
-}
 
 int		is_command(char *line)
 {
@@ -33,17 +21,9 @@ int		is_command(char *line)
 	{
 		tmp += 2;
 		if (ft_strequ("start", tmp))
-		{
-			printf("Found Start\n");
 			return (1);
-		}
 		else if (ft_strequ("end", tmp))
-		{
-			printf("Found End\n");
 			return (1);
-		}
-		else
-			error_out(BAD_COMMAND);
 	}
 	return (0);
 }
@@ -51,15 +31,6 @@ int		is_command(char *line)
 int		is_comment(char *line)
 {
 	if (line[0] == '#' && line[1] != '#')
-	{
-		return (1);
-	}
-	return (0);
-}
-
-int		is_room(char *line)
-{
-	if (count_words(line, ' ', 0) == 3 && line[0] != '#')
 		return (1);
 	return (0);
 }
@@ -71,9 +42,21 @@ int		is_link(char *line)
 	i = 0;
 	while (line[i])
 	{
-		if (line[i] == '-')
+		if (line[i] == '-')						//Do MORE
 			return (1);
 		i++;
 	}
+	return (0);
+}
+
+int		is_ant(char *line)
+{
+												//FINISH
+}
+
+int		is_room(char *line)
+{
+	if (count_words(line, ' ', 0) == 3 && line[0] != '#')  	//DONE??
+		return (1);
 	return (0);
 }

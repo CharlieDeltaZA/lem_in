@@ -6,13 +6,13 @@
 /*   By: jhansen <marvin@42.fr>                     +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2019/08/19 16:15:37 by cdiogo            #+#    #+#             */
-/*   Updated: 2019/08/26 15:02:34 by jhansen          ###   ########.fr       */
+/*   Updated: 2019/08/26 15:47:59 by jhansen          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "../../includes/lem_in.h"
 
-int		type_of_line(char *line)
+int		check_line(char *line)
 {
 	if (is_command(line) == 1)
 		return (1);
@@ -26,27 +26,6 @@ int		type_of_line(char *line)
 		return (5);
 	else
 		return (0);
-}
-
-int		check_line(char *line)
-{
-	int	flag;
-
-	if (!line[0])
-		error_out(EMPTY_LINE);
-	flag = type_of_line(line);
-	if (flag == 1)
-		return (valid_command(line));
-	if (flag == 2)
-		return (1);
-	if (flag == 3)
-		return (valid_link(line));
-	if (flag == 4)
-		return (valid_ants(line));
-	if (flag == 5)
-		return (valid_room(line));
-	else
-		return (-42);
 }
 
 void	read_map(void)
