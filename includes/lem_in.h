@@ -6,7 +6,7 @@
 /*   By: cdiogo <marvin@42.fr>                      +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2019/08/26 08:40:20 by cdiogo            #+#    #+#             */
-/*   Updated: 2019/08/26 08:40:46 by cdiogo           ###   ########.fr       */
+/*   Updated: 2019/08/26 08:47:59 by cdiogo           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -23,7 +23,7 @@
 ** Macros
 */
 
-enum				e_error_codes
+enum					e_error_codes
 {
 	NO_ANTS = 1,
 	DUP_ROOM,
@@ -43,50 +43,50 @@ typedef struct			s_content
 	struct s_content	*next;
 }						t_content;
 
-typedef struct		s_rooms
+typedef struct			s_rooms
 {
-	char			*name;
-	int				x;
-	int				y;
-	int				start;
-	int				end;
+	char				*name;
+	int					x;
+	int					y;
+	int					start;
+	int					end;
 	// links?
-	struct s_rooms	*next;
-}					t_rooms;
+	struct s_rooms		*next;
+}						t_rooms;
 
 /*
 ** Reading of Input
 */
 
-void				read_map(void);
-int					read_line(char *line, int check);
+void					read_map(void);
+int						read_line(char *line, int check);
 
 /*
 **  t_content funcs
 */
 
-t_content			*init_content(t_content **file, char *line);
-void				print_content(t_content **head);
-void				free_content(t_content **head);
+t_content				*init_content(t_content **file, char *line);
+void					print_content(t_content **head);
+void					free_content(t_content **head);
 
 /*
 **	t_rooms funcs
 */
 
-t_rooms				*init_rooms(t_rooms **file, char *line);
-void				free_rooms(t_rooms **head);
+t_rooms					*init_rooms(t_rooms **file, char *line);
+void					free_rooms(t_rooms **head);
 
 /*
 ** Error & Validation funcs
 */
 
-void				free_and_error(int msg);
-void				error_out(int code);
-int					check_ants(char *line);
-int					is_command(char *line);
-int					is_comment(char *line);
-int					is_room(char *line);
-int					is_link(char *line);
-int					count_words(char const *str, char delim, int index);
+void					free_and_error(int msg);
+void					error_out(int code);
+int						check_ants(char *line);
+int						is_command(char *line);
+int						is_comment(char *line);
+int						is_room(char *line);
+int						is_link(char *line);
+int						count_words(char const *str, char delim, int index);
 
 #endif
