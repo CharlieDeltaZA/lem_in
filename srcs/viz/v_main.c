@@ -6,13 +6,14 @@
 /*   By: cdiogo <marvin@42.fr>                      +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2019/08/26 10:30:14 by cdiogo            #+#    #+#             */
-/*   Updated: 2019/08/27 12:25:10 by cdiogo           ###   ########.fr       */
+/*   Updated: 2019/08/27 13:05:11 by cdiogo           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include <SDL2/SDL.h>
 #include <SDL2/SDL_image.h>
 #include <SDL2/SDL_timer.h>
+#include <SDL2/SDL2_gfxPrimitives.h>
 
 int main() 
 { 
@@ -63,8 +64,8 @@ int main()
 	dest.w /= 6; 
 	dest.h /= 6; 
 
-	start_box.w /= 2; 
-	start_box.h /= 2; 
+	// start_box.w /= 2; 
+	// start_box.h /= 2; 
 
 	// sets initial x-position of object 
 	dest.x = (1200 - dest.w) / 2; 
@@ -146,9 +147,10 @@ int main()
 		SDL_RenderCopy(rend, s_tex, NULL, &start_box);
 		SDL_RenderCopy(rend, tex, NULL, &dest); 
 
-		SDL_SetRenderDrawColor(rend, 0, 255, 255, 255);
+		// SDL_SetRenderDrawColor(rend, 0, 255, 255, 255);
 		// draws line from middle of start square to middle of moveable square
-		SDL_RenderDrawLine(rend, (start_box.x + (start_box.w /2)), (start_box.y + (start_box.h /2)), (dest.x + (dest.w /2)), (dest.y + (dest.h /2)));
+		// SDL_RenderDrawLine(rend, (start_box.x + (start_box.w /2)), (start_box.y + (start_box.h /2)), (dest.x + (dest.w /2)), (dest.y + (dest.h /2)));
+		thickLineColor(rend, (start_box.x + (start_box.w /2)), (start_box.y + (start_box.h /2)), (dest.x + (dest.w /2)), (dest.y + (dest.h /2)), 8, 0xFFFFFF00);
 
 		SDL_SetRenderDrawColor(rend, 0, 0, 0, 255);
 		// triggers the double buffers 
