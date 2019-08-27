@@ -6,7 +6,7 @@
 /*   By: jhansen <marvin@42.fr>                     +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2019/08/19 16:15:37 by cdiogo            #+#    #+#             */
-/*   Updated: 2019/08/26 17:35:24 by jhansen          ###   ########.fr       */
+/*   Updated: 2019/08/27 11:37:46 by jhansen          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -19,7 +19,7 @@ int		check_line(char *line)
 
 	temp = line;
 	i = 0;
-	while (temp[i] != '\0' && temp[i] != '\t' && temp[i] != ' ')		//checking if line is empty
+	while (temp[i] != '\0' && temp[i] != '\t' && temp[i] != ' ')	//checking if line is empty
 		i++;
 	if (temp[i] != '\0')
 	{

@@ -6,7 +6,7 @@
 /*   By: jhansen <marvin@42.fr>                     +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2019/08/26 08:40:20 by cdiogo            #+#    #+#             */
-/*   Updated: 2019/08/26 16:01:30 by jhansen          ###   ########.fr       */
+/*   Updated: 2019/08/27 11:36:20 by jhansen          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -64,7 +64,8 @@ int						is_comment(char *line);
 int						is_room(char *line);
 int						is_link(char *line);
 int						is_ant(char *line);
-int						count_words(char const *str, char delim, int index);
+int						num_or_lett(char *str, char delim);
+int						count_words(char const *str);
 void					free_and_error(t_content *file, t_rooms *node, int msg);
 void					error_out(int code);
 
