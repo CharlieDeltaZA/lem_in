@@ -6,13 +6,13 @@
 /*   By: jhansen <marvin@42.fr>                     +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2019/08/26 14:37:27 by jhansen           #+#    #+#             */
-/*   Updated: 2019/08/26 17:34:19 by jhansen          ###   ########.fr       */
+/*   Updated: 2019/08/27 12:17:16 by jhansen          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "../../includes/lem_in.h"
 
-int		valid_command(char *line)
+/*int		valid_command(char *line)
 {
 
 }
@@ -37,4 +37,4 @@ int		valid_ants(char *line)
 int		valid_room(char *line)
 {
 	
-}
+}*/

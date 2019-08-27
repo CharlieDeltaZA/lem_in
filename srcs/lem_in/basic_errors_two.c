@@ -6,7 +6,7 @@
 /*   By: jhansen <marvin@42.fr>                     +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2019/08/22 08:37:21 by cdiogo            #+#    #+#             */
-/*   Updated: 2019/08/27 12:06:09 by jhansen          ###   ########.fr       */
+/*   Updated: 2019/08/27 12:14:53 by jhansen          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -25,7 +25,7 @@ int		num_or_lett(char *str, char delim)
 		delim = '\t';
 	}
 	else if (delim == ' ')
-		extra == '\t';
+		extra = '\t';
 	while (str[i] != delim && str[i] != extra && str[i] != '\0')
 	{
 		if ((str[i] >= 'A' && str[i] <= 'Z' && str[i] >= 'a' && str[i] <= 'z'
