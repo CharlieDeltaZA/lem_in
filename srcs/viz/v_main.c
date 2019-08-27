@@ -6,7 +6,7 @@
 /*   By: cdiogo <marvin@42.fr>                      +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2019/08/26 10:30:14 by cdiogo            #+#    #+#             */
-/*   Updated: 2019/08/26 15:14:32 by cdiogo           ###   ########.fr       */
+/*   Updated: 2019/08/27 09:13:37 by cdiogo           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -24,7 +24,7 @@ int main()
 	SDL_Window* win = SDL_CreateWindow("GAME", // creates a window 
 									SDL_WINDOWPOS_CENTERED, 
 									SDL_WINDOWPOS_CENTERED, 
-									1920, 1080, 0); 
+									1500, 1500, 0); 
 
 	// triggers the program that controls 
 	// your graphics hardware and sets flags 
@@ -34,33 +34,44 @@ int main()
 	SDL_Renderer* rend = SDL_CreateRenderer(win, -1, render_flags); 
 
 	// creates a surface to load an image into the main memory 
+	SDL_Surface* start;
 	SDL_Surface* surface; 
 
 	// please provide a path for your image 
+	start = IMG_Load("./sq_start.jpg");
 	surface = IMG_Load("./sq.jpg"); 
 
 	// loads image to our graphics hardware memory. 
+	SDL_Texture* s_tex = SDL_CreateTextureFromSurface(rend, start); 
 	SDL_Texture* tex = SDL_CreateTextureFromSurface(rend, surface); 
 
 	// clears main-memory 
+	SDL_FreeSurface(start); 
 	SDL_FreeSurface(surface); 
 
 	// let us control our image position 
 	// so that we can move it with our keyboard. 
+	SDL_Rect start_box;
 	SDL_Rect dest; 
 
 	// connects our texture with dest to control position 
+	SDL_QueryTexture(s_tex, NULL, NULL, &start_box.w, &start_box.h); 
 	SDL_QueryTexture(tex, NULL, NULL, &dest.w, &dest.h); 
 
 	// adjust height and width of our image box. 
 	dest.w /= 6; 
 	dest.h /= 6; 
 
+	start_box.w /= 2; 
+	start_box.h /= 2; 
+
 	// sets initial x-position of object 
-	dest.x = (1920 - dest.w) / 2; 
+	dest.x = (1500 - dest.w) / 2; 
+	start_box.x = 1150;
 
 	// sets initial y-position of object 
-	dest.y = (1080 - dest.h) / 2; 
+	dest.y = (1500 - dest.h) / 2; 
+	start_box.y = 150;
 
 	// controls annimation loop 
 	int close = 0; 
@@ -108,16 +119,16 @@ int main()
 		} 
 
 		// right boundary 
-		if (dest.x + dest.w > 1920) 
-			dest.x = 1920 - dest.w; 
+		if (dest.x + dest.w > 1500) 
+			dest.x = 1500 - dest.w; 
 
 		// left boundary 
 		if (dest.x < 0) 
 			dest.x = 0; 
 
 		// bottom boundary 
-		if (dest.y + dest.h > 1080) 
-			dest.y = 1080 - dest.h; 
+		if (dest.y + dest.h > 1500) 
+			dest.y = 1500 - dest.h; 
 
 		// upper boundary 
 		if (dest.y < 0) 
@@ -126,6 +137,7 @@ int main()
 		// clears the screen 
 		SDL_RenderClear(rend); 
 		SDL_RenderCopy(rend, tex, NULL, &dest); 
+		SDL_RenderCopy(rend, s_tex, NULL, &start_box);
 
 		// triggers the double buffers 
 		// for multiple rendering 
@@ -137,6 +149,7 @@ int main()
 
 	// destroy texture 
 	SDL_DestroyTexture(tex); 
+	SDL_DestroyTexture(s_tex); 
 
 	// destroy renderer 
 	SDL_DestroyRenderer(rend); 
