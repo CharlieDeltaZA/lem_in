@@ -6,7 +6,7 @@
 /*   By: cdiogo <marvin@42.fr>                      +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2019/08/26 10:30:14 by cdiogo            #+#    #+#             */
-/*   Updated: 2019/08/27 09:13:37 by cdiogo           ###   ########.fr       */
+/*   Updated: 2019/08/27 09:22:41 by cdiogo           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -19,12 +19,12 @@ int main()
 
 	// retutns zero on success else non-zero 
 	if (SDL_Init(SDL_INIT_EVERYTHING) != 0) { 
-		printf("error initializing SDL: %s\n", SDL_GetError()); 
+		printf("Error initializing SDL: %s\n", SDL_GetError()); 
 	} 
 	SDL_Window* win = SDL_CreateWindow("GAME", // creates a window 
 									SDL_WINDOWPOS_CENTERED, 
 									SDL_WINDOWPOS_CENTERED, 
-									1500, 1500, 0); 
+									1200, 1200, 0); 
 
 	// triggers the program that controls 
 	// your graphics hardware and sets flags 
@@ -62,15 +62,15 @@ int main()
 	dest.w /= 6; 
 	dest.h /= 6; 
 
-	start_box.w /= 2; 
-	start_box.h /= 2; 
+	// start_box.w /= 2; 
+	// start_box.h /= 2; 
 
 	// sets initial x-position of object 
-	dest.x = (1500 - dest.w) / 2; 
-	start_box.x = 1150;
+	dest.x = (1200 - dest.w) / 2; 
+	start_box.x = 950;
 
 	// sets initial y-position of object 
-	dest.y = (1500 - dest.h) / 2; 
+	dest.y = (1200 - dest.h) / 2; 
 	start_box.y = 150;
 
 	// controls annimation loop 
@@ -119,16 +119,16 @@ int main()
 		} 
 
 		// right boundary 
-		if (dest.x + dest.w > 1500) 
-			dest.x = 1500 - dest.w; 
+		if (dest.x + dest.w > 1200) 
+			dest.x = 1200 - dest.w; 
 
 		// left boundary 
 		if (dest.x < 0) 
 			dest.x = 0; 
 
 		// bottom boundary 
-		if (dest.y + dest.h > 1500) 
-			dest.y = 1500 - dest.h; 
+		if (dest.y + dest.h > 1200) 
+			dest.y = 1200 - dest.h; 
 
 		// upper boundary 
 		if (dest.y < 0) 
