@@ -6,7 +6,7 @@
 /*   By: cdiogo <marvin@42.fr>                      +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2019/08/26 10:30:14 by cdiogo            #+#    #+#             */
-/*   Updated: 2019/08/27 13:22:25 by cdiogo           ###   ########.fr       */
+/*   Updated: 2019/08/27 13:44:27 by cdiogo           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -84,6 +84,7 @@ int main()
 	end_box.y = 250;
 
 	SDL_SetRenderDrawColor(rend, 0, 0, 0, 255);
+	// thickLineColor(rend, (start_box.x + (start_box.w /2)), (start_box.y + (start_box.h /2)), (end_box.x + (end_box.w /2)), (end_box.y + (end_box.h /2)), 8, 0xFFFFFF00);
 	// SDL_SetRenderDrawColor(rend, 0, 255, 255, 255);
 	// draws line from middle of start square to middle of moveable square
 	// SDL_RenderDrawLine(rend, start_box.x, start_box.y, dest.x, dest.y);
@@ -152,11 +153,11 @@ int main()
 
 		// clears the screen 
 		SDL_RenderClear(rend); 
+		thickLineColor(rend, (start_box.x + (start_box.w /2)), (start_box.y + (start_box.h /2)), (end_box.x + (end_box.w /2)), (end_box.y + (end_box.h /2)), 8, 0xFFFFFF00);
 		SDL_RenderCopy(rend, s_tex, NULL, &start_box);
 		SDL_RenderCopy(rend, e_tex, NULL, &end_box);
 		SDL_RenderCopy(rend, tex, NULL, &dest); 
 
-		thickLineColor(rend, (start_box.x + (start_box.w /2)), (start_box.y + (start_box.h /2)), (end_box.x + (end_box.w /2)), (end_box.y + (end_box.h /2)), 8, 0xFFFFFF00);
 
 
 		// SDL_SetRenderDrawColor(rend, 0, 255, 255, 255);
