@@ -6,7 +6,7 @@
 /*   By: jhansen <marvin@42.fr>                     +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2019/08/20 10:17:39 by cdiogo            #+#    #+#             */
-/*   Updated: 2019/08/27 16:15:39 by jhansen          ###   ########.fr       */
+/*   Updated: 2019/08/27 17:32:08 by jhansen          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -20,7 +20,7 @@ int		is_command(char *line)
 	if (line[0] == '#' && line[1] == '#')
 	{
 		tmp += 2;
-		if (ft_strequ("start", tmp))
+		if (ft_strequ("start", tmp))     //strequ wont work with spaces or tabs at the end
 		{
 			write(1, "command\n", 8);
 			return (1);
@@ -54,19 +54,19 @@ int		is_link(char *line)
 	int	i;
 
 	i = 0;
-	while ((line[i] == ' ' || line[i] == '\t') && line[i] != '\0')  //goes over first white space
+	while ((line[i] == ' ' || line[i] == '\t') && line[i] != '\0')
 		i++;
-	if (num_or_lett(&line[i], '-') == 1 && line[i] != 'L' && line[i] != '#')					//checks that the characters before the '-' are all numbers or letters
+	if (num_or_lett(&line[i], '-') == 1 && line[i] != 'L')
 	{
-		while (line[i] != '-' && line[i] != '\0')		//goes over all characters until '-'
+		while (line[i] != '-' && line[i] != '\0')
 			i++;
 		i++;
-		if (line[i] && line[i] != 'L')								//if the line isnt done (if it is then error)
+		if (line[i] && line[i] != 'L')
 		{
-			if (num_or_lett(&line[i], '\0') == 1)		//then checks if the characters after the '-' are letters or numbers or spaces(check for '\0' means it will also skip over white space)
+			if (num_or_lett(&line[i], '\0') == 1)
 			{
 				write(1, "is_link\n", 8);	
-				return (1);							//if it is then success
+				return (1);
 			}
 		}
 		else
@@ -99,15 +99,15 @@ int		is_room(char *line)
 	int	i;
 
 	i = 0;
-	while ((line[i] == ' ' || line[i] == '\t') && line[i] != '\0')   //goes over first white space
+	while ((line[i] == ' ' || line[i] == '\t') && line[i] != '\0')
 		i++;
-	if (count_words(&line[i]) == 3 && line[i] != 'L' && line[i] != '#')   //checks if the word count is 3
+	if (count_rooms(&line[i]) == 3 && line[i] != 'L' && line[i] != '#')
 	{
-		while (line[i] != ' ' && line[i] != '\t' && line[i] != '\0')
+		while (line[i] != ' ' && line[i] != '\t' && line[i] != '\0')  				//Doesn't work with spaces or tabs at the end
 			i++;
 		while ((line[i] == ' ' || line[i] == '\t') && line[i] != '\0')
 			i++;
-		if (str_n_numeric(&line[i]) == 1)
+		if (digit_room_check(&line[i]) == 1)
 		{
 			write(1, "is_room\n", 8);
 			return (1);
