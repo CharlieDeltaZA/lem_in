@@ -6,7 +6,7 @@
 /*   By: cdiogo <marvin@42.fr>                      +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2019/08/26 10:30:14 by cdiogo            #+#    #+#             */
-/*   Updated: 2019/08/27 13:44:27 by cdiogo           ###   ########.fr       */
+/*   Updated: 2019/08/27 16:15:25 by cdiogo           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -14,6 +14,7 @@
 #include <SDL2/SDL_image.h>
 #include <SDL2/SDL_timer.h>
 #include <SDL2/SDL2_gfxPrimitives.h>
+#include "../../includes/viz.h"
 
 int main() 
 { 
@@ -26,7 +27,7 @@ int main()
 	SDL_Window* win = SDL_CreateWindow("GAME", // creates a window 
 									SDL_WINDOWPOS_CENTERED, 
 									SDL_WINDOWPOS_CENTERED, 
-									1200, 1200, 0); 
+									WIDTH, HEIGHT, 0); 
 
 	// triggers the program that controls 
 	// your graphics hardware and sets flags 
@@ -74,12 +75,12 @@ int main()
 	// start_box.h /= 2; 
 
 	// sets initial x-position of object 
-	dest.x = (1200 - dest.w) / 2; 
+	dest.x = (WIDTH - dest.w) / 2; 
 	start_box.x = 950;
 	end_box.x = 450;
 
 	// sets initial y-position of object 
-	dest.y = (1200 - dest.h) / 2; 
+	dest.y = (HEIGHT - dest.h) / 2; 
 	start_box.y = 150;
 	end_box.y = 250;
 
@@ -136,16 +137,16 @@ int main()
 		} 
 
 		// right boundary 
-		if (dest.x + dest.w > 1200) 
-			dest.x = 1200 - dest.w; 
+		if (dest.x + dest.w > WIDTH) 
+			dest.x = WIDTH - dest.w; 
 
 		// left boundary 
 		if (dest.x < 0) 
 			dest.x = 0; 
 
 		// bottom boundary 
-		if (dest.y + dest.h > 1200) 
-			dest.y = 1200 - dest.h; 
+		if (dest.y + dest.h > HEIGHT) 
+			dest.y = HEIGHT - dest.h; 
 
 		// upper boundary 
 		if (dest.y < 0) 
