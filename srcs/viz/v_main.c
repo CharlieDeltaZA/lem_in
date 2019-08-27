@@ -6,7 +6,7 @@
 /*   By: cdiogo <marvin@42.fr>                      +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2019/08/26 10:30:14 by cdiogo            #+#    #+#             */
-/*   Updated: 2019/08/27 13:05:11 by cdiogo           ###   ########.fr       */
+/*   Updated: 2019/08/27 13:22:25 by cdiogo           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -37,27 +37,33 @@ int main()
 	SDL_SetRenderDrawColor(rend, 0, 0, 0, 255);
 	// creates a surface to load an image into the main memory 
 	SDL_Surface* start;
+	SDL_Surface* end;
 	SDL_Surface* surface; 
 
 	// please provide a path for your image 
 	start = IMG_Load("./sq_start.jpg");
+	end = IMG_Load("./sq_end.jpg");
 	surface = IMG_Load("./sq.jpg"); 
 
 	// loads image to our graphics hardware memory. 
 	SDL_Texture* s_tex = SDL_CreateTextureFromSurface(rend, start); 
+	SDL_Texture* e_tex = SDL_CreateTextureFromSurface(rend, end); 
 	SDL_Texture* tex = SDL_CreateTextureFromSurface(rend, surface); 
 
 	// clears main-memory 
 	SDL_FreeSurface(start); 
+	SDL_FreeSurface(end); 
 	SDL_FreeSurface(surface); 
 
 	// let us control our image position 
 	// so that we can move it with our keyboard. 
 	SDL_Rect start_box;
+	SDL_Rect end_box;
 	SDL_Rect dest; 
 
 	// connects our texture with dest to control position 
 	SDL_QueryTexture(s_tex, NULL, NULL, &start_box.w, &start_box.h); 
+	SDL_QueryTexture(e_tex, NULL, NULL, &end_box.w, &end_box.h); 
 	SDL_QueryTexture(tex, NULL, NULL, &dest.w, &dest.h); 
 
 	// adjust height and width of our image box. 
@@ -70,10 +76,12 @@ int main()
 	// sets initial x-position of object 
 	dest.x = (1200 - dest.w) / 2; 
 	start_box.x = 950;
+	end_box.x = 450;
 
 	// sets initial y-position of object 
 	dest.y = (1200 - dest.h) / 2; 
 	start_box.y = 150;
+	end_box.y = 250;
 
 	SDL_SetRenderDrawColor(rend, 0, 0, 0, 255);
 	// SDL_SetRenderDrawColor(rend, 0, 255, 255, 255);
@@ -145,7 +153,11 @@ int main()
 		// clears the screen 
 		SDL_RenderClear(rend); 
 		SDL_RenderCopy(rend, s_tex, NULL, &start_box);
+		SDL_RenderCopy(rend, e_tex, NULL, &end_box);
 		SDL_RenderCopy(rend, tex, NULL, &dest); 
+
+		thickLineColor(rend, (start_box.x + (start_box.w /2)), (start_box.y + (start_box.h /2)), (end_box.x + (end_box.w /2)), (end_box.y + (end_box.h /2)), 8, 0xFFFFFF00);
+
 
 		// SDL_SetRenderDrawColor(rend, 0, 255, 255, 255);
 		// draws line from middle of start square to middle of moveable square
@@ -164,6 +176,7 @@ int main()
 	// destroy texture 
 	SDL_DestroyTexture(tex); 
 	SDL_DestroyTexture(s_tex); 
+	SDL_DestroyTexture(e_tex); 
 
 	// destroy renderer 
 	SDL_DestroyRenderer(rend); 
