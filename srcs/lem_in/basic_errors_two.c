@@ -6,7 +6,7 @@
 /*   By: jhansen <marvin@42.fr>                     +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2019/08/22 08:37:21 by cdiogo            #+#    #+#             */
-/*   Updated: 2019/08/27 13:59:54 by jhansen          ###   ########.fr       */
+/*   Updated: 2019/08/27 16:15:53 by jhansen          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -30,6 +30,30 @@ int		num_or_lett(char *str, char delim)
 	{
 		if (((str[i] >= 'A' && str[i] <= 'Z') || (str[i] >= 'a' && str[i] <= 'z')
 				|| (str[i] >= '0' && str[i] <= '9')))
+			i++;
+		else
+			return (0);
+	}
+	return (1);
+}
+
+int		str_n_numeric(char *str)
+{
+	int	i;
+
+	i = 0;
+	while (str[i] != '\0' && str[i] != ' ' && str[i] != '\t')
+	{
+		if (str[i] >= '0' && str[i] <= '9')
+			i++;
+		else
+			return (0);
+	}
+	while (str[i] != '\0' && (str[i] == ' ' || str[i] == '\t'))
+		i++;
+	while (str[i] != '\0')
+	{
+		if (str[i] >= '0' && str[i] <= '9')
 			i++;
 		else
 			return (0);
