@@ -1,12 +1,12 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   line_type_two.c                                    :+:      :+:    :+:   */
+/*   basic_errors_two.c                                 :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: jhansen <marvin@42.fr>                     +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2019/08/22 08:37:21 by cdiogo            #+#    #+#             */
-/*   Updated: 2019/08/27 11:52:23 by jhansen          ###   ########.fr       */
+/*   Updated: 2019/08/27 12:06:09 by jhansen          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -40,16 +40,24 @@ int		num_or_lett(char *str, char delim)
 int		count_words(char const *str)
 {
 	int	count;
+	int	i;
 
-	if (!(str[index]))
-		return (0);
+	i = 0;
 	count = 0;
-	while (str[index] == delim)
-		index++;
-	while (str[index] != '\0' && str[index] != delim)
+	if (!(*str))
+		return (0);
+	while (str[i] != '\0')
 	{
-		index++;
-		count = 1;
+		while ((str[i] == ' ' || str[i] == '\t') && str[i] != '\0')
+			i++;
+		if (str[i] != '\0')
+		{
+			while (str[i] != ' ' && str[i] != '\t' && str[i] != '\0')
+				i++;
+			count++;
+		}
+		else if (count < 3)
+			return (0);
 	}
-	return (count + count_words(str, delim, index));
+	return (count);
 }
