@@ -6,7 +6,7 @@
 /*   By: jhansen <marvin@42.fr>                     +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2019/08/19 16:15:37 by cdiogo            #+#    #+#             */
-/*   Updated: 2019/08/27 11:37:46 by jhansen          ###   ########.fr       */
+/*   Updated: 2019/08/27 12:09:39 by jhansen          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -57,7 +57,7 @@ void	read_map(void)
 			free_and_error(file, head, BAD_INPUT);
 		free(line);
 	}
-	//function to fill t_rooms here using 'file' node
+	//advanced_check_and_fill(&file);				//function to fill t_rooms here using 'file' node
 	print_content(&file);
 	free_content(&file);
 }
