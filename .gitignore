@@ -1,0 +1,13 @@
+.DS_Store
+.DS_Store?
+._*
+*.swp
+*test*.c
+.Trashes
+.Spotlight-V100
+a.out
+*.o
+libft.a
+*.dSYM/*
+lem-in
+.vscode*
