@@ -6,7 +6,7 @@
 /*   By: cdiogo <marvin@42.fr>                      +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2019/08/26 10:30:14 by cdiogo            #+#    #+#             */
-/*   Updated: 2019/08/27 11:16:14 by cdiogo           ###   ########.fr       */
+/*   Updated: 2019/08/27 12:25:10 by cdiogo           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -63,8 +63,8 @@ int main()
 	dest.w /= 6; 
 	dest.h /= 6; 
 
-	// start_box.w /= 2; 
-	// start_box.h /= 2; 
+	start_box.w /= 2; 
+	start_box.h /= 2; 
 
 	// sets initial x-position of object 
 	dest.x = (1200 - dest.w) / 2; 
