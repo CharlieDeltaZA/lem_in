@@ -6,7 +6,7 @@
 /*   By: jhansen <marvin@42.fr>                     +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2019/08/19 16:15:37 by cdiogo            #+#    #+#             */
-/*   Updated: 2019/08/26 17:35:24 by jhansen          ###   ########.fr       */
+/*   Updated: 2019/08/27 12:19:55 by jhansen          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -19,7 +19,7 @@ int		check_line(char *line)
 
 	temp = line;
 	i = 0;
-	while (temp[i] != '\0' && temp[i] != '\t' && temp[i] != ' ')		//checking if line is empty
+	while (temp[i] != '\0' && temp[i] != '\t' && temp[i] != ' ')	//checking if line is empty
 		i++;
 	if (temp[i] != '\0')
 	{
@@ -27,11 +27,11 @@ int		check_line(char *line)
 			return (1);
 		else if (is_command(line) == 3)
 			return (3);						//value '3' is used so its not added to list and not considered and error
-		else if (is_commment(line) == 1)
+		else if (is_comment(line) == 1)
 			return (3);						//value '3' is used so its not added to list and not considered and error
-		else if (is_ants(line) == 1)
+		else if (is_ant(line) == 1)
 			return (1);
-		else if (is_links(line) == 1)
+		else if (is_link(line) == 1)
 			return (1);
 		else if (is_room(line) == 1)
 			return (1);
@@ -53,11 +53,11 @@ void	read_map(void)
 	{
 		if (check_line(line) == 1)
 			init_content(&file, line);
-		else if (check_line(line) == 0)
+		else
 			free_and_error(file, head, BAD_INPUT);
 		free(line);
 	}
-	//function to fill t_rooms here using 'file' node
+	//advanced_check_and_fill(&file);				//function to fill t_rooms here using 'file' node
 	print_content(&file);
 	free_content(&file);
 }
