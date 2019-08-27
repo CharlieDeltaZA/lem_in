@@ -6,7 +6,7 @@
 /*   By: jhansen <marvin@42.fr>                     +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2019/08/20 10:17:39 by cdiogo            #+#    #+#             */
-/*   Updated: 2019/08/27 12:58:46 by jhansen          ###   ########.fr       */
+/*   Updated: 2019/08/27 14:47:16 by jhansen          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -60,6 +60,7 @@ int		is_link(char *line)
 	{
 		while (line[i] != '-' && line[i] != '\0')		//goes over all characters until '-'
 			i++;
+		i++;
 		if (line[i])								//if the line isnt done (if it is then error)
 		{
 			if (num_or_lett(&line[i], '\0') == 1)		//then checks if the characters after the '-' are letters or numbers or spaces(check for '\0' means it will also skip over white space)
@@ -100,9 +101,9 @@ int		is_room(char *line)
 
 	i = 0;
 	count = 3;
-	while ((line[i] == ' ' || line[i] == '\t') && line[i] != '\0')  //goes over first white space
+	while ((line[i] == ' ' || line[i] == '\t') && line[i] != '\0')   //goes over first white space
 		i++;
-	if (count_words(&line[i]) == 3 && line[i] != 'L' && line[i] != '#')  //checks if the word count is 3
+	if (count_words(&line[i]) == 3 && line[i] != 'L' && line[i] != '#')   //checks if the word count is 3
 	{
 		while (count--)
 		{

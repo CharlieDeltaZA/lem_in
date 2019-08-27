@@ -6,7 +6,7 @@
 /*   By: jhansen <marvin@42.fr>                     +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2019/08/19 16:15:37 by cdiogo            #+#    #+#             */
-/*   Updated: 2019/08/27 12:55:05 by jhansen          ###   ########.fr       */
+/*   Updated: 2019/08/27 13:05:31 by jhansen          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -31,9 +31,9 @@ int		check_line(char *line)
 			return (3);						//value '3' is used so its not added to list and not considered and error
 		else if (is_ant(line) == 1)
 			return (1);
-		else if (is_link(line) == 1)
-			return (1);
 		else if (is_room(line) == 1)
+			return (1);
+		else if (is_link(line) == 1)
 			return (1);
 		else
 			return (0);
