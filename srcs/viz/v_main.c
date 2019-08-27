@@ -6,7 +6,7 @@
 /*   By: cdiogo <marvin@42.fr>                      +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2019/08/26 10:30:14 by cdiogo            #+#    #+#             */
-/*   Updated: 2019/08/27 09:22:41 by cdiogo           ###   ########.fr       */
+/*   Updated: 2019/08/27 11:16:14 by cdiogo           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -16,7 +16,8 @@
 
 int main() 
 { 
-
+	// SDL_SetRenderDrawColor();
+	// SDL_RenderPresent()
 	// retutns zero on success else non-zero 
 	if (SDL_Init(SDL_INIT_EVERYTHING) != 0) { 
 		printf("Error initializing SDL: %s\n", SDL_GetError()); 
@@ -32,7 +33,7 @@ int main()
 
 	// creates a renderer to render our images 
 	SDL_Renderer* rend = SDL_CreateRenderer(win, -1, render_flags); 
-
+	SDL_SetRenderDrawColor(rend, 0, 0, 0, 255);
 	// creates a surface to load an image into the main memory 
 	SDL_Surface* start;
 	SDL_Surface* surface; 
@@ -73,6 +74,12 @@ int main()
 	dest.y = (1200 - dest.h) / 2; 
 	start_box.y = 150;
 
+	SDL_SetRenderDrawColor(rend, 0, 0, 0, 255);
+	// SDL_SetRenderDrawColor(rend, 0, 255, 255, 255);
+	// draws line from middle of start square to middle of moveable square
+	// SDL_RenderDrawLine(rend, start_box.x, start_box.y, dest.x, dest.y);
+
+	// SDL_SetRenderDrawColor(rend, 0, 0, 0, 255);
 	// controls annimation loop 
 	int close = 0; 
 
@@ -136,9 +143,14 @@ int main()
 
 		// clears the screen 
 		SDL_RenderClear(rend); 
-		SDL_RenderCopy(rend, tex, NULL, &dest); 
 		SDL_RenderCopy(rend, s_tex, NULL, &start_box);
+		SDL_RenderCopy(rend, tex, NULL, &dest); 
 
+		SDL_SetRenderDrawColor(rend, 0, 255, 255, 255);
+		// draws line from middle of start square to middle of moveable square
+		SDL_RenderDrawLine(rend, (start_box.x + (start_box.w /2)), (start_box.y + (start_box.h /2)), (dest.x + (dest.w /2)), (dest.y + (dest.h /2)));
+
+		SDL_SetRenderDrawColor(rend, 0, 0, 0, 255);
 		// triggers the double buffers 
 		// for multiple rendering 
 		SDL_RenderPresent(rend); 
