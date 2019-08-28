@@ -6,7 +6,7 @@
 /*   By: jhansen <marvin@42.fr>                     +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2019/08/20 10:17:39 by cdiogo            #+#    #+#             */
-/*   Updated: 2019/08/28 15:34:40 by jhansen          ###   ########.fr       */
+/*   Updated: 2019/08/28 15:43:49 by jhansen          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -17,7 +17,7 @@ int		is_command(char *line)
 	int		i;
 
 	i = 0;
-	while (line[i] != '\0' && (line[i] == ' ' || line == '\t'))
+	while (line[i] != '\0' && (line[i] == ' ' || line[i] == '\t'))
 		i++;
 	if (line[i] == '#' && line[i + 1] == '#')
 	{

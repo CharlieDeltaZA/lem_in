@@ -6,7 +6,7 @@
 /*   By: jhansen <marvin@42.fr>                     +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2019/08/19 16:15:37 by cdiogo            #+#    #+#             */
-/*   Updated: 2019/08/28 15:25:21 by jhansen          ###   ########.fr       */
+/*   Updated: 2019/08/28 15:43:28 by jhansen          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -40,7 +40,7 @@ void		check_line(char *line, t_content **file, t_rooms **rooms)
 	words = word_count(line);
 	if (word_manager(line, words) == 0)
 		free_and_error(file, rooms, BAD_INPUT);
-	init_content(&file, line);
+	init_content(file, line);
 }
 
 void	read_map(void)

@@ -6,7 +6,7 @@
 /*   By: jhansen <marvin@42.fr>                     +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2019/08/26 08:40:20 by cdiogo            #+#    #+#             */
-/*   Updated: 2019/08/28 15:36:31 by jhansen          ###   ########.fr       */
+/*   Updated: 2019/08/28 15:42:38 by jhansen          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -68,7 +68,7 @@ int						is_link(char *line);
 int						is_ant(char *line);
 int						all_digits_check(char *str);
 int						dash_check(char *str);
-void					free_and_error(t_content *file, t_rooms *node, int msg);
+void					free_and_error(t_content **file, t_rooms **node, int msg);
 void					error_out(int code);
 
 /*
