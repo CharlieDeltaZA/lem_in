@@ -6,15 +6,15 @@
 /*   By: cdiogo <marvin@42.fr>                      +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2019/08/26 10:30:14 by cdiogo            #+#    #+#             */
-/*   Updated: 2019/08/27 16:15:25 by cdiogo           ###   ########.fr       */
+/*   Updated: 2019/08/28 15:20:47 by cdiogo           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
+#include "../../includes/viz.h"
 #include <SDL2/SDL.h>
 #include <SDL2/SDL_image.h>
 #include <SDL2/SDL_timer.h>
 #include <SDL2/SDL2_gfxPrimitives.h>
-#include "../../includes/viz.h"
 
 int main() 
 { 
@@ -24,7 +24,7 @@ int main()
 	if (SDL_Init(SDL_INIT_EVERYTHING) != 0) { 
 		printf("Error initializing SDL: %s\n", SDL_GetError()); 
 	} 
-	SDL_Window* win = SDL_CreateWindow("GAME", // creates a window 
+	SDL_Window* win = SDL_CreateWindow("Lem-in Visualizer", // creates a window 
 									SDL_WINDOWPOS_CENTERED, 
 									SDL_WINDOWPOS_CENTERED, 
 									WIDTH, HEIGHT, 0); 
