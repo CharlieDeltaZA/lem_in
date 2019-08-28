@@ -12,6 +12,25 @@
 
 #include "../../includes/lem_in.h"
 
+int		word_count(char *str)
+{
+	int	i;
+	int	count;
+
+	i = 0;
+	count = 0;
+	while (str[i] != '\0')
+	{
+		while ((str[i] == ' ' || str[i] == '\t') && str[i] != '\0')
+			i++;
+		if (str[i] != '\0' && str[i] != ' ' && str[i] != '\t')
+			count++;
+		while (str[i] != ' ' && str[i] != '\t' && str[i] != '\0')
+			i++;
+	}
+	return (count);
+}
+
 int		num_or_lett(char *str, char delim)
 {
 	int	i;

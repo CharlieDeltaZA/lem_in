@@ -41,7 +41,12 @@ int		is_command(char *line)
 
 int		is_comment(char *line)
 {
-	if (line[0] == '#' && line[1] != '#')
+	int	i;
+
+	i = 0;
+	while (line[i] == ' ' || line[i] == '\t' && line[i] != '\0')
+		i++;
+	if (line[i] == '#' && line[i + 1] != '#')
 	{
 		write(1, "comment\n", 8);
 		return (1);

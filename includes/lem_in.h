@@ -54,27 +54,30 @@ typedef struct			s_rooms
 }						t_rooms;
 
 /*
-** Reading & Recognising of Line Input
+** Reading & Basic Error Checks of Input
 */
 
 void					read_map();
-int						check_line(char *line);
+void					check_line(char *line, t_content **file, t_rooms **head);
+int						word_manager(char *line, int words);
+int						word_count(char *str);
 int						is_command(char *line);
 int						is_comment(char *line);
 int						is_room(char *line);
 int						is_link(char *line);
 int						is_ant(char *line);
-int						digit_room_check(char *str);
-int						num_or_lett(char *str, char delim);
-int						count_rooms(char const *str);
+
+int						digit_room_check(char *str);			//
+int						num_or_lett(char *str, char delim);		//DO I NEED THESE??
+int						count_rooms(char const *str);			//
+
 void					free_and_error(t_content *file, t_rooms *node, int msg);
 void					error_out(int code);
 
 /*
-** Error checking of ALL
+** Further Error Checking
 */
 
-int						valid_ants(char *line);
 int						valid_command(char *line);
 int						valid_link(char *line);
 int						valid_room(char *line);

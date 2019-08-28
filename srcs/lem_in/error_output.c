@@ -31,6 +31,7 @@ void	error_out(int code)
 		ft_putendl_col_fd(RED, "ERROR : Bad Command", 2);
 	if (code == EMPTY_LINE)
 		ft_putendl_col_fd(RED, "ERROR : Empty Line", 2);
+	exit(1);
 }
 
 // Pass in things to free, and the error enum
