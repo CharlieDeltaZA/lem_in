@@ -56,7 +56,7 @@ clean:
 fclean: clean
 	@/bin/rm -f $(NAME)
 #	@/bin/rf -f $(NAME_V)
-	@echo "[$(NAME)] & [$(NAME_V)]removed"
+	@echo "[$(NAME)] & [$(NAME_V)] removed"
 
 re: fclean all
 
