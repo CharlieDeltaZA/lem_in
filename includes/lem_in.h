@@ -6,7 +6,7 @@
 /*   By: jhansen <marvin@42.fr>                     +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2019/08/26 08:40:20 by cdiogo            #+#    #+#             */
-/*   Updated: 2019/08/27 17:32:35 by jhansen          ###   ########.fr       */
+/*   Updated: 2019/08/28 15:36:31 by jhansen          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -66,11 +66,8 @@ int						is_comment(char *line);
 int						is_room(char *line);
 int						is_link(char *line);
 int						is_ant(char *line);
-
-int						digit_room_check(char *str);			//
-int						num_or_lett(char *str, char delim);		//DO I NEED THESE??
-int						count_rooms(char const *str);			//
-
+int						all_digits_check(char *str);
+int						dash_check(char *str);
 void					free_and_error(t_content *file, t_rooms *node, int msg);
 void					error_out(int code);
 

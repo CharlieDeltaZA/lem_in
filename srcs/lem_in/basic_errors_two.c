@@ -6,7 +6,7 @@
 /*   By: jhansen <marvin@42.fr>                     +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2019/08/22 08:37:21 by cdiogo            #+#    #+#             */
-/*   Updated: 2019/08/27 17:44:10 by jhansen          ###   ########.fr       */
+/*   Updated: 2019/08/28 15:35:50 by jhansen          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -31,32 +31,36 @@ int		word_count(char *str)
 	return (count);
 }
 
-int		num_or_lett(char *str, char delim)
+int		dash_check(char *str)
 {
 	int	i;
 
 	i = 0;
-	while (str[i] != '\0' && str[i] != delim)
+	while (str[i] != '\0' && str[i] != '-')
 	{
 		if (((str[i] >= 'A' && str[i] <= 'Z') || (str[i] >= 'a' && str[i] <= 'z')
 				|| (str[i] >= '0' && str[i] <= '9')))
 			i++;
-		else if ((str[i] == ' ' || str[i] == '\t') && delim == '\0')
+		else
+			return (0);
+	}
+	if (str[i] == '-' && str[i + 1] != 'L')
+	{
+		i++;
+		while (str[i] != '\0' && str[i] != ' ' && str[i] != '\t')
 		{
-			while ((str[i] == ' ' || str[i] == '\t') && str[i] != '\0')
+			if (((str[i] >= 'A' && str[i] <= 'Z') || (str[i] >= 'a' && str[i] <= 'z')
+					|| (str[i] >= '0' && str[i] <= '9')))
 				i++;
-			if (str[i] == '\0')
-				return (1);
 			else
 				return (0);
 		}
-		else
-			return (0);	
+		return (1);
 	}
-	return (1);
+	return (0);
 }
 
-int		digit_room_check(char *str)
+int		all_digits_check(char *str)
 {
 	int	i;
 
@@ -70,7 +74,7 @@ int		digit_room_check(char *str)
 	}
 	while (str[i] != '\0' && (str[i] == ' ' || str[i] == '\t'))
 		i++;
-	while (str[i] != '\0')
+	while (str[i] != '\0' && str[i] != '\t' && str[i] != ' ')
 	{
 		if (str[i] >= '0' && str[i] <= '9')
 			i++;
@@ -78,29 +82,4 @@ int		digit_room_check(char *str)
 			return (0);
 	}
 	return (1);
-}
-
-int		count_rooms(char const *str)
-{
-	int	count;
-	int	i;
-
-	i = 0;
-	count = 0;
-	if (!(*str))
-		return (0);
-	while (str[i] != '\0')
-	{
-		while ((str[i] == ' ' || str[i] == '\t') && str[i] != '\0')
-			i++;
-		if (str[i] != '\0')
-		{
-			while (str[i] != ' ' && str[i] != '\t' && str[i] != '\0')
-				i++;
-			count++;
-		}
-		else if (count < 3)
-			return (0);
-	}
-	return (count);
 }
