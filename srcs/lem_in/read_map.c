@@ -6,7 +6,7 @@
 /*   By: jhansen <marvin@42.fr>                     +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2019/08/19 16:15:37 by cdiogo            #+#    #+#             */
-/*   Updated: 2019/08/28 15:43:28 by jhansen          ###   ########.fr       */
+/*   Updated: 2019/08/28 16:32:24 by jhansen          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -34,11 +34,13 @@ int			word_manager(char *line, int words)
 void		check_line(char *line, t_content **file, t_rooms **rooms)
 {
 	int	words;
+	int	status;
 
 	if (is_comment(line))
 		return ;
 	words = word_count(line);
-	if (word_manager(line, words) == 0)
+	status = word_manager(line, words);
+	if (status == 0)
 		free_and_error(file, rooms, BAD_INPUT);
 	init_content(file, line);
 }

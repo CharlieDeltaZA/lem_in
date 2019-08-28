@@ -40,13 +40,13 @@ $(NAME): $(OBJ)
 #	@$(CC) -o $(NAME_V) $(FLAGS) $(OPTIONS) $(OBJ_V)
 #	@echo "[$(NAME_V)] compiled"
 
-#debug: $(LIB)
-#	@$(CC) -o $(NAME) $(FLAGS) $(OPTIONS) ./srcs/*.c -g
-#	@echo "Debug binary compiled"
+debug: $(LIB)
+	@$(CC) -o $(NAME) $(OPTIONS) ./srcs/lem_in/*.c -g
+	@echo "Debug binary compiled"
 
-#cdebug:
-#	@/bin/rm -rf ./lem-in.dSYM
-#	@echo "Debug cleaned"
+cdebug:
+	@/bin/rm -rf ./lem-in.dSYM
+	@echo "Debug cleaned"
 
 clean:
 	@/bin/rm -f $(LOBJ_DIR)*.o
