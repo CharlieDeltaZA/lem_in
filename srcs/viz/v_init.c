@@ -6,7 +6,7 @@
 /*   By: cdiogo <marvin@42.fr>                      +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2019/08/29 12:17:02 by cdiogo            #+#    #+#             */
-/*   Updated: 2019/08/29 12:58:04 by cdiogo           ###   ########.fr       */
+/*   Updated: 2019/08/29 14:19:07 by cdiogo           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -15,6 +15,18 @@
 t_viz			*init_viz(void)
 {
 	//TODO
+	t_viz	*viz;
+
+	if (!(viz = (t_viz*)malloc(sizeof(t_viz))))
+		viz_error_free(NULL, "viz failed to init");
+	viz->window = NULL;
+	viz->rend = NULL;
+	viz->bg = NULL;
+	viz->ant = NULL;
+	viz->room = NULL;
+	viz->close = 0;
+	return (viz);
+
 }
 
 SDL_Window		*init_window(t_viz *viz)
@@ -51,4 +63,13 @@ SDL_Texture		*init_texture(t_viz *viz, char *img_path)
 	if (!texture)
 		viz_error_free(viz, SDL_GetError());
 	return (texture);
+}
+
+void			populate_viz(t_viz *viz)
+{
+	viz->window = init_window(viz);
+	viz->rend = init_renderer(viz);
+	viz->bg = init_texture(viz, "srcs/viz/resources/bg.png");
+	viz->ant = init_texture(viz, "srcs/viz/resources/ant.png");
+	viz->room = init_texture(viz, "srcs/viz/resources/room.png");
 }

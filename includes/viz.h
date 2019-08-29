@@ -6,7 +6,7 @@
 /*   By: cdiogo <marvin@42.fr>                      +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2019/08/26 09:51:11 by cdiogo            #+#    #+#             */
-/*   Updated: 2019/08/29 12:51:56 by cdiogo           ###   ########.fr       */
+/*   Updated: 2019/08/29 14:19:11 by cdiogo           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -35,17 +35,25 @@ typedef struct 		s_viz
 }					t_viz;
 
 /*
-** Init functions for SDL textures/windows/renderer
+** Init functions for SDL textures/windows/renderer and struct
 */
 
+t_viz				*init_viz(void);
 SDL_Window			*init_window(t_viz *viz);
 SDL_Renderer		*init_renderer(t_viz *viz);
 SDL_Texture			*init_texture(t_viz *viz, char *img_path);
+void				populate_viz(t_viz *viz);
 
 /*
 ** Free and Error print function
 */
 
 void				viz_error_free(t_viz *viz, char *error);
+
+/*
+** Event Loop
+*/
+
+void				event_loop(t_viz *viz);
 
 #endif
