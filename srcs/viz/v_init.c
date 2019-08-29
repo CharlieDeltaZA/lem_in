@@ -6,7 +6,7 @@
 /*   By: cdiogo <marvin@42.fr>                      +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2019/08/29 12:17:02 by cdiogo            #+#    #+#             */
-/*   Updated: 2019/08/29 12:52:32 by cdiogo           ###   ########.fr       */
+/*   Updated: 2019/08/29 12:58:04 by cdiogo           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -32,8 +32,10 @@ SDL_Window		*init_window(t_viz *viz)
 SDL_Renderer	*init_renderer(t_viz *viz)
 {
 	SDL_Renderer	*ren;
+	int				flags;
 
-	if (!(ren = SDL_CreateRenderer(viz->window, -1, SDL_RENDERER_ACCELERATED)))
+	flags = SDL_RENDERER_ACCELERATED;
+	if (!(ren = SDL_CreateRenderer(viz->window, -1, flags)))
 		viz_error_free(viz, SDL_GetError());
 	return (ren);
 }
