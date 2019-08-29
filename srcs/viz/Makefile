@@ -4,4 +4,4 @@ SDL_L = $(HOME)/.brew/lib/
 LIBS = $(HEADERS) -L$(SDL_L) -lSDL2 -lSDL2_gfx -lSDL2_ttf -lSDL2_image 
 
 all:
-	gcc $(LIBS)  -I../../includes/ v_main.c
+	gcc $(LIBS)  -I../../includes/ v_main.c v_init.c
