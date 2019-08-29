@@ -6,7 +6,7 @@
 /*   By: cdiogo <marvin@42.fr>                      +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2019/08/26 09:51:11 by cdiogo            #+#    #+#             */
-/*   Updated: 2019/08/29 14:19:11 by cdiogo           ###   ########.fr       */
+/*   Updated: 2019/08/29 20:56:20 by cdiogo           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -45,10 +45,11 @@ SDL_Texture			*init_texture(t_viz *viz, char *img_path);
 void				populate_viz(t_viz *viz);
 
 /*
-** Free and Error print function
+** Free and Error print functions
 */
 
-void				viz_error_free(t_viz *viz, char *error);
+void				viz_error_free(t_viz *viz, const char *error);
+void				viz_free(t_viz **viz);
 
 /*
 ** Event Loop
