@@ -3,10 +3,10 @@
 /*                                                        :::      ::::::::   */
 /*   read_map.c                                         :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: cdiogo <marvin@42.fr>                      +#+  +:+       +#+        */
+/*   By: jhansen <marvin@42.fr>                     +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2019/08/19 16:15:37 by cdiogo            #+#    #+#             */
-/*   Updated: 2019/08/30 12:37:27 by cdiogo           ###   ########.fr       */
+/*   Updated: 2019/08/30 12:46:58 by jhansen          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -58,7 +58,7 @@ void	read_map(void)
 		check_line(line, &file, &head);
 		free(line);
 	}
-	//advanced_check_and_fill(&file);			//function to fill t_rooms here using 'file' node
+	advanced_check_and_fill(&file, &head);
 	print_content(&file);
 	free_content(&file);
 }

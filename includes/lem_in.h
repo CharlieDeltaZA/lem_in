@@ -6,7 +6,7 @@
 /*   By: jhansen <marvin@42.fr>                     +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2019/08/26 08:40:20 by cdiogo            #+#    #+#             */
-/*   Updated: 2019/08/28 15:42:38 by jhansen          ###   ########.fr       */
+/*   Updated: 2019/08/30 12:47:53 by jhansen          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -75,6 +75,7 @@ void					error_out(int code);
 ** Further Error Checking
 */
 
+void					advanced_check_and_fill(t_content **file, t_rooms **head);
 int						valid_command(char *line);
 int						valid_link(char *line);
 int						valid_room(char *line);
