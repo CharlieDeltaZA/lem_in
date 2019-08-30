@@ -6,7 +6,7 @@
 /*   By: jhansen <marvin@42.fr>                     +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2019/08/22 12:21:07 by cdiogo            #+#    #+#             */
-/*   Updated: 2019/08/26 12:07:51 by jhansen          ###   ########.fr       */
+/*   Updated: 2019/08/30 12:15:36 by jhansen          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -62,15 +62,18 @@ void				print_content(t_content **head)
 {
 	t_content	*node;
 
+	write(1, "HERE1\n", 7);
 	node = *head;
 	if (node)
 	{
+		write(1, "HERE2\n", 7);
 		while (node)
 		{
 			ft_putendl_col_fd(CYAN, node->content, 1); //remove colour printing
 			node = node->next;
 		}
 	}
+	write(1, "HERE3\n", 7);
 }
 
 void				free_content(t_content **head)
