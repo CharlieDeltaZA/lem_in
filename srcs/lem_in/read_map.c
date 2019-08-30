@@ -3,10 +3,10 @@
 /*                                                        :::      ::::::::   */
 /*   read_map.c                                         :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: jhansen <marvin@42.fr>                     +#+  +:+       +#+        */
+/*   By: cdiogo <marvin@42.fr>                      +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2019/08/19 16:15:37 by cdiogo            #+#    #+#             */
-/*   Updated: 2019/08/30 12:14:51 by jhansen          ###   ########.fr       */
+/*   Updated: 2019/08/30 12:37:27 by cdiogo           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -42,7 +42,7 @@ void		check_line(char *line, t_content **file, t_rooms **rooms)
 	status = word_manager(line, words);
 	if (status == 0)
 		free_and_error(file, rooms, BAD_INPUT);
-	init_content(file, line);
+	(*file) = init_content(file, line);
 }
 
 void	read_map(void)
