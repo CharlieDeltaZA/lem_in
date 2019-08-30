@@ -1,7 +1,7 @@
 Read in lem-in output
 
-Allocate info into a struct
-use struct to create SDL_Rect rooms with art assets
+Allocate info into a struct (GNL)
+use struct to create SDL_Rect rooms with art assets (perhaps rects not needed)
 Link them together (middle of room, will need to do some math for this)
 Try place rooms on canvas with the image ref point being (img w / 2) to the left
 and (img h / 2) upwards of the room coord, so that the middle of the image is the room coordinate?
