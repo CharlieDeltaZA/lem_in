@@ -6,7 +6,7 @@
 /*   By: cdiogo <marvin@42.fr>                      +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2019/08/26 09:51:11 by cdiogo            #+#    #+#             */
-/*   Updated: 2019/08/30 16:36:27 by cdiogo           ###   ########.fr       */
+/*   Updated: 2019/08/31 17:10:43 by cdiogo           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -22,6 +22,12 @@
 //Header for visualizer
 # define WIDTH 1920
 # define HEIGHT 1080
+
+typedef struct		s_moves
+{
+	char			*move;
+	struct s_moves	*next;
+}					t_moves;
 
 typedef struct 		s_viz
 {
@@ -55,6 +61,7 @@ void				viz_free(t_viz **viz);
 ** Event Loop
 */
 
-void				event_loop(t_viz *viz);
+void				event_loop(t_viz *viz, t_moves *moves);
+void				event_check(t_viz *viz, t_moves *moves);
 
 #endif

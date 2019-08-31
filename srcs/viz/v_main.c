@@ -6,7 +6,7 @@
 /*   By: cdiogo <marvin@42.fr>                      +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2019/08/29 09:10:12 by cdiogo            #+#    #+#             */
-/*   Updated: 2019/08/30 16:36:37 by cdiogo           ###   ########.fr       */
+/*   Updated: 2019/08/31 17:11:23 by cdiogo           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -15,6 +15,8 @@
 int		main(void)
 {
 	t_viz	*visualizer;
+	t_rooms	*info;
+	t_moves	*moves;
 	//TODO
 	//read in from GNL (read until empty line, then set a bool to false to change the struct being written to?)
 	read_info();
@@ -29,7 +31,7 @@ int		main(void)
 	//draw ants
 	draw_ants();
 	//event loop (space to move through the turns)
-	event_loop(visualizer);
+	event_loop(visualizer, moves);
 	//free & close upon completion
 	viz_free(&visualizer);
 }
