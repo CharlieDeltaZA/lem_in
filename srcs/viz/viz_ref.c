@@ -1,12 +1,12 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   v_main.c                                           :+:      :+:    :+:   */
+/*   viz_ref.c                                          :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: cdiogo <marvin@42.fr>                      +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2019/08/26 10:30:14 by cdiogo            #+#    #+#             */
-/*   Updated: 2019/08/28 15:20:47 by cdiogo           ###   ########.fr       */
+/*   Updated: 2019/09/02 16:00:09 by cdiogo           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -43,7 +43,8 @@ int main()
 
 	// please provide a path for your image 
 	start = IMG_Load("./sq_start.jpg");
-	end = IMG_Load("./sq_end.jpg");
+	// end = IMG_Load("./sq_end.jpg");
+	end = IMG_Load("./boi.gif");
 	surface = IMG_Load("./sq.jpg"); 
 
 	// loads image to our graphics hardware memory. 
@@ -71,8 +72,8 @@ int main()
 	dest.w /= 6; 
 	dest.h /= 6; 
 
-	// start_box.w /= 2; 
-	// start_box.h /= 2; 
+	end_box.w *= 10; 
+	end_box.h *= 10; 
 
 	// sets initial x-position of object 
 	dest.x = (WIDTH - dest.w) / 2; 
@@ -115,19 +116,19 @@ int main()
 				switch (event.key.keysym.scancode) { 
 				case SDL_SCANCODE_W: 
 				case SDL_SCANCODE_UP: 
-					dest.y -= speed / 30; 
+					dest.y -= speed / 50; 
 					break; 
 				case SDL_SCANCODE_A: 
 				case SDL_SCANCODE_LEFT: 
-					dest.x -= speed / 30; 
+					dest.x -= speed / 50; 
 					break; 
 				case SDL_SCANCODE_S: 
 				case SDL_SCANCODE_DOWN: 
-					dest.y += speed / 30; 
+					dest.y += speed / 50; 
 					break; 
 				case SDL_SCANCODE_D: 
 				case SDL_SCANCODE_RIGHT: 
-					dest.x += speed / 30; 
+					dest.x += speed / 50; 
 					break; 
 				case SDL_SCANCODE_Q:
 					close = 1;
@@ -172,7 +173,7 @@ int main()
 		SDL_RenderPresent(rend); 
 
 		// calculates to 60 fps 
-		SDL_Delay(1000 / 60); 
+		SDL_Delay(1000 / 120); 
 	} 
 
 	// destroy texture 
