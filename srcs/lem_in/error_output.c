@@ -6,7 +6,7 @@
 /*   By: jhansen <marvin@42.fr>                     +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2019/08/20 10:43:46 by cdiogo            #+#    #+#             */
-/*   Updated: 2019/08/28 15:43:06 by jhansen          ###   ########.fr       */
+/*   Updated: 2019/09/02 13:43:36 by jhansen          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -34,9 +34,8 @@ void	error_out(int code)
 	exit(1);
 }
 
-// Pass in things to free, and the error enum
-void	free_and_error(t_content **head, t_rooms **node, int msg)
+void	free_and_error(t_content **node, int msg)
 {
-	//Free things
+	free_content(node);
 	error_out(msg);
 }

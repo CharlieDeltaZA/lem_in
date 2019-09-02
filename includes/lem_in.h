@@ -3,10 +3,10 @@
 /*                                                        :::      ::::::::   */
 /*   lem_in.h                                           :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: cdiogo <marvin@42.fr>                      +#+  +:+       +#+        */
+/*   By: jhansen <marvin@42.fr>                     +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2019/08/26 08:40:20 by cdiogo            #+#    #+#             */
-/*   Updated: 2019/09/02 09:23:50 by cdiogo           ###   ########.fr       */
+/*   Updated: 2019/09/02 13:42:30 by jhansen          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -34,7 +34,8 @@ enum					e_error_codes
 	NO_Y,
 	BAD_INPUT,
 	BAD_COMMAND,
-	EMPTY_LINE
+	EMPTY_LINE,
+	ERROR
 };
 
 typedef struct			s_content
@@ -59,8 +60,8 @@ typedef struct			s_rooms
 ** Reading & Basic Error Checks of Input
 */
 
-void					read_map();
-void					check_line(char *line, t_content **file, t_rooms **head);
+void					read_map(t_rooms **head);
+void					check_line(char *line, t_content **file);
 int						word_manager(char *line, int words);
 int						word_count(char *str);
 int						is_command(char *line);
@@ -70,15 +71,15 @@ int						is_link(char *line);
 int						is_ant(char *line);
 int						all_digits_check(char *str);
 int						dash_check(char *str);
-void					free_and_error(t_content **file, t_rooms **node, int msg);
+void					free_and_error(t_content **node, int msg);
 void					error_out(int code);
 
 /*
-** Further Error Checking
+** Advanced Error Checking
 */
 
-void					advanced_check_and_fill(t_content **file, t_rooms **head);
-int						valid_command(char *line);
+int						advanced_check_and_fill(t_content **file, t_rooms **head);
+int						check_for_ant(t_content **head);
 int						valid_link(char *line);
 int						valid_room(char *line);
 
