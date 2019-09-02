@@ -6,7 +6,7 @@
 /*   By: cdiogo <marvin@42.fr>                      +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2019/08/29 09:10:12 by cdiogo            #+#    #+#             */
-/*   Updated: 2019/08/31 17:11:23 by cdiogo           ###   ########.fr       */
+/*   Updated: 2019/09/02 12:20:39 by cdiogo           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -16,7 +16,7 @@ int		main(void)
 {
 	t_viz	*visualizer;
 	t_rooms	*info;
-	t_moves	*moves;
+	t_moves	*moves; //include moves within the main lem_in struct instead?
 	//TODO
 	//read in from GNL (read until empty line, then set a bool to false to change the struct being written to?)
 	read_info();
@@ -34,4 +34,5 @@ int		main(void)
 	event_loop(visualizer, moves);
 	//free & close upon completion
 	viz_free(&visualizer);
+	return (0);
 }
