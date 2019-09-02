@@ -6,7 +6,7 @@
 /*   By: cdiogo <marvin@42.fr>                      +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2019/08/29 09:10:12 by cdiogo            #+#    #+#             */
-/*   Updated: 2019/09/02 12:20:39 by cdiogo           ###   ########.fr       */
+/*   Updated: 2019/09/02 12:47:42 by cdiogo           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -31,7 +31,7 @@ int		main(void)
 	//draw ants
 	draw_ants();
 	//event loop (space to move through the turns)
-	event_loop(visualizer, moves);
+	event_loop(visualizer, info, moves); //handle drawing things in the event loop?
 	//free & close upon completion
 	viz_free(&visualizer);
 	return (0);
