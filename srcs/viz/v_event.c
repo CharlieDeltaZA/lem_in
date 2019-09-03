@@ -6,7 +6,7 @@
 /*   By: cdiogo <marvin@42.fr>                      +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2019/08/29 13:03:28 by cdiogo            #+#    #+#             */
-/*   Updated: 2019/09/03 12:41:31 by cdiogo           ###   ########.fr       */
+/*   Updated: 2019/09/03 16:24:43 by cdiogo           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -44,6 +44,9 @@ void		event_loop(t_viz *viz, t_rooms *info, t_moves *moves)
 	while (!(viz->close))
 	{
 		//stuff
+		draw_links();
+		draw_rooms();
+		draw_ants();
 		ft_putendl("Hello!");
 		check_event(viz, moves);
 	}

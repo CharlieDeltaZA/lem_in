@@ -6,7 +6,7 @@
 /*   By: cdiogo <marvin@42.fr>                      +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2019/08/29 09:10:12 by cdiogo            #+#    #+#             */
-/*   Updated: 2019/09/03 12:29:57 by cdiogo           ###   ########.fr       */
+/*   Updated: 2019/09/03 16:47:06 by cdiogo           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -27,11 +27,11 @@ int		main(void)
 	//allocate/populate to the viz struct
 	populate_viz(visualizer);
 	//draw links
-	draw_links();
+	// draw_links();
 	//draw rooms
-	draw_rooms();
+	// draw_rooms();
 	//draw ants
-	draw_ants();
+	// draw_ants();
 	//event loop (space to move through the turns)
 	event_loop(visualizer, info, moves); //handle drawing things in the event loop?
 	//free & close upon completion
