@@ -6,7 +6,7 @@
 /*   By: jhansen <marvin@42.fr>                     +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2019/09/03 15:42:14 by jhansen           #+#    #+#             */
-/*   Updated: 2019/09/03 17:02:56 by jhansen          ###   ########.fr       */
+/*   Updated: 2019/09/03 17:09:27 by jhansen          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -70,7 +70,7 @@ char	*whitespace_remover(char *str, int type, t_content **file)
 		if (type == 3)
 			line = whitespace_rooms(str);
 		else
-			line = whitespace_else(str); //strtrim?????????????????????????????????
+			line = whitespace_else(str);
 	}
 	else
 		free_content_error(file, NON_EXISTING_LIST);
