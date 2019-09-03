@@ -6,11 +6,16 @@
 /*   By: cdiogo <marvin@42.fr>                      +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2019/08/29 13:03:28 by cdiogo            #+#    #+#             */
-/*   Updated: 2019/09/02 12:46:29 by cdiogo           ###   ########.fr       */
+/*   Updated: 2019/09/03 12:41:31 by cdiogo           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "../../includes/viz.h"
+
+/*
+** Looks for key input, for the purpose of closing the visualizer or executing
+** a turn.
+*/
 
 void		event_check(t_viz *viz, t_moves *moves)
 {
@@ -28,6 +33,10 @@ void		event_check(t_viz *viz, t_moves *moves)
 		}
 	}
 }
+
+/*
+** Loop that's responsible for: Redrawing rooms, links and ants each turn 
+*/
 
 void		event_loop(t_viz *viz, t_rooms *info, t_moves *moves)
 {

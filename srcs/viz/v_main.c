@@ -6,7 +6,7 @@
 /*   By: cdiogo <marvin@42.fr>                      +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2019/08/29 09:10:12 by cdiogo            #+#    #+#             */
-/*   Updated: 2019/09/03 09:18:08 by cdiogo           ###   ########.fr       */
+/*   Updated: 2019/09/03 12:29:57 by cdiogo           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -21,7 +21,7 @@ int		main(void)
 	//read in from GNL (read until empty line, then set a bool to false to change the struct being written to?)
 	info = NULL;
 	// info = init_rooms(&info, line);
-	read_info(&info);
+	info = read_info(&info);
 	//init the viz struct
 	visualizer = init_viz();
 	//allocate/populate to the viz struct

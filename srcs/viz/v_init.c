@@ -6,11 +6,15 @@
 /*   By: cdiogo <marvin@42.fr>                      +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2019/08/29 12:17:02 by cdiogo            #+#    #+#             */
-/*   Updated: 2019/08/29 14:19:07 by cdiogo           ###   ########.fr       */
+/*   Updated: 2019/09/03 12:46:15 by cdiogo           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "../../includes/viz.h"
+
+/*
+** Initializes the viz struct
+*/
 
 t_viz			*init_viz(void)
 {
@@ -29,6 +33,10 @@ t_viz			*init_viz(void)
 
 }
 
+/*
+** Initializes the SDL Window and returns pointer to it
+*/
+
 SDL_Window		*init_window(t_viz *viz)
 {
 	SDL_Window	*win;
@@ -41,6 +49,10 @@ SDL_Window		*init_window(t_viz *viz)
 	return (win);
 }
 
+/*
+** Initializes the SDL Renderer and returns pointer to it
+*/
+
 SDL_Renderer	*init_renderer(t_viz *viz)
 {
 	SDL_Renderer	*ren;
@@ -51,6 +63,10 @@ SDL_Renderer	*init_renderer(t_viz *viz)
 		viz_error_free(viz, SDL_GetError());
 	return (ren);
 }
+
+/*
+** Initializes an SDL Texture and returns pointer to it
+*/
 
 SDL_Texture		*init_texture(t_viz *viz, char *img_path)
 {
@@ -64,6 +80,10 @@ SDL_Texture		*init_texture(t_viz *viz, char *img_path)
 		viz_error_free(viz, SDL_GetError());
 	return (texture);
 }
+
+/*
+** Populates the viz struct with pointers for reference in the visualizer
+*/
 
 void			populate_viz(t_viz *viz)
 {
