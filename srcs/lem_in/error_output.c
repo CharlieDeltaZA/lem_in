@@ -6,7 +6,7 @@
 /*   By: jhansen <marvin@42.fr>                     +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2019/08/20 10:43:46 by cdiogo            #+#    #+#             */
-/*   Updated: 2019/09/03 14:16:48 by jhansen          ###   ########.fr       */
+/*   Updated: 2019/09/03 15:33:32 by jhansen          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -33,6 +33,8 @@ void	error_out(int code)
 		ft_putendl_col_fd(RED, "ERROR : Empty Line", 2);
 	if (code == ERROR)
 		ft_putendl_col_fd(RED, "ERROR : Advanced Check ERROR", 2);
+	if (code == NON_EXISTING_LIST)
+		ft_putendl_col_fd(RED, "ERROR : Non-existing list", 2);
 	exit(1);
 }
 

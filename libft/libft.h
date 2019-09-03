@@ -3,10 +3,10 @@
 /*                                                        :::      ::::::::   */
 /*   libft.h                                            :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: cdiogo <marvin@42.fr>                      +#+  +:+       +#+        */
+/*   By: jhansen <marvin@42.fr>                     +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2019/05/21 09:24:59 by cdiogo            #+#    #+#             */
-/*   Updated: 2019/08/19 14:56:51 by cdiogo           ###   ########.fr       */
+/*   Updated: 2019/09/03 16:50:27 by jhansen          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -132,5 +132,6 @@ long				ft_atol(const char *str);
 int					ft_str_is_numeric(const char *str);
 void				ft_putnbr_nl(int n);
 void				ft_free_array(char **arr);
+int					ft_str_contain(char *needle, char *haystack);
 
 #endif

@@ -6,7 +6,7 @@
 /*   By: jhansen <marvin@42.fr>                     +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2019/08/26 08:40:20 by cdiogo            #+#    #+#             */
-/*   Updated: 2019/09/03 14:14:54 by jhansen          ###   ########.fr       */
+/*   Updated: 2019/09/03 15:59:14 by jhansen          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -35,7 +35,8 @@ enum					e_error_codes
 	BAD_INPUT,
 	BAD_COMMAND,
 	EMPTY_LINE,
-	ERROR
+	ERROR,
+	NON_EXISTING_LIST
 };
 
 typedef struct			s_content
@@ -71,7 +72,7 @@ int						is_link(char *line);
 int						is_ant(char *line);
 int						all_digits_check(char *str);
 int						dash_check(char *str);
-void					whitespace_remover(t_content **head);
+char					*whitespace_remover(char *str, int type, t_content **file);
 
 /*
 **	Erroring and Freeing

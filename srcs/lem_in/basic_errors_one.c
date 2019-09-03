@@ -6,7 +6,7 @@
 /*   By: jhansen <marvin@42.fr>                     +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2019/08/20 10:17:39 by cdiogo            #+#    #+#             */
-/*   Updated: 2019/09/03 12:51:15 by jhansen          ###   ########.fr       */
+/*   Updated: 2019/09/03 17:00:49 by jhansen          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -21,8 +21,7 @@ int		is_command(char *line)
 		i++;
 	if (line[i] == '#' && line[i + 1] == '#')
 	{
-		i = i + 2;
-		if (ft_strequ("start", &line[i]) || ft_strequ("end", &line[i]))     //strequ wont work with spaces or tabs at the end
+		if (ft_str_contain("##start", &line[i]) || ft_str_contain("##end", &line[i]))
 		{
 			write(1, "command\n", 8);		//
 			return (1);
