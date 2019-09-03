@@ -6,7 +6,7 @@
 /*   By: jhansen <marvin@42.fr>                     +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2019/08/26 08:40:20 by cdiogo            #+#    #+#             */
-/*   Updated: 2019/09/03 15:59:14 by jhansen          ###   ########.fr       */
+/*   Updated: 2019/09/03 17:19:58 by jhansen          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -14,7 +14,8 @@
 # define LEM_IN_H
 
 # include "../libft/libft.h"
-
+# define MAX 2147483647
+# define MIN -2147483648
 // DEBUGGING VVV
 # include <stdio.h>
 // DEBUGGING ^^^
