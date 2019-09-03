@@ -6,7 +6,7 @@
 /*   By: jhansen <marvin@42.fr>                     +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2019/08/26 08:40:20 by cdiogo            #+#    #+#             */
-/*   Updated: 2019/09/03 14:03:07 by jhansen          ###   ########.fr       */
+/*   Updated: 2019/09/03 14:14:54 by jhansen          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -71,6 +71,7 @@ int						is_link(char *line);
 int						is_ant(char *line);
 int						all_digits_check(char *str);
 int						dash_check(char *str);
+void					whitespace_remover(t_content **head);
 
 /*
 **	Erroring and Freeing

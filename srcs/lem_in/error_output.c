@@ -6,7 +6,7 @@
 /*   By: jhansen <marvin@42.fr>                     +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2019/08/20 10:43:46 by cdiogo            #+#    #+#             */
-/*   Updated: 2019/09/03 13:56:50 by jhansen          ###   ########.fr       */
+/*   Updated: 2019/09/03 14:16:48 by jhansen          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -40,6 +40,25 @@ void	free_content_error(t_content **node, int msg)
 {
 	free_content(node);
 	error_out(msg);
+}
+
+void				free_content(t_content **head)
+{
+	t_content	*current;
+	t_content	*next;
+
+	if (*head)
+	{
+		current = *head;
+		while (current)
+		{
+			next = current->next;
+			free(current->content);
+			free(current);
+			current = next;
+		}
+		*head = NULL;
+	}
 }
 
 void	free_rooms_error(t_rooms **node, int msg)

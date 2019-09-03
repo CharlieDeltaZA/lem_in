@@ -6,7 +6,7 @@
 /*   By: jhansen <marvin@42.fr>                     +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2019/08/22 12:21:07 by cdiogo            #+#    #+#             */
-/*   Updated: 2019/08/30 12:42:23 by jhansen          ###   ########.fr       */
+/*   Updated: 2019/09/03 14:16:01 by jhansen          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -73,18 +73,7 @@ void				print_content(t_content **head)
 	}
 }
 
-void				free_content(t_content **head)
+void					whitespace_remover(t_content **head)
 {
-	t_content	*current;
-	t_content	*next;
 
-	current = *head;
-	while (current)
-	{
-		next = current->next;
-		free(current->content);
-		free(current);
-		current = next;
-	}
-	*head = NULL;
 }
