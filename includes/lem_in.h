@@ -6,7 +6,7 @@
 /*   By: jhansen <marvin@42.fr>                     +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2019/08/26 08:40:20 by cdiogo            #+#    #+#             */
-/*   Updated: 2019/09/02 13:42:30 by jhansen          ###   ########.fr       */
+/*   Updated: 2019/09/03 14:03:07 by jhansen          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -57,10 +57,10 @@ typedef struct			s_rooms
 }						t_rooms;
 
 /*
-** Reading & Basic Error Checks of Input
+**	Reading & Basic Error Checks of Input
 */
 
-void					read_map(t_rooms **head);
+t_rooms					*read_map(void);
 void					check_line(char *line, t_content **file);
 int						word_manager(char *line, int words);
 int						word_count(char *str);
@@ -71,11 +71,18 @@ int						is_link(char *line);
 int						is_ant(char *line);
 int						all_digits_check(char *str);
 int						dash_check(char *str);
-void					free_and_error(t_content **node, int msg);
+
+/*
+**	Erroring and Freeing
+*/
+
+void					free_rooms(t_rooms **head);
+void					free_rooms_error(t_rooms **node, int msg);
+void					free_content_error(t_content **node, int msg);
 void					error_out(int code);
 
 /*
-** Advanced Error Checking
+**	Advanced Error Checking
 */
 
 int						advanced_check_and_fill(t_content **file, t_rooms **head);
@@ -96,6 +103,5 @@ void					free_content(t_content **head);
 */
 
 t_rooms					*init_rooms(t_rooms **file, char *line);
-void					free_rooms(t_rooms **head);
 
 #endif

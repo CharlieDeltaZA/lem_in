@@ -6,7 +6,7 @@
 /*   By: jhansen <marvin@42.fr>                     +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2019/08/30 12:45:52 by jhansen           #+#    #+#             */
-/*   Updated: 2019/09/02 13:31:40 by jhansen          ###   ########.fr       */
+/*   Updated: 2019/09/03 13:12:27 by jhansen          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -19,23 +19,22 @@ int		check_for_ant(t_content **head)
 	if (*head)
 	{
 		temp = *head;
-		while (temp->next != NULL)
-		{
-			if (is_ant(temp->content))
+		if (is_ant(temp->content))
 				return (1);
-			temp = temp->next;
-		}
 	}
 	return (0);
 }
 
 int		advanced_check_and_fill(t_content **file, t_rooms **head)
 {
+	if (!(*file))
+		return (0);
 	if (check_for_ant(file))
 	{
-		//check that the co-ordinates of the rooms are valid are valid. HOW?
+		return (1);
+		//duplicate room names
+		//links to a valid room(something that exists)
 		//check that the links of the rooms link up correctly. HOW?
 	}
-	else
-		return (0);
+	return (0);
 }

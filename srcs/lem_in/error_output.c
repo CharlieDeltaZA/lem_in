@@ -6,7 +6,7 @@
 /*   By: jhansen <marvin@42.fr>                     +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2019/08/20 10:43:46 by cdiogo            #+#    #+#             */
-/*   Updated: 2019/09/02 13:43:36 by jhansen          ###   ########.fr       */
+/*   Updated: 2019/09/03 13:56:50 by jhansen          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -31,11 +31,39 @@ void	error_out(int code)
 		ft_putendl_col_fd(RED, "ERROR : Bad Command", 2);
 	if (code == EMPTY_LINE)
 		ft_putendl_col_fd(RED, "ERROR : Empty Line", 2);
+	if (code == ERROR)
+		ft_putendl_col_fd(RED, "ERROR : Advanced Check ERROR", 2);
 	exit(1);
 }
 
-void	free_and_error(t_content **node, int msg)
+void	free_content_error(t_content **node, int msg)
 {
 	free_content(node);
 	error_out(msg);
+}
+
+void	free_rooms_error(t_rooms **node, int msg)
+{
+	free_rooms(node);
+	error_out(msg);
+}
+
+void				free_rooms(t_rooms **head)
+{
+	t_rooms	*current;
+	t_rooms	*next;
+
+	if (*head != NULL)
+	{
+		current = *head;
+		while (current)
+		{
+			ft_putendl("While!");
+			next = current->next;
+			//free(current->name);		//only free laters
+			free(current);
+			current = next;
+		}
+		*head = NULL;
+	}
 }

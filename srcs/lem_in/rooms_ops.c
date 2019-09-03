@@ -6,7 +6,7 @@
 /*   By: jhansen <marvin@42.fr>                     +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2019/08/22 12:20:31 by cdiogo            #+#    #+#             */
-/*   Updated: 2019/08/26 12:08:13 by jhansen          ###   ########.fr       */
+/*   Updated: 2019/09/03 13:43:39 by jhansen          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -47,18 +47,21 @@ static void			add_tail(t_rooms **head, t_rooms *node)
 	}
 }
 
-void				free_rooms(t_rooms **head)
+t_rooms		*init_rooms(t_rooms **file, char *line)
 {
-	t_rooms	*current;
-	t_rooms	*next;
+	//TODO
+	t_rooms	*node;
+	t_rooms	*head;
 
-	current = *head;
-	while (current)
+	head = *file;
+	if (head)
 	{
-		next = current->next;
-		free(current->name);
-		free(current);
-		current = next;
+		node = create_node(line);
+		add_tail(&head, node);
 	}
-	*head = NULL;
+	else
+	{
+		head = create_node(line);
+	}
+	return (head);
 }
