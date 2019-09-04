@@ -14,18 +14,17 @@
 
 static t_rooms		*create_node(char *line)
 {
-	//TODO
 	t_rooms	*node;
 
 	node = (t_rooms*)malloc(sizeof(t_rooms));
 	if (node)
 	{
-		// node->name = ft_strdup(line);
-		node->name = "help";//get_name(line); //combine these 3 get funcs into 1?
-		node->x = 0;//get_x(line);
-		node->y = 0;//get_y(line);
-		node->start = 0; //something to check for an activated bit
-		node->end = 0; //something to check for an activated bit
+		//node->name = ft_strdup(line);
+		node->name = "help";		//get_name(line); //combine these 3 get funcs into 1?
+		node->x = 0;				//get_x(line);
+		node->y = 0;				//get_y(line);
+		node->start = 0;			//something to check for an activated bit
+		node->end = 0;				//something to check for an activated bit
 		// links???
 		node->next = NULL;
 	}
@@ -47,17 +46,8 @@ static void			add_tail(t_rooms **head, t_rooms *node)
 	}
 }
 
-t_rooms		*init_rooms(t_content **file, t_rooms **head)
+t_rooms		*init_rooms(t_rooms **head, char *s, int val)
 {
-	t_content	*temp;
-	t_content	*rooms;
-	int			start;
-	int			end;
-
-	start = 0;
-	end = 0;
-	temp = *file;
-	rooms = *head;
 	//loop through temp. Once a room line is found add it to rooms
 	//do this until the end of temp.
 	//Also check if ##start OR ##end flag = 1(start) OR flag = 2(end). The next looped line must be set active as start or end.

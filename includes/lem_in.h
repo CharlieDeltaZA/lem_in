@@ -104,6 +104,7 @@ void					free_content(t_content **head);
 **	t_rooms funcs
 */
 
-t_rooms					*init_rooms(t_content **file, t_rooms **head);
+t_rooms					*init_rooms(t_rooms **head, char *s, int val);
+t_rooms					*filler(t_content **file, t_rooms **head);
 
 #endif
