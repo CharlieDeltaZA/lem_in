@@ -6,7 +6,7 @@
 /*   By: jhansen <marvin@42.fr>                     +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2019/08/19 16:15:37 by cdiogo            #+#    #+#             */
-/*   Updated: 2019/09/03 16:59:27 by jhansen          ###   ########.fr       */
+/*   Updated: 2019/09/04 18:48:48 by jhansen          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -69,5 +69,6 @@ t_rooms		*read_map(void)
 	}
 	print_content(&file);
 	free_content(&file);
+	print_rooms(&rooms); // debug purposes
 	return (rooms);
 }

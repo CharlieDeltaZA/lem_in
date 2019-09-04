@@ -6,7 +6,7 @@
 /*   By: jhansen <marvin@42.fr>                     +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2019/08/26 08:40:20 by cdiogo            #+#    #+#             */
-/*   Updated: 2019/09/03 17:19:58 by jhansen          ###   ########.fr       */
+/*   Updated: 2019/09/04 17:02:06 by jhansen          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -88,6 +88,7 @@ void					error_out(int code);
 **	Advanced Error Checking
 */
 
+t_rooms					*filler(t_content **file, t_rooms **head);
 int						advanced_check_and_fill(t_content **file, t_rooms **head);
 int						check_for_ant(t_content **head);
 int						duplicate_check(t_rooms **rooms);
@@ -104,7 +105,8 @@ void					free_content(t_content **head);
 **	t_rooms funcs
 */
 
+void					print_rooms(t_rooms **head);
 t_rooms					*init_rooms(t_rooms **head, char *s, int val);
-t_rooms					*filler(t_content **file, t_rooms **head);
+
 
 #endif

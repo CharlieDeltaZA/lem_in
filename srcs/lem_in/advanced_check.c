@@ -6,13 +6,13 @@
 /*   By: jhansen <marvin@42.fr>                     +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2019/08/30 12:45:52 by jhansen           #+#    #+#             */
-/*   Updated: 2019/09/03 17:21:02 by jhansen          ###   ########.fr       */
+/*   Updated: 2019/09/04 18:56:01 by jhansen          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "../../includes/lem_in.h"
 
-int		duplicate_check(t_rooms **rooms)
+/*int		duplicate_check(t_rooms **rooms)
 {
 	t_rooms	*temp;
 	t_rooms	*current;
@@ -30,7 +30,7 @@ int		duplicate_check(t_rooms **rooms)
 		temp = temp->next;
 	}
 	return (1);
-}
+}*/
 
 int		check_for_ant(t_content **head)
 {
@@ -42,7 +42,7 @@ int		check_for_ant(t_content **head)
 		temp = *head;
 		if (is_ant(temp->content))
 		{
-			num= ft_atol(temp->content);
+			num = ft_atol(temp->content);
 			if (num > MAX || num < MIN)
 				return (0);
 			return (1);
@@ -54,24 +54,30 @@ int		check_for_ant(t_content **head)
 t_rooms		*filler(t_content **file, t_rooms **head)
 {
 	t_content	*temp;
+	int			count = 0;		//debug
 
 	temp = *file;
 	while (temp->next != NULL)
 	{
+		temp = temp->next;
 		if (ft_strequ("##start", temp->content))
 		{
-			temp = temp->next;						//have to actually check that theres a room after the ##start and ##end still
-			init_rooms(head, temp->content, 1);
+			temp = temp->next;							//have to actually check that theres a room after the ##start and ##end still
+			*head = init_rooms(head, temp->content, 1);
 		}
 		else if (ft_strequ("##end", temp->content))
 		{
 			temp = temp->next;
-			init_rooms(head, temp->content, 2);
+			ft_putendl(temp->content);
+			*head = init_rooms(head, temp->content, 2);
 		}
-		else if (is_room(temp->content))
-			init_rooms(head, temp->content, 3);
-		temp = temp->next;
+		else if (word_count(temp->content) == 3)
+			*head = init_rooms(head, temp->content, 0);
+		count++;									//debug
+		ft_putnbr_col_fd(GREEN, count, 1);		//debug
+		ft_putchar('\n');					//debug
 	}
+	return (*head);
 }
 
 int		advanced_check_and_fill(t_content **file, t_rooms **head)
@@ -84,7 +90,7 @@ int		advanced_check_and_fill(t_content **file, t_rooms **head)
 	if (check_for_ant(file))
 	{
 		*head = filler(file, head);
-		if (duplicate_check(head) /* && */ )		//links to a valid room(something that exists) AND check that the links of the rooms link up correctly. HOW?
+		//if (duplicate_check(head) /* && */ )		//links to a valid room(something that exists) AND check that the links of the rooms link up correctly. HOW?
 			return (1);
 	}
 	return (0);

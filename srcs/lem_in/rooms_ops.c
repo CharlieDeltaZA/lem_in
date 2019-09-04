@@ -6,26 +6,38 @@
 /*   By: jhansen <marvin@42.fr>                     +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2019/08/22 12:20:31 by cdiogo            #+#    #+#             */
-/*   Updated: 2019/09/03 13:43:39 by jhansen          ###   ########.fr       */
+/*   Updated: 2019/09/04 18:49:30 by jhansen          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "../../includes/lem_in.h"
 
-static t_rooms		*create_node(char *line)
+static t_rooms		*create_node(char *line, int xcoord, int ycoord, int val)
 {
 	t_rooms	*node;
 
 	node = (t_rooms*)malloc(sizeof(t_rooms));
 	if (node)
 	{
-		//node->name = ft_strdup(line);
-		node->name = "help";		//get_name(line); //combine these 3 get funcs into 1?
-		node->x = 0;				//get_x(line);
-		node->y = 0;				//get_y(line);
-		node->start = 0;			//something to check for an activated bit
-		node->end = 0;				//something to check for an activated bit
-		// links???
+		node->name = line;
+		node->x = xcoord;
+		node->y = ycoord;
+		if (val == 1)
+		{
+			node->start = 1;
+			node->end = 0;
+		}
+		else if (val == 2)
+		{
+			node->start = 0;
+			node->end = 1;			
+		}
+		else
+		{
+			node->start = 0;
+			node->end = 0;			
+		}
+		// links?
 		node->next = NULL;
 	}
 	return (node);
@@ -48,8 +60,41 @@ static void			add_tail(t_rooms **head, t_rooms *node)
 
 t_rooms		*init_rooms(t_rooms **head, char *s, int val)
 {
-	//loop through temp. Once a room line is found add it to rooms
-	//do this until the end of temp.
-	//Also check if ##start OR ##end flag = 1(start) OR flag = 2(end). The next looped line must be set active as start or end.
-	//otherwise the end and start bool remains 0 in the struct.
+	t_rooms	*node;
+	char	**arr;
+	int		x;
+	int		y;
+
+	arr = ft_strsplit(s, ' ');
+	x = ft_atol(arr[1]);
+	y = ft_atol(arr[2]);
+	if (*head)
+	{
+		node = create_node(arr[0], x, y, val);
+		add_tail(head, node);
+	}
+	else
+		*head = create_node(arr[0], x, y, val);
+	return (*head);
+}
+
+void		print_rooms(t_rooms **head)
+{
+	t_rooms	*temp;
+
+	temp = *head;
+	if (temp)
+	{
+		while (temp->next != NULL)
+		{
+			printf("NAME:  %s\n", temp->name);
+			printf("X: %d\n", temp->x);
+			printf("Y: %d\n", temp->y);
+			printf("START: %d\n", temp->start);
+			printf("END:   %d\n\n", temp->end);
+			temp = temp->next;
+		}
+	}
+	else
+		printf("No list\n");
 }
