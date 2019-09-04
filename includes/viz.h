@@ -6,7 +6,7 @@
 /*   By: cdiogo <marvin@42.fr>                      +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2019/08/26 09:51:11 by cdiogo            #+#    #+#             */
-/*   Updated: 2019/09/03 12:29:40 by cdiogo           ###   ########.fr       */
+/*   Updated: 2019/09/04 13:32:14 by cdiogo           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -69,5 +69,13 @@ void				event_check(t_viz *viz, t_moves *moves);
 */
 
 t_rooms				*read_info(t_rooms **info);
+
+/*
+** Drawing of links, rooms, ants
+*/
+
+void				draw_links(t_viz *viz, t_rooms *info);
+void				draw_rooms(t_viz *viz, t_rooms *info);
+void				draw_ants(t_viz *viz, t_rooms *info);
 
 #endif

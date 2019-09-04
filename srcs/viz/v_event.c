@@ -6,7 +6,7 @@
 /*   By: cdiogo <marvin@42.fr>                      +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2019/08/29 13:03:28 by cdiogo            #+#    #+#             */
-/*   Updated: 2019/09/03 16:24:43 by cdiogo           ###   ########.fr       */
+/*   Updated: 2019/09/04 13:20:32 by cdiogo           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -47,7 +47,8 @@ void		event_loop(t_viz *viz, t_rooms *info, t_moves *moves)
 		draw_links();
 		draw_rooms();
 		draw_ants();
+		SDL_RenderPresent(viz->rend);
 		ft_putendl("Hello!");
-		check_event(viz, moves);
+		event_check(viz, moves);
 	}
 }
