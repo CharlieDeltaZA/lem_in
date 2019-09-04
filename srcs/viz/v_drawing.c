@@ -6,7 +6,7 @@
 /*   By: cdiogo <marvin@42.fr>                      +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2019/09/04 13:21:56 by cdiogo            #+#    #+#             */
-/*   Updated: 2019/09/04 13:33:24 by cdiogo           ###   ########.fr       */
+/*   Updated: 2019/09/04 18:38:05 by cdiogo           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -18,7 +18,18 @@
 
 void		draw_links(t_viz *viz, t_rooms *info)
 {
+	t_rooms	*room1;
+	t_rooms *room2;
 
+	while (info)
+	{
+		room1 = info;
+		while (info->links)
+		{
+			
+		}
+		info = info->next;
+	}
 }
 
 /*
