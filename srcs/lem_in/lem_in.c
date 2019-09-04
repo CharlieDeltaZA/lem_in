@@ -24,8 +24,9 @@ int		main(int ac, char **av)
 	t_rooms	*rooms;
 
 	av = av + 1;
-	rooms = read_map(); 		//checks each line of text that it is valid. Shoves input into corresponding list members if it is valid.
+	rooms = read_map();
 	ft_putendl("");
-	//while(1); 		//tests for leaks
+	//bigboy_algo(rooms);
+	//while(1);					//tests for leaks
 	return (0);
 }

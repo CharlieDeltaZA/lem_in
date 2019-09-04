@@ -12,6 +12,26 @@
 
 #include "../../includes/lem_in.h"
 
+int		duplicate_check(t_rooms **rooms)
+{
+	t_rooms	*temp;
+	t_rooms	*current;
+
+	temp = *rooms;
+	while (temp->next != NULL)
+	{
+		current = temp;
+		while (current->next != NULL)
+		{
+			if (compare_rooms(temp, current))		//compare with what??
+				return (0);
+			current = current->next;
+		}
+		temp = temp->next;
+	}
+	return (1);
+}
+
 int		check_for_ant(t_content **head)
 {
 	t_content	*temp;
@@ -37,10 +57,9 @@ int		advanced_check_and_fill(t_content **file, t_rooms **head)
 		return (0);
 	if (check_for_ant(file))
 	{
-		return (1);
-		//duplicate room names
-		//links to a valid room(something that exists)
-		//check that the links of the rooms link up correctly. HOW?
+		head = init_rooms(file, head);
+		if (duplicate_check(head) /* && */ )		//links to a valid room(something that exists) AND check that the links of the rooms link up correctly. HOW?
+			return (1);
 	}
 	return (0);
 }
