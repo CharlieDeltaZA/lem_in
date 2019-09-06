@@ -6,7 +6,7 @@
 /*   By: jhansen <marvin@42.fr>                     +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2019/08/22 12:20:31 by cdiogo            #+#    #+#             */
-/*   Updated: 2019/09/06 14:27:00 by jhansen          ###   ########.fr       */
+/*   Updated: 2019/09/06 15:41:24 by jhansen          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -37,7 +37,6 @@ static t_rooms		*create_node(char *line, int xcoord, int ycoord, int val)
 			node->start = 0;
 			node->end = 0;			
 		}
-		// links?
 		node->next = NULL;
 	}
 	return (node);
@@ -75,6 +74,7 @@ t_rooms		*init_rooms(t_rooms **head, char *s, int val)
 	}
 	else
 		*head = create_node(arr[0], x, y, val);
+	free(arr);											//does this help?
 	return (*head);
 }
 

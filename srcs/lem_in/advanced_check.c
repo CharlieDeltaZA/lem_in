@@ -6,7 +6,7 @@
 /*   By: jhansen <marvin@42.fr>                     +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2019/08/30 12:45:52 by jhansen           #+#    #+#             */
-/*   Updated: 2019/09/06 14:22:36 by jhansen          ###   ########.fr       */
+/*   Updated: 2019/09/06 15:10:37 by jhansen          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -18,12 +18,12 @@
 	t_rooms	*current;
 
 	temp = *rooms;
-	while (temp->next != NULL)
+	while (temp != NULL)
 	{
 		current = temp;
 		while (current->next != NULL)
 		{
-			if (compare_rooms(temp, current))		//compare with what??
+			if (compare_rooms(temp->name, current->name))
 				return (0);
 			current = current->next;
 		}
@@ -64,7 +64,7 @@ t_rooms		*filler(t_content **file, t_rooms **head)
 	t_content	*temp;
 
 	temp = *file;
-	while (temp->next != NULL)
+	while (temp != NULL)
 	{
 		if (word_count(temp->content) == 3)
 			*head = init_rooms(head, temp->content, 0);
