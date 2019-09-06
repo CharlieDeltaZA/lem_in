@@ -6,7 +6,7 @@
 /*   By: jhansen <marvin@42.fr>                     +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2019/08/30 12:45:52 by jhansen           #+#    #+#             */
-/*   Updated: 2019/09/04 18:56:01 by jhansen          ###   ########.fr       */
+/*   Updated: 2019/09/06 12:13:27 by jhansen          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -35,16 +35,24 @@
 int		check_for_ant(t_content **head)
 {
 	t_content	*temp;
+	t_content	*node;
 	int			num;
 
+	temp = *head;
+	node = *head;
 	if (*head)
 	{
-		temp = *head;
 		if (is_ant(temp->content))
 		{
 			num = ft_atol(temp->content);
 			if (num > MAX || num < MIN)
 				return (0);
+			while (node->next != NULL)
+			{
+				node = node->next;
+				if (word_count(node->content) == 1 && is_ant(node->content))
+					return (0);
+			}
 			return (1);
 		}
 	}
@@ -54,7 +62,7 @@ int		check_for_ant(t_content **head)
 t_rooms		*filler(t_content **file, t_rooms **head)
 {
 	t_content	*temp;
-	int			count = 0;		//debug
+	int			count = 0;			//debug
 
 	temp = *file;
 	while (temp->next != NULL)
@@ -62,13 +70,12 @@ t_rooms		*filler(t_content **file, t_rooms **head)
 		temp = temp->next;
 		if (ft_strequ("##start", temp->content))
 		{
-			temp = temp->next;							//have to actually check that theres a room after the ##start and ##end still
+			temp = temp->next;
 			*head = init_rooms(head, temp->content, 1);
 		}
 		else if (ft_strequ("##end", temp->content))
 		{
 			temp = temp->next;
-			ft_putendl(temp->content);
 			*head = init_rooms(head, temp->content, 2);
 		}
 		else if (word_count(temp->content) == 3)
