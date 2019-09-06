@@ -6,7 +6,7 @@
 /*   By: jhansen <marvin@42.fr>                     +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2019/08/30 12:45:52 by jhansen           #+#    #+#             */
-/*   Updated: 2019/09/06 12:13:27 by jhansen          ###   ########.fr       */
+/*   Updated: 2019/09/06 14:22:36 by jhansen          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -62,13 +62,13 @@ int		check_for_ant(t_content **head)
 t_rooms		*filler(t_content **file, t_rooms **head)
 {
 	t_content	*temp;
-	int			count = 0;			//debug
 
 	temp = *file;
 	while (temp->next != NULL)
 	{
-		temp = temp->next;
-		if (ft_strequ("##start", temp->content))
+		if (word_count(temp->content) == 3)
+			*head = init_rooms(head, temp->content, 0);
+		else if (ft_strequ("##start", temp->content))
 		{
 			temp = temp->next;
 			*head = init_rooms(head, temp->content, 1);
@@ -78,11 +78,7 @@ t_rooms		*filler(t_content **file, t_rooms **head)
 			temp = temp->next;
 			*head = init_rooms(head, temp->content, 2);
 		}
-		else if (word_count(temp->content) == 3)
-			*head = init_rooms(head, temp->content, 0);
-		count++;									//debug
-		ft_putnbr_col_fd(GREEN, count, 1);		//debug
-		ft_putchar('\n');					//debug
+		temp = temp->next;
 	}
 	return (*head);
 }

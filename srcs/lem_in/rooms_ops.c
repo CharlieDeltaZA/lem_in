@@ -6,7 +6,7 @@
 /*   By: jhansen <marvin@42.fr>                     +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2019/08/22 12:20:31 by cdiogo            #+#    #+#             */
-/*   Updated: 2019/09/04 18:49:30 by jhansen          ###   ########.fr       */
+/*   Updated: 2019/09/06 14:27:00 by jhansen          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -85,13 +85,33 @@ void		print_rooms(t_rooms **head)
 	temp = *head;
 	if (temp)
 	{
-		while (temp->next != NULL)
+		while (temp != NULL)
 		{
-			printf("NAME:  %s\n", temp->name);
-			printf("X: %d\n", temp->x);
-			printf("Y: %d\n", temp->y);
-			printf("START: %d\n", temp->start);
-			printf("END:   %d\n\n", temp->end);
+			ft_putstr("NAME:  ");
+			ft_putstr_col_fd(CYAN, temp->name, 1);
+			ft_putchar('\n');
+			ft_putstr("X: ");
+			ft_putnbr_col_fd(BLUE, temp->x, 1);
+			ft_putchar('\n');
+			ft_putstr("Y: ");
+			ft_putnbr_col_fd(BLUE, temp->y, 1);
+			ft_putchar('\n');
+			if (temp->start == 1)
+			{
+				ft_putstr("START: ");
+				ft_putnbr_col_fd(YELLOW, temp->start, 1);
+				ft_putchar('\n');
+			}
+			else
+				printf("START: %d\n", temp->start);
+			if (temp->end == 1)
+			{
+				ft_putstr("END:   ");
+				ft_putnbr_col_fd(YELLOW, temp->end, 1);
+				ft_putstr("\n\n");
+			}
+			else
+				printf("END:   %d\n\n", temp->end);
 			temp = temp->next;
 		}
 	}
