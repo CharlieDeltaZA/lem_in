@@ -1,36 +1,37 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   advanced_check.c                                   :+:      :+:    :+:   */
+/*   advanced_check_one.c                               :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: jhansen <marvin@42.fr>                     +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2019/08/30 12:45:52 by jhansen           #+#    #+#             */
-/*   Updated: 2019/09/06 15:10:37 by jhansen          ###   ########.fr       */
+/*   Updated: 2019/09/06 16:35:00 by jhansen          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "../../includes/lem_in.h"
 
-/*int		duplicate_check(t_rooms **rooms)
+int		duplicate_check(t_rooms **rooms)
 {
 	t_rooms	*temp;
 	t_rooms	*current;
 
 	temp = *rooms;
-	while (temp != NULL)
+	current = *rooms;
+	while (temp->next != NULL)
 	{
-		current = temp;
-		while (current->next != NULL)
+		current = temp->next;
+		while (current != NULL)
 		{
-			if (compare_rooms(temp->name, current->name))
+			if (ft_strequ(temp->name, current->name))
 				return (0);
 			current = current->next;
 		}
 		temp = temp->next;
 	}
 	return (1);
-}*/
+}
 
 int		check_for_ant(t_content **head)
 {
@@ -93,7 +94,7 @@ int		advanced_check_and_fill(t_content **file, t_rooms **head)
 	if (check_for_ant(file))
 	{
 		*head = filler(file, head);
-		//if (duplicate_check(head) /* && */ )		//links to a valid room(something that exists) AND check that the links of the rooms link up correctly. HOW?
+		if (duplicate_check(head))	/* (&& other_checks) */     //extra checks for links that link to a valid room(something that exists) AND check that the links of the rooms link up correctly. HOW?
 			return (1);
 	}
 	return (0);

@@ -6,7 +6,7 @@
 /*   By: jhansen <marvin@42.fr>                     +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2019/08/13 16:19:08 by cdiogo            #+#    #+#             */
-/*   Updated: 2019/09/06 15:03:17 by jhansen          ###   ########.fr       */
+/*   Updated: 2019/09/06 16:18:51 by jhansen          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -29,6 +29,6 @@ int		main(int ac, char **av)
 	ft_putendl("");
 	free_rooms(&rooms);
 	//bigboy_algo(rooms);
-	while(1);					//tests for leaks
+	//while(1);					//tests for leaks
 	return (0);
 }
