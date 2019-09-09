@@ -6,7 +6,7 @@
 /*   By: cdiogo <marvin@42.fr>                      +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2019/08/26 09:51:11 by cdiogo            #+#    #+#             */
-/*   Updated: 2019/09/04 13:32:14 by cdiogo           ###   ########.fr       */
+/*   Updated: 2019/09/09 08:35:02 by cdiogo           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -22,6 +22,8 @@
 //Header for visualizer
 # define WIDTH 1920
 # define HEIGHT 1080
+# define ROOM_W 100
+# define ROOM_H 100
 
 typedef struct		s_moves
 {
