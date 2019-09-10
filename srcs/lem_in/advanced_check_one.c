@@ -6,7 +6,7 @@
 /*   By: jhansen <marvin@42.fr>                     +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2019/08/30 12:45:52 by jhansen           #+#    #+#             */
-/*   Updated: 2019/09/10 14:34:29 by jhansen          ###   ########.fr       */
+/*   Updated: 2019/09/10 17:56:26 by jhansen          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -75,8 +75,15 @@ int		advanced_check_and_fill(t_content **file, t_rooms **head)
 	if (check_for_ant(file))
 	{
 		*head = filler(file, head);
-		if (duplicate_rooms(head) && is_endstart(head))   //&& duplicate_link(head)   //extra checks for links that link to a valid room(something that exists) AND check that the links of the rooms link up correctly. HOW?
-			return (1);
+		if (duplicate_rooms(head) && is_endstart(head) && duplicate_link(file))
+		{
+			// if (existing_room(file))
+			// {
+			// 	*head = init_links(file, head);
+			// 	return (1);
+			// }
+			return(1);		//only needed without if statement
+		}
 	}
 	return (0);
 }
