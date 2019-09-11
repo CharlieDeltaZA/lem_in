@@ -6,7 +6,7 @@
 /*   By: jhansen <marvin@42.fr>                     +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2019/08/30 12:45:52 by jhansen           #+#    #+#             */
-/*   Updated: 2019/09/11 12:19:57 by jhansen          ###   ########.fr       */
+/*   Updated: 2019/09/11 14:58:47 by jhansen          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -99,9 +99,10 @@ int		advanced_check_and_fill(t_content **file, t_rooms **head)
 		{
 			if (existing_room(file, head))
 			{
-				//*head = init_links(file, head);
+				*head = init_links(file, head);
 				return (1);
 			}
+			return (1);
 		}
 	}
 	return (0);

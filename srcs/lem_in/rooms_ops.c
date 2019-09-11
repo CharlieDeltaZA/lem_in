@@ -6,7 +6,7 @@
 /*   By: jhansen <marvin@42.fr>                     +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2019/08/22 12:20:31 by cdiogo            #+#    #+#             */
-/*   Updated: 2019/09/06 15:41:24 by jhansen          ###   ########.fr       */
+/*   Updated: 2019/09/11 14:58:56 by jhansen          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -74,8 +74,27 @@ t_rooms		*init_rooms(t_rooms **head, char *s, int val)
 	}
 	else
 		*head = create_node(arr[0], x, y, val);
-	free(arr);											//does this help?
+	free(arr[1]);
+	free(arr[2]);
+	free(arr);
 	return (*head);
+}
+
+void		init_links(t_content **file, t_content **head)
+{
+	t_content	*temp;
+	t_rooms		*room;
+
+	temp = *file;
+	room = *head;
+	while (temp != NULL)
+	{
+		if ()
+		{
+
+		}
+		temp = temp->next;
+	}
 }
 
 void		print_rooms(t_rooms **head)

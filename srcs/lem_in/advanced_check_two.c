@@ -6,7 +6,7 @@
 /*   By: jhansen <marvin@42.fr>                     +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2019/09/06 16:09:04 by jhansen           #+#    #+#             */
-/*   Updated: 2019/09/11 12:20:53 by jhansen          ###   ########.fr       */
+/*   Updated: 2019/09/11 14:37:22 by jhansen          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -37,16 +37,22 @@ int			double_check(char *current, char *temp)
 {
 	char	**one;
 	char	**two;
+	int		flag;
 
+	flag = 0;
 	one = ft_strsplit(current, '-');
 	two = ft_strsplit(temp, '-');
 	if (((ft_strequ(one[0], two[0]) && ft_strequ(one[1], two[1]))
 		|| (ft_strequ(one[0], two[1]) && ft_strequ(one[1], two[0]))))
-	{
-		ft_free_array(one);			//does this freeing work?
-		ft_free_array(two);
+		flag = 1;
+	free(one[0]);
+	free(one[1]);
+	free(two[0]);
+	free(two[1]);
+	free(one);
+	free(two);
+	if (flag == 1)
 		return (0);
-	}
 	return (1);
 }
 
@@ -94,6 +100,7 @@ int			cross_check(t_rooms **head, char *s)
 			flag++;
 		temp = temp->next;
 	}
+	ft_free_array(arr);
 	if (flag == 2)
 		return (1);
 	return (0);
