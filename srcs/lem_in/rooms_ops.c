@@ -6,7 +6,7 @@
 /*   By: jhansen <marvin@42.fr>                     +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2019/08/22 12:20:31 by cdiogo            #+#    #+#             */
-/*   Updated: 2019/09/11 14:58:56 by jhansen          ###   ########.fr       */
+/*   Updated: 2019/09/11 15:03:51 by jhansen          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -80,7 +80,7 @@ t_rooms		*init_rooms(t_rooms **head, char *s, int val)
 	return (*head);
 }
 
-void		init_links(t_content **file, t_content **head)
+void		init_links(t_content **file, t_rooms **head)
 {
 	t_content	*temp;
 	t_rooms		*room;
@@ -89,7 +89,7 @@ void		init_links(t_content **file, t_content **head)
 	room = *head;
 	while (temp != NULL)
 	{
-		if ()
+		if ((word_count(temp->content) == 1) && is_link(temp->content))
 		{
 
 		}
