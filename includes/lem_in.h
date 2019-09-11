@@ -6,7 +6,7 @@
 /*   By: jhansen <marvin@42.fr>                     +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2019/08/26 08:40:20 by cdiogo            #+#    #+#             */
-/*   Updated: 2019/09/10 17:44:32 by jhansen          ###   ########.fr       */
+/*   Updated: 2019/09/11 12:19:34 by jhansen          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -95,7 +95,8 @@ int						duplicate_rooms(t_rooms **rooms);
 int						double_check(char *current, char *temp);
 int						duplicate_link(t_content **file);
 int						is_endstart(t_rooms **rooms);
-int						existing_room(t_content **file);
+int						existing_room(t_content **file, t_rooms **head);
+int						existing_room(t_content **file, t_rooms **head);
 
 /*
 **  t_content funcs

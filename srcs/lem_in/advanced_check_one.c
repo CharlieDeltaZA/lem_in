@@ -6,11 +6,31 @@
 /*   By: jhansen <marvin@42.fr>                     +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2019/08/30 12:45:52 by jhansen           #+#    #+#             */
-/*   Updated: 2019/09/10 17:56:26 by jhansen          ###   ########.fr       */
+/*   Updated: 2019/09/11 12:19:57 by jhansen          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "../../includes/lem_in.h"
+
+int			is_endstart(t_rooms **head)
+{
+	t_rooms	*temp;
+	int		flag;
+
+	temp = *head;
+	flag = 0;
+	while (temp != NULL)
+	{
+		if (temp->start == 1)
+			flag = 1;
+		else if (temp->end == 1)
+			flag += 1;		
+		temp = temp->next;
+	}
+	if (flag == 2)
+		return (1);
+	return (0);
+}
 
 int		check_for_ant(t_content **head)
 {
@@ -77,12 +97,11 @@ int		advanced_check_and_fill(t_content **file, t_rooms **head)
 		*head = filler(file, head);
 		if (duplicate_rooms(head) && is_endstart(head) && duplicate_link(file))
 		{
-			// if (existing_room(file))
-			// {
-			// 	*head = init_links(file, head);
-			// 	return (1);
-			// }
-			return(1);		//only needed without if statement
+			if (existing_room(file, head))
+			{
+				//*head = init_links(file, head);
+				return (1);
+			}
 		}
 	}
 	return (0);

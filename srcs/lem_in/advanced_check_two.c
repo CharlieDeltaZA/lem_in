@@ -6,7 +6,7 @@
 /*   By: jhansen <marvin@42.fr>                     +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2019/09/06 16:09:04 by jhansen           #+#    #+#             */
-/*   Updated: 2019/09/10 17:55:58 by jhansen          ###   ########.fr       */
+/*   Updated: 2019/09/11 12:20:53 by jhansen          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -33,26 +33,6 @@ int			duplicate_rooms(t_rooms **rooms)
 	return (1);
 }
 
-int			is_endstart(t_rooms **head)
-{
-	t_rooms	*temp;
-	int		flag;
-
-	temp = *head;
-	flag = 0;
-	while (temp != NULL)
-	{
-		if (temp->start == 1)
-			flag = 1;
-		else if (temp->end == 1)
-			flag += 1;		
-		temp = temp->next;
-	}
-	if (flag == 2)
-		return (1);
-	return (0);
-}
-
 int			double_check(char *current, char *temp)
 {
 	char	**one;
@@ -63,7 +43,7 @@ int			double_check(char *current, char *temp)
 	if (((ft_strequ(one[0], two[0]) && ft_strequ(one[1], two[1]))
 		|| (ft_strequ(one[0], two[1]) && ft_strequ(one[1], two[0]))))
 	{
-		ft_free_array(one);
+		ft_free_array(one);			//does this freeing work?
 		ft_free_array(two);
 		return (0);
 	}
@@ -91,6 +71,45 @@ int			duplicate_link(t_content **file)
 				}
 				current = current->next;
 			}
+		}
+		temp = temp->next;
+	}
+	return (1);
+}
+
+int			cross_check(t_rooms **head, char *s)
+{
+	t_rooms	*temp;
+	char	**arr;
+	int		flag;
+
+	temp = *head;
+	arr = ft_strsplit(s, '-');
+	flag = 0;
+	while (temp != NULL)
+	{
+		if (ft_strequ(arr[0], temp->name))
+			flag++;
+		if (ft_strequ(arr[1], temp->name))
+			flag++;
+		temp = temp->next;
+	}
+	if (flag == 2)
+		return (1);
+	return (0);
+}
+
+int			existing_room(t_content **file, t_rooms **head)
+{
+	t_content	*temp;
+
+	temp = *file;
+	while (temp != NULL)
+	{
+		if ((word_count(temp->content) == 1) && is_link(temp->content))
+		{
+			if (cross_check(head, temp->content) == 0)
+				return (0);
 		}
 		temp = temp->next;
 	}
