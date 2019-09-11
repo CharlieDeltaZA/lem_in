@@ -6,7 +6,7 @@
 /*   By: jhansen <marvin@42.fr>                     +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2019/08/22 12:20:31 by cdiogo            #+#    #+#             */
-/*   Updated: 2019/09/11 15:03:51 by jhansen          ###   ########.fr       */
+/*   Updated: 2019/09/11 15:11:17 by jhansen          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -91,7 +91,9 @@ void		init_links(t_content **file, t_rooms **head)
 	{
 		if ((word_count(temp->content) == 1) && is_link(temp->content))
 		{
-
+			//get the two room links from the link
+			//find a match of the two link names to the room/s
+			//add a link struct node into the respectiveroom struct
 		}
 		temp = temp->next;
 	}
