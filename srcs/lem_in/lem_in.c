@@ -6,7 +6,7 @@
 /*   By: jhansen <marvin@42.fr>                     +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2019/08/13 16:19:08 by cdiogo            #+#    #+#             */
-/*   Updated: 2019/09/12 14:59:53 by jhansen          ###   ########.fr       */
+/*   Updated: 2019/09/12 16:24:44 by jhansen          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -25,6 +25,7 @@ int		main(int ac, char **av)
 
 	av = av + 1;
 	rooms = read_map();
+	ft_putstr("\n\n");		// debug purposes
 	print_rooms(&rooms); 	// debug purposes
 	ft_putendl("");
 	free_rooms(&rooms);

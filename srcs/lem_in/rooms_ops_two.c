@@ -6,7 +6,7 @@
 /*   By: jhansen <marvin@42.fr>                     +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2019/09/12 13:15:28 by jhansen           #+#    #+#             */
-/*   Updated: 2019/09/12 14:55:24 by jhansen          ###   ########.fr       */
+/*   Updated: 2019/09/12 15:22:46 by jhansen          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -19,10 +19,9 @@ static t_links		*create_node(char *line)
 	node = (t_links *)malloc(sizeof(t_links));
 	if (node)
 	{
-		node->room = ft_strdup(line);		//leaking here????
+		node->room = ft_strdup(line);	//leaking here
 		node->next = NULL;
 	}
-	ft_putendl_col_fd(GREEN, "CREATED", 1);
 	return (node);
 }
 
@@ -39,7 +38,6 @@ static void			add_node(t_links **head, t_links *node)
 			temp = temp->next;
 		temp->next = node;
 	}
-	ft_putendl_col_fd(YELLOW, "ADDED", 1);
 }
 
 void			match_room(t_rooms **head, char *room, char *link)
@@ -52,7 +50,6 @@ void			match_room(t_rooms **head, char *room, char *link)
 	{
 		if (ft_strequ(temp->name, room))
 		{
-			ft_putendl_col_fd(RED, "LINK FOUND", 1);
 			if (temp->links)
 			{
 				node = create_node(link);
