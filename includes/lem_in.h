@@ -6,7 +6,7 @@
 /*   By: jhansen <marvin@42.fr>                     +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2019/08/26 08:40:20 by cdiogo            #+#    #+#             */
-/*   Updated: 2019/09/12 14:07:33 by jhansen          ###   ########.fr       */
+/*   Updated: 2019/09/12 14:34:11 by jhansen          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -118,8 +118,9 @@ void					free_content(t_content **head);
 **	t_rooms funcs
 */
 
-void					print_rooms(t_rooms **head);
+void					print_rooms(t_rooms **head);	//for debug
 t_rooms					*init_rooms(t_rooms **head, char *s, int val);
+void					match_room(t_rooms **head, char *room, char *link);
 void					init_links(t_content **file, t_rooms **head);
 
 #endif
