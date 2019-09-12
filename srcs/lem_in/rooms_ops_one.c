@@ -6,7 +6,7 @@
 /*   By: jhansen <marvin@42.fr>                     +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2019/08/22 12:20:31 by cdiogo            #+#    #+#             */
-/*   Updated: 2019/09/12 13:16:11 by jhansen          ###   ########.fr       */
+/*   Updated: 2019/09/12 15:06:23 by jhansen          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -91,6 +91,15 @@ void		print_rooms(t_rooms **head)
 		{
 			ft_putstr("NAME:  ");
 			ft_putstr_col_fd(CYAN, temp->name, 1);
+			ft_putchar('\n');
+			ft_putstr("LINKS: ");
+			while (temp->links != NULL)
+			{
+				ft_putstr_col_fd(GREEN, temp->links->room, 1);
+				if (temp->links->next != NULL)
+					ft_putstr(", ");
+				temp->links = temp->links->next;
+			}
 			ft_putchar('\n');
 			ft_putstr("X: ");
 			ft_putnbr_col_fd(BLUE, temp->x, 1);

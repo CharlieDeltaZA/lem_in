@@ -6,7 +6,7 @@
 /*   By: jhansen <marvin@42.fr>                     +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2019/08/26 08:40:20 by cdiogo            #+#    #+#             */
-/*   Updated: 2019/09/12 14:34:11 by jhansen          ###   ########.fr       */
+/*   Updated: 2019/09/12 14:51:18 by jhansen          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -61,7 +61,7 @@ typedef struct			s_rooms
 	int					y;
 	int					start;
 	int					end;
-	struct t_links		*links;
+	t_links				*links;
 	struct s_rooms		*next;
 	//struct to hold moves if needed
 }						t_rooms;
