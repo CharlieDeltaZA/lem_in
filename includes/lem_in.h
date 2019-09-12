@@ -6,7 +6,7 @@
 /*   By: jhansen <marvin@42.fr>                     +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2019/08/26 08:40:20 by cdiogo            #+#    #+#             */
-/*   Updated: 2019/09/11 15:07:25 by jhansen          ###   ########.fr       */
+/*   Updated: 2019/09/12 14:07:33 by jhansen          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -48,8 +48,7 @@ typedef struct			s_content
 
 typedef struct			s_links
 {
-	char				*one;
-	char				*two;
+	char				*room;
 	struct s_links		*next;
 	struct s_links		*prev;		//is this needed??
 }						t_links;
@@ -62,8 +61,8 @@ typedef struct			s_rooms
 	int					y;
 	int					start;
 	int					end;
+	struct t_links		*links;
 	struct s_rooms		*next;
-	//put link struct in here
 	//struct to hold moves if needed
 }						t_rooms;
 
