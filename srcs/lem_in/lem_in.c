@@ -19,10 +19,10 @@ int		main(int ac, char **av)
 
 	t_rooms	*rooms;
 
-	av = av + 1;			//check for other types of input??
+	av = av + 1;				//check for other types of input??
 	rooms = read_map();
-	ft_putstr("\n\n");		// debug purposes
-	print_rooms(&rooms); 	// debug purposes
+	ft_putstr("\n\n");			// debug purposes
+	print_rooms(&rooms); 		// debug purposes
 	ft_putendl("");
 	//bigboy_algo(&rooms);
 	free_rooms(&rooms);
