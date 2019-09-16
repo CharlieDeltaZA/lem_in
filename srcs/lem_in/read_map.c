@@ -41,15 +41,12 @@ void		check_line(char *line, t_content **file)
 	words = word_count(line);
 	if (words == 0)
 		free_content_error(file, EMPTY_LINE);
-	else
-	{
-		status = word_manager(line, words);
-		if (status == 0)
-			free_content_error(file, BAD_INPUT);
-		line = whitespace_remover(line, status, file);
-		(*file) = init_content(file, line);
-		free(line);
-	}
+	status = word_manager(line, words);
+	if (status == 0)
+		free_content_error(file, BAD_INPUT);
+	line = whitespace_remover(line, status, file);
+	(*file) = init_content(file, line);
+	free(line);
 }
 
 t_rooms		*read_map(void)
@@ -67,10 +64,9 @@ t_rooms		*read_map(void)
 	}
 	if (advanced_check_and_fill(&file, &rooms) == 0)
 	{
-		free_content(&file);
 		if (rooms)
-			free_rooms_error(&rooms, ERROR);
-		error_out(ERROR);
+			free_rooms(&rooms);
+		free_content_error(&file, 200);
 	}
 	print_content(&file);
 	free_content(&file);

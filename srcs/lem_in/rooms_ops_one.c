@@ -127,5 +127,8 @@ void		print_rooms(t_rooms **head)
 		}
 	}
 	else
+	{
 		printf("No list\n");
+		exit (1);
+	}
 }

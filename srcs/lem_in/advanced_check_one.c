@@ -29,6 +29,7 @@ int			is_endstart(t_rooms **head)
 	}
 	if (flag == 2)
 		return (1);
+	error_out(NO_START_OR_END);
 	return (0);
 }
 
@@ -91,7 +92,10 @@ int		advanced_check_and_fill(t_content **file, t_rooms **head)
 
 	temp = *file;
 	if (!(*file))
+	{
+		error_out(NON_EXISTING_LIST);
 		return (0);
+	}
 	if (check_for_ant(file))
 	{
 		*head = filler(file, head);
@@ -104,5 +108,7 @@ int		advanced_check_and_fill(t_content **file, t_rooms **head)
 			}
 		}
 	}
+	else
+		error_out(NO_ANTS);
 	return (0);
 }

@@ -28,16 +28,17 @@ enum					e_error_codes
 {
 	NO_ANTS = 1,
 	DUP_ROOM,
+	DUP_XY,
 	DUP_LINK,
-	NO_START,
-	NO_END,
+	NO_START_OR_END,
 	NO_X,
 	NO_Y,
 	BAD_INPUT,
 	BAD_COMMAND,
 	EMPTY_LINE,
 	ERROR,
-	NON_EXISTING_LIST
+	NON_EXISTING_LIST,
+	NON_EXISTING_ROOM
 };
 
 typedef struct			s_content

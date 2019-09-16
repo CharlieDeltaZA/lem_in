@@ -14,22 +14,18 @@
 
 int		main(int ac, char **av)
 {
-	// lots of error checking
-	// input, room validation (Names won't start with '#' or 'L'), link validation
-	// ignore # comments, accept ## commands (valid ones, so 'start' and 'end')
 	// need to have a func that checks if a room is occupied. --Add a bool to struct?
 	// must display input, empty line, then moves
-	// ^^ Input = num ants, ##commands, rooms, links
 
 	t_rooms	*rooms;
 
-	av = av + 1;
+	av = av + 1;			//check for other types of input??
 	rooms = read_map();
 	ft_putstr("\n\n");		// debug purposes
 	print_rooms(&rooms); 	// debug purposes
 	ft_putendl("");
+	//bigboy_algo(&rooms);
 	free_rooms(&rooms);
-	//bigboy_algo(rooms);
 	//while(1);					//tests for leaks
 	return (0);
 }

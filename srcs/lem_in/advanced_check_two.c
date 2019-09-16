@@ -23,9 +23,16 @@ int			duplicate_rooms(t_rooms **rooms)
 		current = temp->next;
 		while (current != NULL)
 		{
-			if ((ft_strequ(temp->name, current->name)
-				|| (temp->x == current->x && temp->y == current->y)))
+			if (ft_strequ(temp->name, current->name))
+			{
+				error_out(DUP_ROOM);
 				return (0);
+			}
+			if ((temp->x == current->x) && (temp->y == current->y))
+			{
+				error_out(DUP_XY);
+				return (0);
+			}
 			current = current->next;
 		}
 		temp = temp->next;
@@ -73,7 +80,10 @@ int			duplicate_link(t_content **file)
 				if ((word_count(current->content) == 1) && is_link(current->content))
 				{
 					if (double_check(temp->content, current->content) == 0)
+					{
+						error_out(DUP_LINK);
 						return (0);
+					}
 				}
 				current = current->next;
 			}
@@ -110,13 +120,19 @@ int			existing_room(t_content **file, t_rooms **head)
 {
 	t_content	*temp;
 
-	temp = *file;
+	if (*file && *head)
+		temp = *file;
+	else
+		return (0);
 	while (temp != NULL)
 	{
 		if ((word_count(temp->content) == 1) && is_link(temp->content))
 		{
 			if (cross_check(head, temp->content) == 0)
+			{
+				error_out(NON_EXISTING_ROOM);
 				return (0);
+			}
 		}
 		temp = temp->next;
 	}
