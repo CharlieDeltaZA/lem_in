@@ -6,7 +6,7 @@
 /*   By: jhansen <jhansen@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2019/08/13 16:19:08 by cdiogo            #+#    #+#             */
-/*   Updated: 2019/09/17 12:30:54 by jhansen          ###   ########.fr       */
+/*   Updated: 2019/09/17 14:59:37 by jhansen          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -22,10 +22,10 @@ int		main(int ac, char **av)
 	av = av + 1;				//check for other types of input??
 	rooms = read_map();
 	ft_putstr("\n\n");			// debug purposes
-	//print_rooms(&rooms); 		// debug purposes
+	print_rooms(&rooms); 		// debug purposes
 	ft_putendl("");
 	//bigboy_algo(&rooms);
-	//free_rooms(&rooms);
+	free_rooms(&rooms);
 	//while(1);					//tests for leaks
 	return (0);
 }
