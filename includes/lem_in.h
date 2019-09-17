@@ -6,7 +6,7 @@
 /*   By: jhansen <jhansen@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2019/08/26 08:40:20 by cdiogo            #+#    #+#             */
-/*   Updated: 2019/09/17 12:09:38 by jhansen          ###   ########.fr       */
+/*   Updated: 2019/09/17 12:16:26 by jhansen          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -88,6 +88,7 @@ char					*whitespace_remover(char *str, int type, t_content **file);
 **	Erroring and Freeing
 */
 
+void                	free_links(t_links **links);
 void					free_rooms(t_rooms **head);
 void					free_rooms_error(t_rooms **node, int msg);
 void					free_content_error(t_content **node, int msg);

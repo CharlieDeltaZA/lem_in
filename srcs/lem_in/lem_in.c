@@ -3,24 +3,14 @@
 /*                                                        :::      ::::::::   */
 /*   lem_in.c                                           :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: jhansen <marvin@42.fr>                     +#+  +:+       +#+        */
+/*   By: jhansen <jhansen@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2019/08/13 16:19:08 by cdiogo            #+#    #+#             */
-/*   Updated: 2019/09/12 16:24:44 by jhansen          ###   ########.fr       */
+/*   Updated: 2019/09/17 12:19:26 by jhansen          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "../../includes/lem_in.h"
-
-void	print_links(t_links **links)
-{
-
-}
-
-void	free_links(t_links **links)
-{
-
-}
 
 int		main(int ac, char **av)
 {
@@ -37,8 +27,6 @@ int		main(int ac, char **av)
 	ft_putendl("");
 	//bigboy_algo(&rooms);
 	free_rooms(&rooms);
-	print_links(&links);
-	free_links(&links);
 	while(1);					//tests for leaks
 	return (0);
 }
