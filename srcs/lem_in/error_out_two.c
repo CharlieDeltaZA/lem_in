@@ -6,7 +6,7 @@
 /*   By: jhansen <jhansen@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2019/09/17 12:08:43 by jhansen           #+#    #+#             */
-/*   Updated: 2019/09/17 12:18:42 by jhansen          ###   ########.fr       */
+/*   Updated: 2019/09/17 16:57:01 by jhansen          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -27,10 +27,11 @@ void                free_links(t_links **links)
 	if (*links != NULL)
 	{
 		temp = *links;
-		while (temp)
+		while (temp != NULL)
 		{
 			next = temp->next;
-			free(temp->room);
+			if (temp->room != NULL)
+				free(temp->room);
 			free(temp);
             temp = next;
 		}
@@ -49,7 +50,8 @@ void				free_rooms(t_rooms **head)
 		while (temp)
 		{
 			next = temp->next;
-            free_links(&temp->links);
+			if (temp->links != NULL)
+            	free_links(&temp->links);
 			free(temp->name);
 			free(temp);
 			temp = next;

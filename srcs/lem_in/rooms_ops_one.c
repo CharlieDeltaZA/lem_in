@@ -3,10 +3,10 @@
 /*                                                        :::      ::::::::   */
 /*   rooms_ops_one.c                                    :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: jhansen <marvin@42.fr>                     +#+  +:+       +#+        */
+/*   By: jhansen <jhansen@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2019/08/22 12:20:31 by cdiogo            #+#    #+#             */
-/*   Updated: 2019/09/12 15:22:28 by jhansen          ###   ########.fr       */
+/*   Updated: 2019/09/17 16:47:25 by jhansen          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -94,13 +94,17 @@ void		print_rooms(t_rooms **head)
 			ft_putstr_col_fd(CYAN, temp->name, 1);
 			ft_putchar('\n');
 			ft_putstr("LINKS: ");
-			temp_l = temp->links;
-			while (temp_l != NULL)
+			if (temp->links)
 			{
-				ft_putstr_col_fd(GREEN, temp_l->room, 1);
-				if (temp_l->next != NULL)
-					ft_putstr(", ");
-				temp_l = temp_l->next;
+				temp_l = temp->links;
+				while (temp_l != NULL)
+				{
+					if (temp_l->room)
+						ft_putstr_col_fd(GREEN, temp_l->room, 1);
+					if (temp_l->next != NULL)
+						ft_putstr(", ");
+					temp_l = temp_l->next;
+				}
 			}
 			ft_putchar('\n');
 			ft_putstr("X: ");

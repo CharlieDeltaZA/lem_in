@@ -6,7 +6,7 @@
 /*   By: jhansen <jhansen@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2019/08/30 12:45:52 by jhansen           #+#    #+#             */
-/*   Updated: 2019/09/17 13:00:07 by jhansen          ###   ########.fr       */
+/*   Updated: 2019/09/17 17:16:52 by jhansen          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -22,9 +22,9 @@ int			is_endstart(t_rooms **head)
 	while (temp != NULL)
 	{
 		if (temp->start == 1)
-			flag = 1;
+			flag++;
 		else if (temp->end == 1)
-			flag += 1;		
+			flag++;		
 		temp = temp->next;
 	}
 	if (flag == 2)
@@ -37,12 +37,12 @@ int		check_for_ant(t_content **head)
 {
 	t_content	*temp;
 	t_content	*node;
-	int			num;
+	long		num;
 
-	temp = *head;
-	node = *head;
 	if (*head)
 	{
+		temp = *head;
+		node = *head;
 		if (is_ant(temp->content))
 		{
 			num = ft_atol(temp->content);
