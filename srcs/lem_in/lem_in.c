@@ -6,7 +6,7 @@
 /*   By: jhansen <jhansen@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2019/08/13 16:19:08 by cdiogo            #+#    #+#             */
-/*   Updated: 2019/09/17 12:19:26 by jhansen          ###   ########.fr       */
+/*   Updated: 2019/09/17 12:21:18 by jhansen          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -18,7 +18,6 @@ int		main(int ac, char **av)
 	// must display input, empty line, then moves
 
 	t_rooms	*rooms;
-	t_links	*links;
 
 	av = av + 1;				//check for other types of input??
 	rooms = read_map();
