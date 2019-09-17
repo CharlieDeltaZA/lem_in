@@ -83,6 +83,7 @@ t_rooms		*init_rooms(t_rooms **head, char *s, int val)
 void		print_rooms(t_rooms **head)
 {
 	t_rooms	*temp;
+	t_links	*temp_l;
 
 	temp = *head;
 	if (temp)
@@ -93,12 +94,13 @@ void		print_rooms(t_rooms **head)
 			ft_putstr_col_fd(CYAN, temp->name, 1);
 			ft_putchar('\n');
 			ft_putstr("LINKS: ");
-			while (temp->links != NULL)
+			temp_l = temp->links;
+			while (temp_l != NULL)
 			{
-				ft_putstr_col_fd(GREEN, temp->links->room, 1);
-				if (temp->links->next != NULL)
+				ft_putstr_col_fd(GREEN, temp_l->room, 1);
+				if (temp_l->next != NULL)
 					ft_putstr(", ");
-				temp->links = temp->links->next;
+				temp_l = temp_l->next;
 			}
 			ft_putchar('\n');
 			ft_putstr("X: ");

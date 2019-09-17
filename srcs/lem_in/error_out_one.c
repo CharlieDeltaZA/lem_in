@@ -1,12 +1,12 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   error_output.c                                     :+:      :+:    :+:   */
+/*   error_out_one.c                                    :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: jhansen <marvin@42.fr>                     +#+  +:+       +#+        */
+/*   By: jhansen <jhansen@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2019/08/20 10:43:46 by cdiogo            #+#    #+#             */
-/*   Updated: 2019/09/06 15:05:48 by jhansen          ###   ########.fr       */
+/*   Updated: 2019/09/17 12:09:20 by jhansen          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -57,33 +57,6 @@ void				free_content(t_content **head)
 		{
 			next = current->next;
 			free(current->content);
-			free(current);
-			current = next;
-		}
-		*head = NULL;
-	}
-}
-
-void	free_rooms_error(t_rooms **node, int msg)
-{
-	free_rooms(node);
-	error_out(msg);
-	exit(1);
-}
-
-void				free_rooms(t_rooms **head)
-{
-	t_rooms	*current;
-	t_rooms	*next;
-
-	if (*head != NULL)
-	{
-		current = *head;
-		while (current)
-		{
-			next = current->next;
-			free(current->name);
-			//free links structs here
 			free(current);
 			current = next;
 		}

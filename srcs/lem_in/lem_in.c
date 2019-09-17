@@ -12,12 +12,23 @@
 
 #include "../../includes/lem_in.h"
 
+void	print_links(t_links **links)
+{
+
+}
+
+void	free_links(t_links **links)
+{
+
+}
+
 int		main(int ac, char **av)
 {
 	// need to have a func that checks if a room is occupied. --Add a bool to struct?
 	// must display input, empty line, then moves
 
 	t_rooms	*rooms;
+	t_links	*links;
 
 	av = av + 1;				//check for other types of input??
 	rooms = read_map();
@@ -26,6 +37,8 @@ int		main(int ac, char **av)
 	ft_putendl("");
 	//bigboy_algo(&rooms);
 	free_rooms(&rooms);
-	//while(1);					//tests for leaks
+	print_links(&links);
+	free_links(&links);
+	while(1);					//tests for leaks
 	return (0);
 }
