@@ -6,7 +6,7 @@
 /*   By: jhansen <jhansen@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2019/09/12 13:15:28 by jhansen           #+#    #+#             */
-/*   Updated: 2019/09/17 14:59:47 by jhansen          ###   ########.fr       */
+/*   Updated: 2019/09/17 15:44:33 by jhansen          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -19,7 +19,7 @@ static t_links		*create_node(char *line)
 	node = (t_links *)malloc(sizeof(t_links));
 	if (node)
 	{
-		node->room = ft_strdup(line);	//leaking here
+		node->room = ft_strdup(line);
 		node->next = NULL;
 	}
 	return (node);
@@ -34,14 +34,14 @@ static void			add_node(t_links **head, t_links *node)
 		temp = *head;
 		if (temp)
 		{
-			write(1, "here\n", 5);			//
 			while (temp->next != NULL)
 			{
-				write(1, "loop\n", 5);		//
+				ft_putstr("Looping until tail\n");		//
 				temp = temp->next;
 			}
-			write(1, "here1\n", 6);			//
+			ft_putstr("Before adding node\n");			//
 			temp->next = node;
+			ft_putstr("Added node to tail\n");			//
 		}
 	}
 }
@@ -58,15 +58,16 @@ void			match_room(t_rooms **head, char *room, char *link)
 		{
 			if (ft_strequ(temp->name, room))
 			{
+				write(1, "FOUND ROOM\n", 11);		//
 				if (temp->links)
 				{
-					write(1, "1\n", 2);
+					ft_putstr("Create new node and add\n");		//
 					node = create_node(link);
 					add_node(&temp->links, node);
 				}
 				else
 				{
-					write(1, "2\n", 2);
+					ft_putstr("Created first node\n");		//
 					temp->links = create_node(link);
 				}
 			}
@@ -88,6 +89,7 @@ void			init_links(t_content **file, t_rooms **head)
 			if ((word_count(temp->content) == 1) && is_link(temp->content))
 			{
 				arr = ft_strsplit(temp->content, '-');
+				write(1, "FOUND LINK\n", 11);				//
 				match_room(head, arr[0], arr[1]);	
 				free(arr[0]);
 				free(arr[1]);
