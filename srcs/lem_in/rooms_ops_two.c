@@ -3,10 +3,10 @@
 /*                                                        :::      ::::::::   */
 /*   rooms_ops_two.c                                    :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: jhansen <marvin@42.fr>                     +#+  +:+       +#+        */
+/*   By: jhansen <jhansen@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2019/09/12 13:15:28 by jhansen           #+#    #+#             */
-/*   Updated: 2019/09/12 15:22:46 by jhansen          ###   ########.fr       */
+/*   Updated: 2019/09/17 13:04:23 by jhansen          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -29,14 +29,20 @@ static void			add_node(t_links **head, t_links *node)
 {
 	t_links	*temp;
 
-	if (!(head) || (!(node)))
-		return ;
-	temp = *head;
-	if (temp)
+	if (*head && node)
 	{
-		while (temp->next)
-			temp = temp->next;
-		temp->next = node;
+		temp = *head;
+		if (temp)
+		{
+			write(1, "here\n", 5);			//
+			while (temp->next != NULL)
+			{
+				write(1, ":)\n", 3);
+				temp = temp->next;
+			}
+			write(1, "here1\n", 6);			//
+			temp->next = node;
+		}
 	}
 }
 
@@ -45,20 +51,23 @@ void			match_room(t_rooms **head, char *room, char *link)
 	t_rooms	*temp;
 	t_links	*node;
 
-	temp = *head;
-	while (temp != NULL)
+	if (*head && room && link)
 	{
-		if (ft_strequ(temp->name, room))
+		temp = *head;
+		while (temp != NULL)
 		{
-			if (temp->links)
+			if (ft_strequ(temp->name, room))
 			{
-				node = create_node(link);
-				add_node(&(temp->links), node);
+				if (temp->links)
+				{
+					node = create_node(link);
+					add_node(&temp->links, node);
+				}
+				else
+					temp->links = create_node(link);
 			}
-			else
-				temp->links = create_node(link);
+			temp = temp->next;
 		}
-		temp = temp->next;
 	}
 }
 
@@ -68,16 +77,19 @@ void			init_links(t_content **file, t_rooms **head)
 	char		**arr;
 
 	temp = *file;
-	while (temp != NULL)
+	if (*file && *head)
 	{
-		if ((word_count(temp->content) == 1) && is_link(temp->content))
+		while (temp != NULL)
 		{
-			arr = ft_strsplit(temp->content, '-');
-			match_room(head, arr[0], arr[1]);	
-			free(arr[0]);
-			free(arr[1]);
-			free(arr);
+			if ((word_count(temp->content) == 1) && is_link(temp->content))
+			{
+				arr = ft_strsplit(temp->content, '-');
+				match_room(head, arr[0], arr[1]);	
+				free(arr[0]);
+				free(arr[1]);
+				free(arr);
+			}
+			temp = temp->next;
 		}
-		temp = temp->next;
 	}
 }
