@@ -6,7 +6,7 @@
 /*   By: jhansen <jhansen@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2019/08/20 10:43:46 by cdiogo            #+#    #+#             */
-/*   Updated: 2019/09/17 12:09:20 by jhansen          ###   ########.fr       */
+/*   Updated: 2019/09/18 13:44:54 by jhansen          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -36,6 +36,10 @@ void	error_out(int code)
 		ft_putendl_col_fd(RED, "ERROR : Non-existing list", 2);
 	if (code == NON_EXISTING_ROOM)
 		ft_putendl_col_fd(RED, "ERROR : Non-existing room found", 2);
+	if (code == TOO_MANY_ANTS)
+		ft_putendl_col_fd(RED, "ERROR : Multiple ant lines found", 2);
+	if (code == NO_LINK)
+		ft_putendl_col_fd(RED, "ERROR : No links found", 2);
 }
 
 void	free_content_error(t_content **node, int msg)

@@ -6,7 +6,7 @@
 /*   By: jhansen <jhansen@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2019/08/26 08:40:20 by cdiogo            #+#    #+#             */
-/*   Updated: 2019/09/17 12:16:26 by jhansen          ###   ########.fr       */
+/*   Updated: 2019/09/18 13:44:23 by jhansen          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -38,7 +38,9 @@ enum					e_error_codes
 	EMPTY_LINE,
 	ERROR,
 	NON_EXISTING_LIST,
-	NON_EXISTING_ROOM
+	NON_EXISTING_ROOM,
+	TOO_MANY_ANTS,
+	NO_LINK
 };
 
 typedef struct			s_content

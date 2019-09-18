@@ -6,7 +6,7 @@
 /*   By: jhansen <jhansen@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2019/08/19 16:15:37 by cdiogo            #+#    #+#             */
-/*   Updated: 2019/09/18 11:43:54 by jhansen          ###   ########.fr       */
+/*   Updated: 2019/09/18 13:00:46 by jhansen          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -54,21 +54,29 @@ t_rooms		*read_map(void)
 	char		*line;
 	t_content	*file;
 	t_rooms		*rooms;
+	int			count;
 
+	count = 0;
 	rooms = NULL;
 	file = NULL;
 	while (get_next_line(0, &line))
 	{
 		check_line(line, &file);
 		free(line);
+		count++;
 	}
-	if (advanced_check_and_fill(&file, &rooms) == 0)
+	if (count > 1)
 	{
-		if (rooms)
-			free_rooms(&rooms);
-		free_content_error(&file, 200);
+		if (advanced_check_and_fill(&file, &rooms) == 0)
+		{
+			if (rooms)
+				free_rooms(&rooms);
+			free_content_error(&file, 200);
+		}
+		print_content(&file);
 	}
-	print_content(&file);
+	else
+		free_content_error(&file, BAD_INPUT);
 	free_content(&file);
 	return (rooms);
 }
