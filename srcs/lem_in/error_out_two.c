@@ -6,7 +6,7 @@
 /*   By: jhansen <jhansen@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2019/09/17 12:08:43 by jhansen           #+#    #+#             */
-/*   Updated: 2019/09/17 16:57:01 by jhansen          ###   ########.fr       */
+/*   Updated: 2019/09/18 11:37:58 by jhansen          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -51,7 +51,7 @@ void				free_rooms(t_rooms **head)
 		{
 			next = temp->next;
 			if (temp->links != NULL)
-            	free_links(&temp->links);
+				free_links(&temp->links);
 			free(temp->name);
 			free(temp);
 			temp = next;

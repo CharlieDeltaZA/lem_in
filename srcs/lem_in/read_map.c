@@ -6,7 +6,7 @@
 /*   By: jhansen <jhansen@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2019/08/19 16:15:37 by cdiogo            #+#    #+#             */
-/*   Updated: 2019/09/17 17:48:20 by jhansen          ###   ########.fr       */
+/*   Updated: 2019/09/18 11:43:54 by jhansen          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -68,7 +68,7 @@ t_rooms		*read_map(void)
 			free_rooms(&rooms);
 		free_content_error(&file, 200);
 	}
-	//print_content(&file);			//
+	print_content(&file);
 	free_content(&file);
 	return (rooms);
 }

@@ -6,7 +6,7 @@
 /*   By: jhansen <jhansen@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2019/08/30 12:45:52 by jhansen           #+#    #+#             */
-/*   Updated: 2019/09/17 17:16:52 by jhansen          ###   ########.fr       */
+/*   Updated: 2019/09/18 11:40:09 by jhansen          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -35,7 +35,7 @@ int			is_endstart(t_rooms **head)
 
 int		check_for_ant(t_content **head)
 {
-	t_content	*temp;
+	t_content	*temp;	
 	t_content	*node;
 	long		num;
 
