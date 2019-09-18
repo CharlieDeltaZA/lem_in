@@ -6,7 +6,7 @@
 /*   By: jhansen <jhansen@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2019/08/20 10:43:46 by cdiogo            #+#    #+#             */
-/*   Updated: 2019/09/18 13:44:54 by jhansen          ###   ########.fr       */
+/*   Updated: 2019/09/18 15:20:49 by jhansen          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -54,13 +54,16 @@ void				free_content(t_content **head)
 	t_content	*current;
 	t_content	*next;
 
+	current = NULL;
+	next = NULL;
 	if (*head)
 	{
 		current = *head;
 		while (current)
 		{
 			next = current->next;
-			free(current->content);
+			if (current->content)
+				free(current->content);
 			free(current);
 			current = next;
 		}

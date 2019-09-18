@@ -6,7 +6,7 @@
 /*   By: jhansen <jhansen@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2019/08/20 10:17:39 by cdiogo            #+#    #+#             */
-/*   Updated: 2019/09/18 12:44:38 by jhansen          ###   ########.fr       */
+/*   Updated: 2019/09/18 15:08:47 by jhansen          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -91,7 +91,11 @@ int		is_room(char *line)
 	if (line[i] != 'L')
 	{
 		while (line[i] != ' ' && line[i] != '\t' && line[i] != '\0')
+		{
+			if (line[i] == '-')
+				return (0);
 			i++;
+		}
 		while ((line[i] == ' ' || line[i] == '\t') && line[i] != '\0')
 			i++;
 		if (all_digits_check(&line[i]))

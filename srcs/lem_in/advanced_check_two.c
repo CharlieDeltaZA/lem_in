@@ -6,7 +6,7 @@
 /*   By: jhansen <jhansen@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2019/09/06 16:09:04 by jhansen           #+#    #+#             */
-/*   Updated: 2019/09/18 10:13:19 by jhansen          ###   ########.fr       */
+/*   Updated: 2019/09/18 14:37:45 by jhansen          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -18,6 +18,7 @@ int			duplicate_rooms(t_rooms **rooms)
 	t_rooms	*current;
 
 	temp = *rooms;
+	current = NULL;
 	while (temp->next != NULL)
 	{
 		current = temp->next;
@@ -37,6 +38,7 @@ int			duplicate_rooms(t_rooms **rooms)
 		}
 		temp = temp->next;
 	}
+	ft_putendl_col_fd(RED, "Done dup room check", 1);
 	return (1);
 }
 
@@ -69,6 +71,7 @@ int			duplicate_link(t_content **file)
 	t_content	*current;
 
 	temp = *file;
+	current = NULL;
 	while (temp != NULL)
 	{
 		if ((word_count(temp->content) == 1) && is_link(temp->content))
@@ -90,6 +93,7 @@ int			duplicate_link(t_content **file)
 		}
 		temp = temp->next;
 	}
+	ft_putendl_col_fd(RED, "Done dup link check", 1);
 	return (1);
 }
 
