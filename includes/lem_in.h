@@ -6,7 +6,7 @@
 /*   By: jhansen <jhansen@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2019/08/26 08:40:20 by cdiogo            #+#    #+#             */
-/*   Updated: 2019/09/19 12:34:32 by jhansen          ###   ########.fr       */
+/*   Updated: 2019/09/19 13:59:49 by jhansen          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -127,10 +127,10 @@ int						existing_room(t_content **file, t_rooms **head);
 **	Algorithm functions
 */
 
-void        			bigboy_algo(t_rooms **room_head);
+void					bigboy_algo(t_rooms **room_head);
 int						path_find(t_queue **queue, t_rooms **room_head);
 void					generate_moves(t_rooms **room_head);
-
+t_rooms					*find_start(t_rooms **rooms);
 
 /*
 **  t_content functions

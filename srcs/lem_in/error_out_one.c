@@ -6,7 +6,7 @@
 /*   By: jhansen <jhansen@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2019/08/20 10:43:46 by cdiogo            #+#    #+#             */
-/*   Updated: 2019/09/19 11:05:19 by jhansen          ###   ########.fr       */
+/*   Updated: 2019/09/19 13:55:08 by jhansen          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -49,7 +49,7 @@ void	free_content_error(t_content **node, int msg)
 	exit(1);
 }
 
-void				free_content(t_content **head)
+void	free_content(t_content **head)
 {
 	t_content	*current;
 	t_content	*next;
@@ -68,5 +68,25 @@ void				free_content(t_content **head)
 			current = next;
 		}
 		*head = NULL;
+	}
+}
+
+void	free_queue(t_queue **queue)
+{
+	t_queue	*temp;
+	t_queue	*next;
+
+	temp = NULL;
+	next = NULL;
+	if (*queue)
+	{
+		temp = *queue;
+		while (temp != NULL)
+		{
+			next = temp->next;
+			free(temp);
+			temp = next;
+		}
+		*queue = NULL;
 	}
 }
