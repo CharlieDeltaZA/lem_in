@@ -6,7 +6,7 @@
 /*   By: jhansen <jhansen@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2019/08/22 12:20:31 by cdiogo            #+#    #+#             */
-/*   Updated: 2019/09/18 11:40:12 by jhansen          ###   ########.fr       */
+/*   Updated: 2019/09/19 15:14:47 by jhansen          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -23,6 +23,8 @@ static t_rooms		*create_node(char *line, int xcoord, int ycoord, int val)
 		node->x = xcoord;
 		node->y = ycoord;
 		node->links = NULL;
+		node->wheight = 0;
+		node->occupied = 0;
 		if (val == 1)
 		{
 			node->start = 1;
