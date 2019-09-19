@@ -6,7 +6,7 @@
 /*   By: jhansen <jhansen@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2019/08/26 08:40:20 by cdiogo            #+#    #+#             */
-/*   Updated: 2019/09/18 13:44:23 by jhansen          ###   ########.fr       */
+/*   Updated: 2019/09/19 12:34:32 by jhansen          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -16,6 +16,7 @@
 # include "../libft/libft.h"
 # define MAX 2147483647
 # define MIN -2147483648
+
 // DEBUGGING VVV
 # include <stdio.h>
 // DEBUGGING ^^^
@@ -40,7 +41,8 @@ enum					e_error_codes
 	NON_EXISTING_LIST,
 	NON_EXISTING_ROOM,
 	TOO_MANY_ANTS,
-	NO_LINK
+	NO_LINK,
+	PATH_ERROR
 };
 
 typedef struct			s_content
@@ -64,10 +66,20 @@ typedef struct			s_rooms
 	int					y;
 	int					start;
 	int					end;
+	int					occupied;		//for algo
 	t_links				*links;
 	struct s_rooms		*next;
-	//struct to hold moves if needed
+	struct s_rooms		*prev;
 }						t_rooms;
+
+typedef struct			s_queue
+{
+	t_rooms				*room;
+	int					visited;
+	int					explored;
+	struct s_queue		*next;
+	struct s_queue		*prev;
+}						t_queue;
 
 /*
 **	Reading & Basic Error Checks of Input
@@ -90,6 +102,7 @@ char					*whitespace_remover(char *str, int type, t_content **file);
 **	Erroring and Freeing
 */
 
+void					free_queue(t_queue **queue);		//for algo
 void                	free_links(t_links **links);
 void					free_rooms(t_rooms **head);
 void					free_rooms_error(t_rooms **node, int msg);
@@ -111,7 +124,16 @@ int						existing_room(t_content **file, t_rooms **head);
 int						existing_room(t_content **file, t_rooms **head);
 
 /*
-**  t_content funcs
+**	Algorithm functions
+*/
+
+void        			bigboy_algo(t_rooms **room_head);
+int						path_find(t_queue **queue, t_rooms **room_head);
+void					generate_moves(t_rooms **room_head);
+
+
+/*
+**  t_content functions
 */
 
 t_content				*init_content(t_content **file, char *line);
@@ -119,10 +141,10 @@ void					print_content(t_content **head);
 void					free_content(t_content **head);
 
 /*
-**	t_rooms funcs
+**	t_rooms functions
 */
 
-void					print_rooms(t_rooms **head);	//for debug
+void					print_rooms(t_rooms **head);		//for debug
 t_rooms					*init_rooms(t_rooms **head, char *s, int val);
 void					match_room(t_rooms **head, char *room, char *link);
 void					init_links(t_content **file, t_rooms **head);
