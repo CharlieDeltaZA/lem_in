@@ -23,8 +23,10 @@ OBJ += $(LOBJ_DIR)basic_errors_two.o $(LOBJ_DIR)error_out_one.o $(LOBJ_DIR)conte
 OBJ += $(LOBJ_DIR)rooms_ops_one.o $(LOBJ_DIR)advanced_check_one.o $(LOBJ_DIR)content_ops_two.o
 OBJ += $(LOBJ_DIR)advanced_check_two.o $(LOBJ_DIR)rooms_ops_two.o $(LOBJ_DIR)error_out_two.o
 
-OBJ_V = $(VOBJ_DIR)v_main.o $(VOBJ_DIR)v_init.o $(VOBJ_DIR)v_event.o $(VOBJ_DIR)v_drawing.o
-OBJ_V += $(VOBJ_DIR)v_helpers.o $(VOBJ_DIR)v_error.o
+OBJ_V = $(VOBJ_DIR)v_main.o $(VOBJ_DIR)v_viz.o $(VOBJ_DIR)v_event.o $(VOBJ_DIR)v_drawing.o
+OBJ_V += $(VOBJ_DIR)v_helpers.o $(VOBJ_DIR)v_error.o $(VOBJ_DIR)v_moves.o $(VOBJ_DIR)v_ants.o
+OBJ_V += $(VOBJ_DIR)v_parse.o $(VOBJ_DIR)v_valf.o $(VOBJ_DIR)v_traversal.o $(VOBJ_DIR)v_val.o
+OBJ_V += $(VOBJ_DIR)v_disp.o $(VOBJ_DIR)v_path.o $(VOBJ_DIR)v_room.o $(VOBJ_DIR)v_link.o
 
 all: $(LIB) $(NAME) #$(NAME_V)
 
