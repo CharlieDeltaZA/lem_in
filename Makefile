@@ -13,8 +13,8 @@ LSRC_DIR = ./srcs/lem_in/
 LOBJ_DIR = ./srcs/lem_in/
 VSRC_DIR = ./srcs/viz/
 VOBJ_DIR = ./srcs/viz/
-INC_DIR = ./includes/
-OPTIONS = -I$(INC_DIR) -I./libft -lft -L./libft
+INC_DIR = ./includes
+OPTIONS = -I./includes -I./libft -lft -L./libft
 LHDR = ./includes/lem_in.h
 VHDR = ./includes/viz.h
 
@@ -29,7 +29,7 @@ OBJ_V += $(VOBJ_DIR)v_helpers.o $(VOBJ_DIR)v_error.o $(VOBJ_DIR)v_moves.o $(VOBJ
 OBJ_V += $(VOBJ_DIR)v_parse.o $(VOBJ_DIR)v_valf.o $(VOBJ_DIR)v_traversal.o $(VOBJ_DIR)v_val.o
 OBJ_V += $(VOBJ_DIR)v_disp.o $(VOBJ_DIR)v_path.o $(VOBJ_DIR)v_room.o $(VOBJ_DIR)v_link.o
 
-all: $(LIB) $(NAME) #$(NAME_V)
+all: $(LIB) $(NAME) $(NAME_V)
 
 $(LIB): relib cleanlib
 	@echo "[$(LIB)] compiled"
@@ -41,9 +41,9 @@ $(NAME): $(OBJ)
 	@$(CC) -o $(NAME) $(FLAGS) $(OPTIONS) $(OBJ)
 	@echo "[$(NAME)] compiled"
 
-#$(NAME_V): $(OBJ_V)
-#	@$(CC) -o $(NAME_V) $(FLAGS) $(OPTIONS) $(OBJ_V)
-#	@echo "[$(NAME_V)] compiled"
+$(NAME_V): $(OBJ_V)
+	@$(CC) -o $(NAME_V) $(FLAGS) $(OPTIONS) $(OBJ_V)
+	@echo "[$(NAME_V)] compiled"
 
 debug: $(LIB)
 	@$(CC) -o $(NAME) $(OPTIONS) ./srcs/lem_in/*.c -g
@@ -60,7 +60,7 @@ clean:
 
 fclean: clean
 	@/bin/rm -f $(NAME)
-#	@/bin/rf -f $(NAME_V)
+	@/bin/rm -f $(NAME_V)
 	@echo "[$(NAME)] & [$(NAME_V)] removed"
 
 re: fclean all
