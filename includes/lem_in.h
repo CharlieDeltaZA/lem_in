@@ -6,7 +6,7 @@
 /*   By: jhansen <jhansen@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2019/08/26 08:40:20 by cdiogo            #+#    #+#             */
-/*   Updated: 2019/09/19 16:09:28 by jhansen          ###   ########.fr       */
+/*   Updated: 2019/09/20 11:47:18 by jhansen          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -70,7 +70,6 @@ typedef struct			s_rooms
 	int					wheight;		//for algo
 	t_links				*links;
 	struct s_rooms		*next;
-	struct s_rooms		*prev;
 }						t_rooms;
 
 typedef struct			s_queue
@@ -78,7 +77,6 @@ typedef struct			s_queue
 	t_rooms				*room;
 	int					explored;
 	struct s_queue		*next;
-	struct s_queue		*prev;
 }						t_queue;
 
 /*
@@ -131,7 +129,10 @@ void					bigboy_algo(t_rooms **room_head);
 int						path_find(t_queue **queue, t_rooms **room_head);
 void					generate_moves(t_rooms **room_head);
 t_rooms					*find_start(t_rooms **rooms);
-void					queue_links(t_queue **queue, t_rooms *rooms);
+void					queue_links(t_queue **queue, t_rooms **curr_room, int wheight);
+int						all_explored(t_rooms **rooms);
+int						queue_explored(t_queue **queue);
+t_rooms					*next_link(t_queue **queue);
 
 /*
 **  t_content functions
