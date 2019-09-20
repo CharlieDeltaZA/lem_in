@@ -6,7 +6,7 @@
 /*   By: jhansen <jhansen@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2019/09/19 15:55:29 by jhansen           #+#    #+#             */
-/*   Updated: 2019/09/20 11:54:44 by jhansen          ###   ########.fr       */
+/*   Updated: 2019/09/20 13:39:18 by jhansen          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -57,14 +57,23 @@ void			queue_links(t_queue **queue, t_rooms **curr_room, int wheight)
 			if (*queue)
 			{
 				node = create_node(room);
-				add_tail(queue, node);
+				add_tail(queue, node);     			//might be a problem with the end room
 			}
 			else
 				*queue = create_node(room);
 			link = link->next;
 		}
 	}
-	room->wheight = wheight;
+
+
+
+	ft_putstr("Wheight before: ");
+	ft_putnbr_col_fd(RED, room->wheight, 1);
+	ft_putchar('\n');
+	room->wheight = wheight;					//works here
+	ft_putstr("Wheight after: ");
+	ft_putnbr_col_fd(RED, room->wheight, 1);
+	ft_putchar('\n');
 }
 
 t_rooms		*next_link(t_queue **queue)
@@ -76,7 +85,7 @@ t_rooms		*next_link(t_queue **queue)
 	{
 		if (temp->explored == 0)
 		{
-			temp->explored = 1;
+			temp->explored = 1;			//might be a problem with the end room
 			return (temp->room);
 		}
 		temp = temp->next;

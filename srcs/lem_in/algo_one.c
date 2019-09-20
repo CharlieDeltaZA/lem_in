@@ -6,7 +6,7 @@
 /*   By: jhansen <jhansen@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2019/09/19 11:27:07 by jhansen           #+#    #+#             */
-/*   Updated: 2019/09/20 11:51:42 by jhansen          ###   ########.fr       */
+/*   Updated: 2019/09/20 13:37:36 by jhansen          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -38,6 +38,8 @@ int			all_explored(t_rooms **rooms)
 		temp = *rooms;
 		while (temp != NULL)
 		{
+			ft_putnbr_col_fd(YELLOW, temp->wheight, 1);
+			ft_putchar('\n');
 			if (temp->wheight == 0)
 				return (0);
 			temp = temp->next;
@@ -57,10 +59,15 @@ int			path_find(t_queue **queue, t_rooms **room_head)
 		return (0);
 	while (all_explored(room_head) == 0)
 	{
-		write(1, "1\n", 2);
+		ft_putendl_col_fd(GREEN, "In while loop", 1);
 		queue_links(queue, &room, ++wheight);			//this will find the links attached to the room and add it to the queue. 
 														//In queue_links we set the room wheight. So each time all_explored is called it will see if every room has a wheight.
 		room = next_link(queue);						//this will find the next room in the queue and return it. It will set the room node in queue struct variable - explored = 1
+		ft_putnbr_col_fd(CYAN, room->wheight, 1);
+		ft_putchar('\n');
+
+
+
 		if (room == NULL)
 		{
 			if (all_explored(room_head) == 0)
@@ -71,6 +78,6 @@ int			path_find(t_queue **queue, t_rooms **room_head)
 	if (queue_explored(queue))
 		free_queue(queue);
 	else
-		ft_putendl_col_fd(CYAN, "MORE ALGO", 1);
+		ft_putendl_col_fd(CYAN, "MORE ALGO NEEDED", 1);
 	return (1);
 }
