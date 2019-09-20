@@ -29,7 +29,7 @@ OBJ_V += $(VOBJ_DIR)v_helpers.o $(VOBJ_DIR)v_error.o $(VOBJ_DIR)v_moves.o $(VOBJ
 OBJ_V += $(VOBJ_DIR)v_parse.o $(VOBJ_DIR)v_valf.o $(VOBJ_DIR)v_traversal.o $(VOBJ_DIR)v_val.o
 OBJ_V += $(VOBJ_DIR)v_disp.o $(VOBJ_DIR)v_path.o $(VOBJ_DIR)v_room.o $(VOBJ_DIR)v_link.o
 
-all: $(LIB) $(NAME) $(NAME_V)
+all: $(LIB) $(NAME)# $(NAME_V)
 
 $(LIB): relib cleanlib
 	@echo "[$(LIB)] compiled"
