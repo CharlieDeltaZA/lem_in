@@ -6,7 +6,7 @@
 /*   By: jhansen <jhansen@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2019/09/19 15:55:29 by jhansen           #+#    #+#             */
-/*   Updated: 2019/09/19 16:16:17 by jhansen          ###   ########.fr       */
+/*   Updated: 2019/09/20 11:54:44 by jhansen          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -41,25 +41,59 @@ static t_queue	*create_node(t_rooms *room)
 	return (node);
 }
 
-void			queue_links(t_queue **queue, t_rooms *rooms)
+void			queue_links(t_queue **queue, t_rooms **curr_room, int wheight)
 {
 	t_queue	*node;
 	t_links	*link;
+	t_rooms	*room;
 
+	room = *curr_room;
 	link = NULL;
-	if (rooms->links)
+	if (room->links)
 	{
-		link = rooms->links;
+		link = room->links;
 		while (link != NULL)
 		{
 			if (*queue)
 			{
-				node = create_node(rooms);
+				node = create_node(room);
 				add_tail(queue, node);
 			}
 			else
-				*queue = create_node(rooms);
+				*queue = create_node(room);
 			link = link->next;
 		}
 	}
+	room->wheight = wheight;
+}
+
+t_rooms		*next_link(t_queue **queue)
+{
+	t_queue	*temp;
+
+	temp = *queue;
+	while (temp != NULL)
+	{
+		if (temp->explored == 0)
+		{
+			temp->explored = 1;
+			return (temp->room);
+		}
+		temp = temp->next;
+	}
+	return (NULL);
+}
+
+int			queue_explored(t_queue **queue)
+{
+	t_queue	*temp;
+
+	temp = *queue;
+	while (temp != NULL)
+	{
+		if (temp->explored == 0)
+			return (0);
+		temp = temp->next;
+	}
+	return (1);
 }

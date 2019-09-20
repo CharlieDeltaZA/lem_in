@@ -6,7 +6,7 @@
 /*   By: jhansen <jhansen@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2019/09/19 11:27:07 by jhansen           #+#    #+#             */
-/*   Updated: 2019/09/19 16:18:24 by jhansen          ###   ########.fr       */
+/*   Updated: 2019/09/20 11:51:42 by jhansen          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -38,7 +38,7 @@ int			all_explored(t_rooms **rooms)
 		temp = *rooms;
 		while (temp != NULL)
 		{
-			if (temp->wheight < 1)
+			if (temp->wheight == 0)
 				return (0);
 			temp = temp->next;
 		}
@@ -55,28 +55,22 @@ int			path_find(t_queue **queue, t_rooms **room_head)
 	room = find_start(room_head);
 	if (room == NULL)
 		return (0);
-	room->wheight = ++wheight;
 	while (all_explored(room_head) == 0)
 	{
-		queue_links(queue, room);  		//1 means it's the start (will auto set explored and visisted to 1)
+		write(1, "1\n", 2);
+		queue_links(queue, &room, ++wheight);			//this will find the links attached to the room and add it to the queue. 
+														//In queue_links we set the room wheight. So each time all_explored is called it will see if every room has a wheight.
+		room = next_link(queue);						//this will find the next room in the queue and return it. It will set the room node in queue struct variable - explored = 1
+		if (room == NULL)
+		{
+			if (all_explored(room_head) == 0)
+				ft_putendl_col_fd(RED, "Error: Queue has been explored but all rooms haven't been", 1);		//for debug
+			break ;
+		}
 	}
-
-
-
-	// ft_putendl(room->name);
-	// ft_putnbr_nl(room->start);
-	// ft_putnbr_nl(room->end);
-	// ft_putnbr_nl(room->wheight);
-	// t_queue	*temp;
-	// temp = *queue;
-	// while (temp)
-	// {
-	// 	ft_putendl(temp->room->name);
-	// 	ft_putnbr_nl(temp->explored);
-	// 	temp = temp->next;
-	// }
-
-
-
+	if (queue_explored(queue))
+		free_queue(queue);
+	else
+		ft_putendl_col_fd(CYAN, "MORE ALGO", 1);
 	return (1);
 }
