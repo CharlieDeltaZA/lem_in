@@ -11,4 +11,4 @@ TBD/25
 Summary: This project revolves around an ant farm. The algorithm will find the shortest path for the ants to follow to reach the end room from the start room.
 
 ### Installing:
-This project requires SDL for visualizing. You can run the provided shell file to install brew as well as install all SDL Dependencies.
+This project requires SDL for visualizing. You can run the provided `bootstrap.sh` file to install brew as well as install all SDL Dependencies.
