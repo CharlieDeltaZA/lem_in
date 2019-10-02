@@ -3,10 +3,10 @@
 /*                                                        :::      ::::::::   */
 /*   algo_one.c                                         :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: jhansen <jhansen@student.42.fr>            +#+  +:+       +#+        */
+/*   By: jhansen <jhansen@student.wethinkcode.co    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2019/09/19 11:27:07 by jhansen           #+#    #+#             */
-/*   Updated: 2019/09/20 13:37:36 by jhansen          ###   ########.fr       */
+/*   Updated: 2019/10/03 00:39:20 by jhansen          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -16,9 +16,9 @@ t_rooms		*find_start(t_rooms **rooms)
 {
     t_rooms	*head;
 
-	if (*rooms)
+	head = *rooms;
+	if (head)
 	{
-		head = *rooms;
     	while (head != NULL)
     	{
  			if (head->start == 1)
@@ -29,18 +29,19 @@ t_rooms		*find_start(t_rooms **rooms)
 	return (NULL);
 }
 
-int			all_explored(t_rooms **rooms)
+int			queue_explored(t_queue **queue)
 {
-	t_rooms	*temp;
+	t_queue	*temp;
 
-	if (*rooms)
+	temp = *queue;
+	if (temp)
 	{
-		temp = *rooms;
 		while (temp != NULL)
 		{
-			ft_putnbr_col_fd(YELLOW, temp->wheight, 1);
-			ft_putchar('\n');
-			if (temp->wheight == 0)
+			ft_putstr_col_fd(YELLOW, "Explored status: ", 1);	//
+			ft_putnbr_col_fd(YELLOW, temp->explored, 1);		//
+			ft_putchar('\n');									//
+			if (temp->explored == 0)
 				return (0);
 			temp = temp->next;
 		}
@@ -48,36 +49,52 @@ int			all_explored(t_rooms **rooms)
 	return (1);
 }
 
+void		add_weights(t_queue **queue)
+{
+	t_queue	*q_temp;
+
+	q_temp = *queue;
+	if (q_temp)
+	{
+		while (q_temp != NULL)
+		{
+			if (q_temp->room->weight != 0)
+				q_temp->room->weight = q_temp->weight;
+			q_temp = q_temp->next;
+		}
+	}
+	else
+		ft_putstr_col_fd(RED, "No queue found!! In add_weight function\n", 1);	//debug
+}
+
 int			path_find(t_queue **queue, t_rooms **room_head)
 {
 	t_rooms	*room;
-	int		wheight;
 
-	wheight = 0;
 	room = find_start(room_head);
 	if (room == NULL)
 		return (0);
-	while (all_explored(room_head) == 0)
+	queue_start(queue, &room);
+	while (queue_explored(queue) == 0)
 	{
-		ft_putendl_col_fd(GREEN, "In while loop", 1);
-		queue_links(queue, &room, ++wheight);			//this will find the links attached to the room and add it to the queue. 
-														//In queue_links we set the room wheight. So each time all_explored is called it will see if every room has a wheight.
-		room = next_link(queue);						//this will find the next room in the queue and return it. It will set the room node in queue struct variable - explored = 1
-		ft_putnbr_col_fd(CYAN, room->wheight, 1);
-		ft_putchar('\n');
-
-
-
-		if (room == NULL)
-		{
-			if (all_explored(room_head) == 0)
-				ft_putendl_col_fd(RED, "Error: Queue has been explored but all rooms haven't been", 1);		//for debug
-			break ;
-		}
+		room = next_link(queue);					//this will find the next room in the queue and return it. 
+													//It will set the node in queue struct variable - explored = 1
+		queue_links(queue, &room);					//this will ADD links to the queue from a room node.
+													//In queue_links the new links weight is set as the origin room's weight + 1
+		ft_putstr_col_fd(GREEN, "loop\n", 1);
 	}
-	if (queue_explored(queue))
-		free_queue(queue);
-	else
-		ft_putendl_col_fd(CYAN, "MORE ALGO NEEDED", 1);
+	add_weights(queue);			//not working? or its the printing?
+
+	room = *room_head;								//debug
+	while (room != NULL)
+	{
+		ft_putstr_col_fd(YELLOW, room->name, 1);
+		ft_putstr_col_fd(YELLOW, " room's weight : ", 1);
+		ft_putnbr_col_fd(YELLOW, room->weight, 1);
+		ft_putchar('\n');
+		room = room->next;
+	}												//
+
+	free_queue(queue);
 	return (1);
 }

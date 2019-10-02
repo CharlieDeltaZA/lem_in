@@ -3,10 +3,10 @@
 /*                                                        :::      ::::::::   */
 /*   rooms_ops_one.c                                    :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: jhansen <jhansen@student.42.fr>            +#+  +:+       +#+        */
+/*   By: jhansen <jhansen@student.wethinkcode.co    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2019/08/22 12:20:31 by cdiogo            #+#    #+#             */
-/*   Updated: 2019/09/19 15:14:47 by jhansen          ###   ########.fr       */
+/*   Updated: 2019/10/02 21:46:07 by jhansen          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -23,7 +23,7 @@ static t_rooms		*create_node(char *line, int xcoord, int ycoord, int val)
 		node->x = xcoord;
 		node->y = ycoord;
 		node->links = NULL;
-		node->wheight = 0;
+		node->weight = 0;
 		node->occupied = 0;
 		if (val == 1)
 		{

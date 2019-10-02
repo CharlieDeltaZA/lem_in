@@ -3,10 +3,10 @@
 /*                                                        :::      ::::::::   */
 /*   lem_in.h                                           :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: jhansen <jhansen@student.42.fr>            +#+  +:+       +#+        */
+/*   By: jhansen <jhansen@student.wethinkcode.co    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2019/08/26 08:40:20 by cdiogo            #+#    #+#             */
-/*   Updated: 2019/09/20 11:47:18 by jhansen          ###   ########.fr       */
+/*   Updated: 2019/10/03 00:17:13 by jhansen          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -67,7 +67,7 @@ typedef struct			s_rooms
 	int					start;
 	int					end;
 	int					occupied;		//for algo
-	int					wheight;		//for algo
+	int					weight;			//for algo
 	t_links				*links;
 	struct s_rooms		*next;
 }						t_rooms;
@@ -76,6 +76,7 @@ typedef struct			s_queue
 {
 	t_rooms				*room;
 	int					explored;
+	int					weight;
 	struct s_queue		*next;
 }						t_queue;
 
@@ -129,10 +130,12 @@ void					bigboy_algo(t_rooms **room_head);
 int						path_find(t_queue **queue, t_rooms **room_head);
 void					generate_moves(t_rooms **room_head);
 t_rooms					*find_start(t_rooms **rooms);
-void					queue_links(t_queue **queue, t_rooms **curr_room, int wheight);
-int						all_explored(t_rooms **rooms);
+void					queue_start(t_queue **queue, t_rooms **start);
+void					queue_links(t_queue **queue, t_rooms **curr_room);
+int						already_queued(t_queue **queue, char *room_name);
 int						queue_explored(t_queue **queue);
 t_rooms					*next_link(t_queue **queue);
+void					add_weights(t_queue **queue);
 
 /*
 **  t_content functions
