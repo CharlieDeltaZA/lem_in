@@ -6,7 +6,7 @@
 /*   By: jhansen <jhansen@student.wethinkcode.co    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2019/08/13 16:19:08 by cdiogo            #+#    #+#             */
-/*   Updated: 2019/10/02 11:14:49 by jhansen          ###   ########.fr       */
+/*   Updated: 2019/10/03 13:57:29 by jhansen          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -37,7 +37,7 @@ int		main(void)
 
 	rooms = read_map();
 	print_rooms(&rooms); 		// debug purposes
-	bigboy_algo(&rooms);
+	//bigboy_algo(&rooms);
 	free_rooms(&rooms);
 	//while(1);					//tests for leaks at the end
 	return (0);

@@ -3,10 +3,10 @@
 /*                                                        :::      ::::::::   */
 /*   rooms_ops_two.c                                    :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: jhansen <jhansen@student.42.fr>            +#+  +:+       +#+        */
+/*   By: jhansen <jhansen@student.wethinkcode.co    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2019/09/12 13:15:28 by jhansen           #+#    #+#             */
-/*   Updated: 2019/09/18 11:42:49 by jhansen          ###   ########.fr       */
+/*   Updated: 2019/10/03 14:25:17 by jhansen          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -41,6 +41,23 @@ static void			add_node(t_links **head, t_links *node)
 	}
 }
 
+int				dup_link_check(t_links **head, char *link)
+{
+	t_links	*temp;
+
+	temp = *head;
+	if (temp && link)
+	{
+		while (temp != NULL)
+		{
+			if (ft_strequ(temp->room, link))
+				return (1);
+			temp = temp->next;
+		}
+	}
+	return (0);
+}
+
 void			match_room(t_rooms **head, char *room, char *link)
 {
 	t_rooms	*temp;
@@ -55,8 +72,11 @@ void			match_room(t_rooms **head, char *room, char *link)
 			{
 				if (temp->links)
 				{
-					node = create_node(link);
-					add_node(&temp->links, node);
+					if (dup_link_check(&temp->links, link) == 0)
+					{
+						node = create_node(link);
+						add_node(&temp->links, node);
+					}
 				}
 				else
 					temp->links = create_node(link);
@@ -79,7 +99,8 @@ void			init_links(t_content **file, t_rooms **head)
 			if ((word_count(temp->content) == 1) && is_link(temp->content))
 			{
 				arr = ft_strsplit(temp->content, '-');
-				match_room(head, arr[0], arr[1]);	
+				match_room(head, arr[0], arr[1]);
+				match_room(head, arr[1], arr[0]);
 				free(arr[0]);
 				free(arr[1]);
 				free(arr);
