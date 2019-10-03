@@ -6,7 +6,7 @@
 /*   By: jhansen <jhansen@student.wethinkcode.co    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2019/09/19 11:27:07 by jhansen           #+#    #+#             */
-/*   Updated: 2019/10/03 00:39:20 by jhansen          ###   ########.fr       */
+/*   Updated: 2019/10/03 11:36:23 by jhansen          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -64,7 +64,7 @@ void		add_weights(t_queue **queue)
 		}
 	}
 	else
-		ft_putstr_col_fd(RED, "No queue found!! In add_weight function\n", 1);	//debug
+		ft_putstr_col_fd(RED, "No queue found!! In add_weight function\n", 1);	//
 }
 
 int			path_find(t_queue **queue, t_rooms **room_head)
@@ -85,7 +85,10 @@ int			path_find(t_queue **queue, t_rooms **room_head)
 	}
 	add_weights(queue);			//not working? or its the printing?
 
+
+
 	room = *room_head;								//debug
+	ft_putchar('\n');
 	while (room != NULL)
 	{
 		ft_putstr_col_fd(YELLOW, room->name, 1);
@@ -94,6 +97,8 @@ int			path_find(t_queue **queue, t_rooms **room_head)
 		ft_putchar('\n');
 		room = room->next;
 	}												//
+
+
 
 	free_queue(queue);
 	return (1);

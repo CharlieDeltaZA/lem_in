@@ -6,7 +6,7 @@
 /*   By: jhansen <jhansen@student.wethinkcode.co    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2019/09/19 15:55:29 by jhansen           #+#    #+#             */
-/*   Updated: 2019/10/03 00:40:01 by jhansen          ###   ########.fr       */
+/*   Updated: 2019/10/03 11:45:59 by jhansen          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -74,43 +74,46 @@ void		queue_start(t_queue **queue, t_rooms **start)
 void			queue_links(t_queue **queue, t_rooms **curr_room)
 {
 	t_queue	*node;
-	t_rooms	*room;
+	t_rooms	*curr;
 
-	room = *curr_room;
-	if (room && room->links)
+	curr = *curr_room;
+	if (curr && curr->links)
 	{
-		while (room->links != NULL)
+		while (curr->links != NULL)
 		{
-			if (already_queued(queue, room->links->room) == 0)
+			if (already_queued(queue, curr->links->room) == 0)
 			{
 				if (*queue)
 				{
-					node = create_node(room, room->weight);
+					node = create_node(curr, curr->weight);
 					add_tail(queue, node);
+					ft_putstr_col_fd(BLUE, "Added room : ", 1);
+					ft_putstr_col_fd(BLUE, curr->links->room, 1);
+					ft_putchar('\n');
 				}
 				else
-					*queue = create_node(room, room->weight);
+					*queue = create_node(curr, curr->weight);
 			}
-			room->links = room->links->next;
+			curr->links = curr->links->next;
 		}
 	}
 }
 
 t_rooms		*next_link(t_queue **queue)
 {
-	t_queue	*temp;
-
-	temp = *queue;
-	if (temp)
+	if (*queue)
 	{
-		while (temp != NULL)
+		while ((*queue) != NULL)
 		{
-			if (temp->explored == 0)
+			if ((*queue)->explored == 0)
 			{
-				temp->explored = 1;
-				return (temp->room);
+				ft_putstr_col_fd(CYAN, "Unexplored room : ", 1);
+				ft_putstr_col_fd(CYAN, (*queue)->room->name, 1);
+				ft_putchar('\n');
+				(*queue)->explored = 1;
+				return ((*queue)->room);
 			}
-			temp = temp->next;
+			(*queue) = (*queue)->next;
 		}
 	}
 	return (NULL);
