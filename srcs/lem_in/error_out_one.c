@@ -3,10 +3,10 @@
 /*                                                        :::      ::::::::   */
 /*   error_out_one.c                                    :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: jhansen <jhansen@student.42.fr>            +#+  +:+       +#+        */
+/*   By: jhansen <jhansen@student.wethinkcode.co    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2019/08/20 10:43:46 by cdiogo            #+#    #+#             */
-/*   Updated: 2019/09/20 11:20:56 by jhansen          ###   ########.fr       */
+/*   Updated: 2019/10/04 22:50:54 by jhansen          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -68,25 +68,5 @@ void	free_content(t_content **head)
 			current = next;
 		}
 		*head = NULL;
-	}
-}
-
-void	free_queue(t_queue **queue)
-{
-	t_queue	*temp;
-	t_queue	*next;
-
-	temp = NULL;
-	next = NULL;
-	if (*queue)
-	{
-		temp = *queue;
-		while (temp != NULL)
-		{
-			next = temp->next;
-			free(temp);
-			temp = next;
-		}
-		*queue = NULL;
 	}
 }

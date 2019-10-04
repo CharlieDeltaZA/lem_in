@@ -6,7 +6,7 @@
 /*   By: jhansen <jhansen@student.wethinkcode.co    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2019/08/22 12:20:31 by cdiogo            #+#    #+#             */
-/*   Updated: 2019/10/02 21:46:07 by jhansen          ###   ########.fr       */
+/*   Updated: 2019/10/04 23:51:50 by jhansen          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -40,6 +40,7 @@ static t_rooms		*create_node(char *line, int xcoord, int ycoord, int val)
 			node->start = 0;
 			node->end = 0;			
 		}
+		node->prev = NULL;
 		node->next = NULL;
 	}
 	return (node);
@@ -57,6 +58,7 @@ static void			add_tail(t_rooms **head, t_rooms *node)
 		while (tmp->next)
 			tmp = tmp->next;
 		tmp->next = node;
+		node->prev = tmp;
 	}
 }
 
@@ -102,19 +104,19 @@ void		print_rooms(t_rooms **head)
 				temp_l = temp->links;
 				while (temp_l != NULL)
 				{
-					if (temp_l->room)
-						ft_putstr_col_fd(GREEN, temp_l->room, 1);
+					if (temp_l->name)
+						ft_putstr_col_fd(GREEN, temp_l->name, 1);
 					if (temp_l->next != NULL)
 						ft_putstr(", ");
 					temp_l = temp_l->next;
 				}
 			}
-			ft_putchar('\n');
-			ft_putstr("X: ");
+			ft_putstr("\nX: ");
 			ft_putnbr_col_fd(BLUE, temp->x, 1);
-			ft_putchar('\n');
-			ft_putstr("Y: ");
+			ft_putstr("\nY: ");
 			ft_putnbr_col_fd(BLUE, temp->y, 1);
+			ft_putstr("\nWeight:");
+			ft_putnbr(temp->weight);
 			ft_putchar('\n');
 			if (temp->start == 1)
 			{

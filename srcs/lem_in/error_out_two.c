@@ -3,10 +3,10 @@
 /*                                                        :::      ::::::::   */
 /*   error_out_two.c                                    :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: jhansen <jhansen@student.42.fr>            +#+  +:+       +#+        */
+/*   By: jhansen <jhansen@student.wethinkcode.co    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2019/09/17 12:08:43 by jhansen           #+#    #+#             */
-/*   Updated: 2019/09/19 11:00:23 by jhansen          ###   ########.fr       */
+/*   Updated: 2019/10/04 23:48:26 by jhansen          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -25,14 +25,13 @@ void                free_links(t_links **links)
 	t_links	*next;
 
 	next = NULL;
-	if (*links)
+	temp = *links;
+	if (temp)
 	{
-		temp = *links;
 		while (temp != NULL)
 		{
 			next = temp->next;
-			if (temp->room != NULL)
-				free(temp->room);
+			free(temp->name);
 			free(temp);
             temp = next;
 		}

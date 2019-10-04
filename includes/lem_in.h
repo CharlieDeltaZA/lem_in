@@ -6,7 +6,7 @@
 /*   By: jhansen <jhansen@student.wethinkcode.co    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2019/08/26 08:40:20 by cdiogo            #+#    #+#             */
-/*   Updated: 2019/10/03 14:25:51 by jhansen          ###   ########.fr       */
+/*   Updated: 2019/10/04 23:33:59 by jhansen          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -53,11 +53,10 @@ typedef struct			s_content
 
 typedef struct			s_links
 {
-	char				*room;
+	char				*name;
+	struct s_rooms		*room;
 	struct s_links		*next;
-	struct s_links		*prev;		//is this needed??
 }						t_links;
-
 
 typedef struct			s_rooms
 {
@@ -70,13 +69,12 @@ typedef struct			s_rooms
 	int					weight;
 	t_links				*links;
 	struct s_rooms		*next;
+	struct s_rooms		*prev;
 }						t_rooms;
 
 typedef struct			s_queue
 {
 	t_rooms				*room;
-	int					explored;
-	int					weight;
 	struct s_queue		*next;
 }						t_queue;
 
@@ -101,7 +99,6 @@ char					*whitespace_remover(char *str, int type, t_content **file);
 **	Erroring and Freeing
 */
 
-void					free_queue(t_queue **queue);
 void                	free_links(t_links **links);
 void					free_rooms(t_rooms **head);
 void					free_rooms_error(t_rooms **node, int msg);
@@ -127,20 +124,18 @@ int						existing_room(t_content **file, t_rooms **head);
 */
 
 void					bigboy_algo(t_rooms **room_head);
-int						path_find(t_queue **queue, t_rooms **room_head);
+int						path_find(t_rooms **room_head);
 void					generate_moves(t_rooms **room_head);
-t_rooms					*find_start(t_rooms **rooms);
-void					add_weights(t_queue **queue);
 
 /*
 **	t_queue functions (for algo)
 */
 
-void					queue_start(t_queue **queue, t_rooms **start);
-void					queue_links(t_queue **queue, t_rooms **curr_room);
-int						already_queued(t_queue **queue, char *room_name);
-int						queue_explored(t_queue **queue);
-t_rooms					*next_link(t_queue **queue);
+t_queue					*queue_node(t_rooms *room);
+void					queue_add(t_queue *queue, t_rooms *room);
+t_rooms					*find_start(t_rooms **rooms);
+void					queue_remove(t_queue **queue);
+void					free_queue(t_queue **queue);
 
 /*
 **  t_content functions
@@ -157,6 +152,7 @@ void					free_content(t_content **head);
 void					print_rooms(t_rooms **head);		//for debug
 t_rooms					*init_rooms(t_rooms **head, char *s, int val);
 int						dup_link_check(t_links **head, char *link);
+t_rooms					*find_room(t_rooms *room, char *name);
 void					match_room(t_rooms **head, char *room, char *link);
 void					init_links(t_content **file, t_rooms **head);
 
