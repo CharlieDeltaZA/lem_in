@@ -6,11 +6,16 @@
 /*   By: jhansen <jhansen@student.wethinkcode.co    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2019/09/19 11:27:07 by jhansen           #+#    #+#             */
-/*   Updated: 2019/10/04 23:43:05 by jhansen          ###   ########.fr       */
+/*   Updated: 2019/10/05 00:06:36 by jhansen          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "../../includes/lem_in.h"
+
+// void		generate_moves(t_rooms **room_head)
+// {
+	
+// }
 
 int			path_find(t_rooms **room_head)
 {
