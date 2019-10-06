@@ -6,7 +6,7 @@
 /*   By: jhansen <jhansen@student.wethinkcode.co    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2019/09/12 13:15:28 by jhansen           #+#    #+#             */
-/*   Updated: 2019/10/04 23:25:57 by jhansen          ###   ########.fr       */
+/*   Updated: 2019/10/06 13:54:42 by jhansen          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -21,20 +21,6 @@ t_rooms				*find_room(t_rooms *room, char *name)
 		room = room->next;
 	}
 	return (room);
-}
-
-static t_links		*create_node(t_rooms *room, char *line)
-{
-	t_links	*node;
-
-	node = (t_links *)malloc(sizeof(t_links));
-	if (node)
-	{
-		node->name = ft_strdup(line);
-		node->next = NULL;
-		node->room = find_room(room, node->name);	//write this function
-	}
-	return (node);
 }
 
 int				dup_link_check(t_links **head, char *link)
@@ -54,6 +40,20 @@ int				dup_link_check(t_links **head, char *link)
 	return (0);
 }
 
+static t_links		*create_node(t_rooms *room, char *line)
+{
+	t_links	*node;
+
+	node = (t_links *)malloc(sizeof(t_links));
+	if (node)
+	{
+		node->name = ft_strdup(line);
+		node->next = NULL;
+		node->room = find_room(room, node->name);
+	}
+	return (node);
+}
+
 void			match_room(t_rooms **head, char *room, char *link)
 {
 	t_rooms	*node;
@@ -69,7 +69,7 @@ void			match_room(t_rooms **head, char *room, char *link)
 			node->links = create_node((*head), link);
 			return ;
 		}
-		if (dup_link_check(&node->links, link) == 0)	//should we error when dup found? Cameron does
+		if (dup_link_check(&node->links, link) == 0)
 		{
 			tmp_link = node->links;
 			while (tmp_link->next)
@@ -93,6 +93,7 @@ void			init_links(t_content **file, t_rooms **head)
 			{
 				arr = ft_strsplit(temp->content, '-');
 				match_room(head, arr[0], arr[1]);
+				match_room(head, arr[1], arr[0]);
 				free(arr[0]);
 				free(arr[1]);
 				free(arr);

@@ -6,7 +6,7 @@
 /*   By: jhansen <jhansen@student.wethinkcode.co    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2019/08/22 12:20:31 by cdiogo            #+#    #+#             */
-/*   Updated: 2019/10/05 00:05:18 by jhansen          ###   ########.fr       */
+/*   Updated: 2019/10/06 13:55:27 by jhansen          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -85,7 +85,7 @@ t_rooms		*init_rooms(t_rooms **head, char *s, int val)
 	return (*head);
 }
 
-void		print_rooms(t_rooms **head)
+void		print_rooms(t_rooms **head)		//debugging
 {
 	t_rooms	*temp;
 	t_links	*temp_l;
@@ -116,7 +116,7 @@ void		print_rooms(t_rooms **head)
 			ft_putstr("\nY: ");
 			ft_putnbr_col_fd(BLUE, temp->y, 1);
 			ft_putstr("\nWeight:");
-			ft_putnbr(temp->weight);
+			ft_putnbr_col_fd(RED, temp->weight, 1);
 			ft_putchar('\n');
 			if (temp->start == 1)
 			{

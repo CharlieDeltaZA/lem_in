@@ -3,10 +3,10 @@
 /*                                                        :::      ::::::::   */
 /*   advanced_check_one.c                               :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: jhansen <jhansen@student.42.fr>            +#+  +:+       +#+        */
+/*   By: jhansen <jhansen@student.wethinkcode.co    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2019/08/30 12:45:52 by jhansen           #+#    #+#             */
-/*   Updated: 2019/09/19 10:59:56 by jhansen          ###   ########.fr       */
+/*   Updated: 2019/10/06 12:25:59 by jhansen          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -129,7 +129,7 @@ int		advanced_check_and_fill(t_content **file, t_rooms **head)
 	{
 		*head = filler(file, head);
 		ft_putendl_col_fd(RED, "Filled room struct", 1);		//
-		if (*head && duplicate_rooms(head) && is_endstart(head) && duplicate_link(file))
+		if (head && duplicate_rooms(head) && is_endstart(head) && duplicate_link(file))
 		{
 			ft_putendl_col_fd(RED, "DONE MAIN CHECKS", 1);		//
 			if (*head && existing_room(file, head))

@@ -6,7 +6,7 @@
 /*   By: jhansen <jhansen@student.wethinkcode.co    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2019/08/26 08:40:20 by cdiogo            #+#    #+#             */
-/*   Updated: 2019/10/04 23:33:59 by jhansen          ###   ########.fr       */
+/*   Updated: 2019/10/06 14:05:18 by jhansen          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -17,9 +17,7 @@
 # define MAX 2147483647
 # define MIN -2147483648
 
-// DEBUGGING VVV
-# include <stdio.h>
-// DEBUGGING ^^^
+# include <stdio.h>		//DEBUGGING
 
 /*
 ** Macros
@@ -78,6 +76,12 @@ typedef struct			s_queue
 	struct s_queue		*next;
 }						t_queue;
 
+typedef struct			s_path
+{
+	char				*name;
+	struct s_path		*next;
+}						t_path;
+
 /*
 **	Reading & Basic Error Checks of Input
 */
@@ -96,11 +100,9 @@ int						dash_check(char *str);
 char					*whitespace_remover(char *str, int type, t_content **file);
 
 /*
-**	Erroring and Freeing
+**	Erroring
 */
 
-void                	free_links(t_links **links);
-void					free_rooms(t_rooms **head);
 void					free_rooms_error(t_rooms **node, int msg);
 void					free_content_error(t_content **node, int msg);
 void					error_out(int code);
@@ -109,7 +111,6 @@ void					error_out(int code);
 **	Advanced Error Checking
 */
 
-t_rooms					*filler(t_content **file, t_rooms **head);
 int						advanced_check_and_fill(t_content **file, t_rooms **head);
 int						check_for_ant(t_content **head);
 int						duplicate_rooms(t_rooms **rooms);
@@ -117,7 +118,7 @@ int						double_check(char *current, char *temp);
 int						duplicate_link(t_content **file);
 int						is_endstart(t_rooms **rooms);
 int						existing_room(t_content **file, t_rooms **head);
-int						existing_room(t_content **file, t_rooms **head);
+int						dup_link_check(t_links **head, char *link);
 
 /*
 **	Algorithm functions
@@ -125,10 +126,19 @@ int						existing_room(t_content **file, t_rooms **head);
 
 void					bigboy_algo(t_rooms **room_head);
 int						path_find(t_rooms **room_head);
+t_path					*generate_path(t_rooms *room_head);
 void					generate_moves(t_rooms **room_head);
 
 /*
-**	t_queue functions (for algo)
+**	t_path function
+*/
+
+void					path_correction(t_path **path);
+void					add_path(t_path **path, char *room);
+void					free_path(t_path **path);
+
+/*
+**	t_queue functions
 */
 
 t_queue					*queue_node(t_rooms *room);
@@ -149,11 +159,16 @@ void					free_content(t_content **head);
 **	t_rooms functions
 */
 
-void					print_rooms(t_rooms **head);		//for debug
+t_rooms					*filler(t_content **file, t_rooms **head);
 t_rooms					*init_rooms(t_rooms **head, char *s, int val);
-int						dup_link_check(t_links **head, char *link);
 t_rooms					*find_room(t_rooms *room, char *name);
 void					match_room(t_rooms **head, char *room, char *link);
 void					init_links(t_content **file, t_rooms **head);
+void                	free_links(t_links **links);
+void					free_rooms(t_rooms **head);
+
+
+void					print_rooms(t_rooms **head);		//debug
+void					print_path(t_path **path);			//debug
 
 #endif
