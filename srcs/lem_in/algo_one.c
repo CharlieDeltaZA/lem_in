@@ -3,19 +3,58 @@
 /*                                                        :::      ::::::::   */
 /*   algo_one.c                                         :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: jhansen <jhansen@student.wethinkcode.co    +#+  +:+       +#+        */
+/*   By: jhansen <jhansen@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2019/09/19 11:27:07 by jhansen           #+#    #+#             */
-/*   Updated: 2019/10/06 14:04:56 by jhansen          ###   ########.fr       */
+/*   Updated: 2019/12/03 16:43:56 by jhansen          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "../../includes/lem_in.h"
 
-// void		generate_moves(t_rooms **room_head)
-// {
-// 	return ;
-// }
+static void		attack(t_ant **ants, t_rooms **rooms, int total)
+{
+	t_rooms	*end;
+	int		i;
+
+	i = 0;
+	end = *rooms;
+	while (end && end->end != 1)
+		end = end->next;
+	while (end->ant_count != total)
+	{
+		while (i < total)
+			display_ants(ants[i++], rooms);
+		ft_putendl("");
+	}
+}
+
+void		generate_moves(t_path *path, t_rooms **room_head)
+{
+	t_ant	**ants;
+	t_rooms	*temp;
+	int		i;
+	int		total;
+	
+	temp = find_start(room_head);
+	total = temp->ant_count;
+	i = 1;
+	if ((ants = (t_ant **)malloc(sizeof(t_ant *) * total))) {
+		while (i <= total) 
+		{
+			ants[i - 1] = (t_ant *)malloc(sizeof(t_ant));
+			ants[i - 1]->ant_num = i;
+			ants[i - 1]->curr_path = path->name;
+			ants[i - 1]->path = path;
+			i++;
+		}
+	}
+	attack(ants, room_head, total);
+	i = 0;
+	while (i < total)
+		free(ants[i++]);
+	free(ants);
+}
 
 t_path		*generate_path(t_rooms *start)
 {
