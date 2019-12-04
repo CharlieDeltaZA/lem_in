@@ -6,7 +6,7 @@
 /*   By: jhansen <jhansen@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2019/09/19 11:27:07 by jhansen           #+#    #+#             */
-/*   Updated: 2019/12/04 12:14:27 by jhansen          ###   ########.fr       */
+/*   Updated: 2019/12/04 12:33:18 by jhansen          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -19,13 +19,13 @@ void		attack(t_ant **ants, t_rooms **rooms, int total)
 
 	i = 0;
 	end = *rooms;
-	while (end && end->end != 1)
+	while (end && end->end != 1)		// finds the end roo,
 		end = end->next;
-	while (end->ant_count != total)
+	while (end->ant_count != total)		// executes as long as the total ants in the end room is not all ants
 	{
 		i = 0;
 		while (i < total)
-			display_ants(ants[i++], rooms);
+			display_ants(ants[i++], rooms);		// executes printing function for each ant in the struct
 		ft_putendl("");
 	}
 }
@@ -38,23 +38,23 @@ void		generate_moves(t_path *path, t_rooms **room_head)
 	int		total;
 
 	temp = find_start(room_head);
-	total = temp->ant_count;
+	total = temp->ant_count;		// gets total ants waiting in the start room
 	i = 1;
-	if ((ants = (t_ant **)malloc(sizeof(t_ant *) * total))) {
+	if ((ants = (t_ant **)malloc(sizeof(t_ant *) * total))) {		// mallocs for each ant
 		while (i <= total) 
 		{
-			ants[i - 1] = (t_ant *)malloc(sizeof(t_ant));
-			ants[i - 1]->ant_num = i;
-			ants[i - 1]->curr_path = path->name;
-			ants[i - 1]->path = path;
+			ants[i - 1] = (t_ant *)malloc(sizeof(t_ant));		//each ant: malloced
+			ants[i - 1]->ant_num = i;					//each ant: gives the ant is number/name
+			ants[i - 1]->curr_path = path->name;		//each ant: gives ant current room = always start room
+			ants[i - 1]->path = path;					//each ant: gives ant the path struct so that it can navigate with it
 			i++;
 		}
+		attack(ants, room_head, total);		//function to make the moves with the ants
+		i = 0;
+		while (i < total)
+			free(ants[i++]);
+		free(ants);
 	}
-	attack(ants, room_head, total);
-	i = 0;
-	while (i < total)
-		free(ants[i++]);
-	free(ants);
 }
 
 t_path		*generate_path(t_rooms *start)

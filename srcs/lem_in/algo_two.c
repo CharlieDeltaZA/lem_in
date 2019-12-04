@@ -6,7 +6,7 @@
 /*   By: jhansen <jhansen@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2019/12/03 15:42:34 by jhansen           #+#    #+#             */
-/*   Updated: 2019/12/04 11:21:35 by jhansen          ###   ########.fr       */
+/*   Updated: 2019/12/04 12:40:34 by jhansen          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -39,12 +39,12 @@ void    display_ants(t_ant *ant, t_rooms **rooms)
             while (!ft_strequ(temp->name, ant->curr_path))      //finds current path/room its in
                 temp = temp->next;
             temp->ant_count -= 1;       //makes ant counts less by one at that room
-            execute(ant);       //prints movement
+            execute(ant);               //prints movement
             temp = *rooms;
             while (!ft_strequ(temp->name, ant->curr_path))      //finds current path/room its in (changed in execute function)
                 temp = temp->next;
-            temp->ant_count += 1;       //makes the ant count in the new room + 1
-            ft_putstr(ant->curr_path);      //prints position
+            temp->ant_count += 1;           //makes the ant count in the new room + 1
+            ft_putstr(ant->curr_path);      //prints new position
             ft_putchar(' ');
         }
     }
