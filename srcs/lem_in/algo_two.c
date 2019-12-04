@@ -6,7 +6,7 @@
 /*   By: jhansen <jhansen@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2019/12/03 15:42:34 by jhansen           #+#    #+#             */
-/*   Updated: 2019/12/03 16:37:55 by jhansen          ###   ########.fr       */
+/*   Updated: 2019/12/04 11:21:35 by jhansen          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -18,7 +18,7 @@ void    execute(t_ant *curr_ant)
     ft_putnbr(curr_ant->ant_num);       // prints respective characters and ant number
     ft_putchar('-');
     curr_ant->path = curr_ant->path->next;      //changes the ants current room to the one it moved to
-    curr_ant->curr_path = curr_ant->path->name; //changed current room name to the new one its ine
+    curr_ant->curr_path = curr_ant->path->name; //changed current room name to the new one its on
 }
 
 void    display_ants(t_ant *ant, t_rooms **rooms)

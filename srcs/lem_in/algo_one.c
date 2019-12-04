@@ -6,13 +6,13 @@
 /*   By: jhansen <jhansen@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2019/09/19 11:27:07 by jhansen           #+#    #+#             */
-/*   Updated: 2019/12/03 16:43:56 by jhansen          ###   ########.fr       */
+/*   Updated: 2019/12/04 12:14:27 by jhansen          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "../../includes/lem_in.h"
 
-static void		attack(t_ant **ants, t_rooms **rooms, int total)
+void		attack(t_ant **ants, t_rooms **rooms, int total)
 {
 	t_rooms	*end;
 	int		i;
@@ -23,6 +23,7 @@ static void		attack(t_ant **ants, t_rooms **rooms, int total)
 		end = end->next;
 	while (end->ant_count != total)
 	{
+		i = 0;
 		while (i < total)
 			display_ants(ants[i++], rooms);
 		ft_putendl("");
@@ -35,7 +36,7 @@ void		generate_moves(t_path *path, t_rooms **room_head)
 	t_rooms	*temp;
 	int		i;
 	int		total;
-	
+
 	temp = find_start(room_head);
 	total = temp->ant_count;
 	i = 1;

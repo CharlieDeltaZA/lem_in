@@ -6,7 +6,7 @@
 /*   By: jhansen <jhansen@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2019/08/26 08:40:20 by cdiogo            #+#    #+#             */
-/*   Updated: 2019/12/03 16:31:53 by jhansen          ###   ########.fr       */
+/*   Updated: 2019/12/04 11:40:39 by jhansen          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -135,7 +135,7 @@ void					bigboy_algo(t_rooms **room_head);
 int						path_find(t_rooms **room_head);
 t_path					*generate_path(t_rooms *room_head);
 void					generate_moves(t_path *path, t_rooms **room_head);
-static void				attack(t_ant **ants, t_rooms **rooms, int total);
+void					attack(t_ant **ants, t_rooms **rooms, int total);
 void					display_ants(t_ant *ant, t_rooms **rooms);
 void					execute(t_ant *curr_ant);
 
