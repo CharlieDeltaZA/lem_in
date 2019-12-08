@@ -6,11 +6,12 @@
 /*   By: cdiogo <marvin@42.fr>                      +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2019/08/26 11:01:33 by bmarks            #+#    #+#             */
-/*   Updated: 2019/09/20 12:22:49 by cdiogo           ###   ########.fr       */
+/*   Updated: 2019/12/08 15:38:36 by cdiogo           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#include <lem_in2.h>
+// #include <lem_in2.h>
+#include "../../includes/lem_in2.h"
 
 void		disp_map(char **map)
 {

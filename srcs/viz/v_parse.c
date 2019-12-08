@@ -6,11 +6,12 @@
 /*   By: cdiogo <marvin@42.fr>                      +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2019/09/13 09:46:46 by cdiogo            #+#    #+#             */
-/*   Updated: 2019/09/19 16:13:02 by cdiogo           ###   ########.fr       */
+/*   Updated: 2019/12/08 15:42:10 by cdiogo           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#include <viz.h>
+#include "../../includes/viz.h"
+// #include <viz.h>
 
 /*
 ** Resets the ants to the start room and ensures the move list is back

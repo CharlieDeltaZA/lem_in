@@ -16,7 +16,13 @@ VOBJ_DIR = ./srcs/viz/
 INC_DIR = ./includes
 OPTIONS = -I./includes -I./libft -lft -L./libft
 LHDR = ./includes/lem_in.h
+L2HDR = ./includes/lem_in2.h
 VHDR = ./includes/viz.h
+# OTHER_LIB = -L$(HOME)/.brew/lib -lSDL2 -lSDL2_gfx -lSDL2_ttf -lSDL2_image
+# INCLUDES = -I$(HOME)/.brew/include/
+CD_SDL_L = -L/usr/local/lib -lSDL2 -lSDL2_gfx -lSDL2_ttf -lSDL2_image
+CD_SDL_I = -I/usr/local/include/
+
 
 OBJ = $(LOBJ_DIR)lem_in.o $(LOBJ_DIR)read_map.o $(LOBJ_DIR)basic_errors_one.o
 OBJ += $(LOBJ_DIR)basic_errors_two.o $(LOBJ_DIR)error_out_one.o $(LOBJ_DIR)content_ops_one.o
@@ -29,7 +35,7 @@ OBJ_V += $(VOBJ_DIR)v_helpers.o $(VOBJ_DIR)v_error.o $(VOBJ_DIR)v_moves.o $(VOBJ
 OBJ_V += $(VOBJ_DIR)v_parse.o $(VOBJ_DIR)v_valf.o $(VOBJ_DIR)v_traversal.o $(VOBJ_DIR)v_val.o
 OBJ_V += $(VOBJ_DIR)v_disp.o $(VOBJ_DIR)v_path.o $(VOBJ_DIR)v_room.o $(VOBJ_DIR)v_link.o
 
-all: $(LIB) $(NAME)# $(NAME_V)
+all: $(LIB) $(NAME) $(NAME_V)
 
 $(LIB): relib cleanlib
 	@echo "[$(LIB)] compiled"
@@ -42,7 +48,8 @@ $(NAME): $(OBJ)
 	@echo "[$(NAME)] compiled"
 
 $(NAME_V): $(OBJ_V)
-	@$(CC) -o $(NAME_V) $(FLAGS) $(OPTIONS) $(OBJ_V)
+#	@$(CC) -o $(NAME_V) $(FLAGS) $(OPTIONS) $(OBJ_V) $(OTHER_LIB) $(INCLUDES)
+	@$(CC) -o $(NAME_V) $(FLAGS) $(OPTIONS) $(OBJ_V) $(CD_SDL_L) $(CD_SDL_I)
 	@echo "[$(NAME_V)] compiled"
 
 debug: $(LIB)

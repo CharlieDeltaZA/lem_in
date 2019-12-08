@@ -6,11 +6,12 @@
 /*   By: cdiogo <marvin@42.fr>                      +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2019/08/29 20:52:14 by cdiogo            #+#    #+#             */
-/*   Updated: 2019/09/20 09:59:50 by cdiogo           ###   ########.fr       */
+/*   Updated: 2019/12/08 15:42:36 by cdiogo           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#include <viz.h>
+#include "../../includes/viz.h"
+// #include <viz.h>
 
 /*
 ** Frees everything in the viz struct, before freeing the struct itself

@@ -6,11 +6,12 @@
 /*   By: cdiogo <marvin@42.fr>                      +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2019/08/29 12:17:02 by cdiogo            #+#    #+#             */
-/*   Updated: 2019/09/20 09:58:20 by cdiogo           ###   ########.fr       */
+/*   Updated: 2019/12/08 15:41:57 by cdiogo           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#include <viz.h>
+// #include <viz.h>
+#include "../../includes/viz.h"
 
 /*
 ** Initializes the viz struct

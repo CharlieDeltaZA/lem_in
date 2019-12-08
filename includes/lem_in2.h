@@ -1,12 +1,12 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   lem_in.h                                           :+:      :+:    :+:   */
+/*   lem_in2.h                                          :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: bmarks <marvin@42.fr>                      +#+  +:+       +#+        */
+/*   By: cdiogo <marvin@42.fr>                      +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2019/07/29 10:51:39 by bmarks            #+#    #+#             */
-/*   Updated: 2019/09/09 09:30:55 by bmarks           ###   ########.fr       */
+/*   Updated: 2019/12/08 15:40:12 by cdiogo           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -14,8 +14,8 @@
 # define LEM_IN_H
 
 # include <stdio.h>
-# include <libft.h>
-# include <get_next_line.h>
+# include "../libft/libft.h"
+// # include <get_next_line.h>
 
 # define POOR_FORM {ft_putendl("Error : Map input poorly formatted."); exit(1);}
 # define MULTI_START {ft_putendl("Error : One start room allowed."); exit(1);}

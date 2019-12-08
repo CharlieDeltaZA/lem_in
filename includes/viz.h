@@ -6,7 +6,7 @@
 /*   By: cdiogo <marvin@42.fr>                      +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2019/08/26 09:51:11 by cdiogo            #+#    #+#             */
-/*   Updated: 2019/09/20 12:16:09 by cdiogo           ###   ########.fr       */
+/*   Updated: 2019/12/08 15:46:10 by cdiogo           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -14,6 +14,7 @@
 # define VIZ_H
 
 // # include "lem_in.h"
+# include "lem_in2.h"
 // # include <lem_in.h>
 # include <SDL2/SDL.h>
 # include <SDL2/SDL_image.h>

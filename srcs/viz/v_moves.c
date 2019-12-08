@@ -6,11 +6,12 @@
 /*   By: cdiogo <marvin@42.fr>                      +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2019/09/10 15:59:29 by cdiogo            #+#    #+#             */
-/*   Updated: 2019/09/20 10:21:47 by cdiogo           ###   ########.fr       */
+/*   Updated: 2019/12/08 15:51:30 by cdiogo           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#include <viz.h>
+#include "../../includes/viz.h"
+// #include <viz.h>
 
 /*
 ** Creates a node and returns it
@@ -84,7 +85,7 @@ void			moves_free(t_moves **moves)
 		while (current)
 		{
 			next = current->next;
-			ft_freearray(current->move);
+			ft_free_array(current->move);
 			free(current);
 			current = next;
 		}

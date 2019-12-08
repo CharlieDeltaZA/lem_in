@@ -6,11 +6,12 @@
 /*   By: cdiogo <marvin@42.fr>                      +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2019/07/29 13:40:52 by bmarks            #+#    #+#             */
-/*   Updated: 2019/09/20 12:22:23 by cdiogo           ###   ########.fr       */
+/*   Updated: 2019/12/08 15:41:35 by cdiogo           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#include "lem_in2.h"
+// #include "lem_in2.h"
+#include "../../includes/lem_in2.h"
 
 static int		char_jam(char *s, char brk)
 {

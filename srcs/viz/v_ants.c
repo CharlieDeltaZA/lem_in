@@ -6,11 +6,12 @@
 /*   By: cdiogo <marvin@42.fr>                      +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2019/09/12 10:26:11 by cdiogo            #+#    #+#             */
-/*   Updated: 2019/09/20 10:44:39 by cdiogo           ###   ########.fr       */
+/*   Updated: 2019/12/08 15:42:47 by cdiogo           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#include <viz.h>
+#include "../../includes/viz.h"
+// #include <viz.h>
 
 /*
 ** Creates a node and returns it

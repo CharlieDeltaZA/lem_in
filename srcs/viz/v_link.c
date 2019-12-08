@@ -6,11 +6,12 @@
 /*   By: cdiogo <marvin@42.fr>                      +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2019/09/06 11:01:45 by bmarks            #+#    #+#             */
-/*   Updated: 2019/09/20 12:22:43 by cdiogo           ###   ########.fr       */
+/*   Updated: 2019/12/08 15:38:55 by cdiogo           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#include <lem_in2.h>
+// #include <lem_in2.h>
+#include "../../includes/lem_in2.h"
 
 t_links	*new_link(t_room *room, char *name)
 {

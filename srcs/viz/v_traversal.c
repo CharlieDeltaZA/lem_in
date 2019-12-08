@@ -6,11 +6,12 @@
 /*   By: cdiogo <marvin@42.fr>                      +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2019/08/22 10:12:49 by bmarks            #+#    #+#             */
-/*   Updated: 2019/09/20 12:22:27 by cdiogo           ###   ########.fr       */
+/*   Updated: 2019/12/08 15:41:05 by cdiogo           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#include <lem_in2.h>
+// #include <lem_in2.h>
+#include "../../includes/lem_in2.h"
 
 static void	march(t_ant **ants, t_room **rooms)
 {

@@ -6,11 +6,12 @@
 /*   By: cdiogo <marvin@42.fr>                      +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2019/08/27 16:45:12 by ctaljaar          #+#    #+#             */
-/*   Updated: 2019/09/20 12:22:34 by cdiogo           ###   ########.fr       */
+/*   Updated: 2019/12/08 15:40:55 by cdiogo           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#include <lem_in2.h>
+// #include <lem_in2.h>
+#include "../../includes/lem_in2.h"
 
 t_room	*new_room(char **info, int type)
 {

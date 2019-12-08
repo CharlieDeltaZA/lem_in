@@ -6,11 +6,12 @@
 /*   By: cdiogo <marvin@42.fr>                      +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2019/08/29 13:03:28 by cdiogo            #+#    #+#             */
-/*   Updated: 2019/09/20 10:04:15 by cdiogo           ###   ########.fr       */
+/*   Updated: 2019/12/08 15:42:32 by cdiogo           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#include <viz.h>
+#include "../../includes/viz.h"
+// #include <viz.h>
 
 /*
 ** Looks for key input, for the purpose of closing the visualizer, executing

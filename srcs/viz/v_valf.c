@@ -6,11 +6,12 @@
 /*   By: cdiogo <marvin@42.fr>                      +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2019/07/30 10:30:24 by bmarks            #+#    #+#             */
-/*   Updated: 2019/09/20 12:22:14 by cdiogo           ###   ########.fr       */
+/*   Updated: 2019/12/08 15:41:29 by cdiogo           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#include <lem_in2.h>
+// #include <lem_in2.h>
+#include "../../includes/lem_in2.h"
 
 void	set_ants(char **mappy, t_room **rooms)
 {
