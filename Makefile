@@ -19,7 +19,8 @@ LHDR = ./includes/lem_in.h
 L2HDR = ./includes/lem_in2.h
 VHDR = ./includes/viz.h
 # OTHER_LIB = -L$(HOME)/.brew/lib -lSDL2 -lSDL2_gfx -lSDL2_ttf -lSDL2_image
-# INCLUDES = -I$(HOME)/.brew/include/
+OTHER_LIB = -L$(HOME)/.brew/Cellar -lSDL2 -lSDL2_gfx -lSDL2_ttf -lSDL2_image
+INCLUDES = -I$(HOME)/.brew/include/SDL2
 CD_SDL_L = -L/usr/local/lib -lSDL2 -lSDL2_gfx -lSDL2_ttf -lSDL2_image
 CD_SDL_I = -I/usr/local/include/
 
@@ -48,8 +49,8 @@ $(NAME): $(OBJ)
 	@echo "[$(NAME)] compiled"
 
 $(NAME_V): $(OBJ_V)
-#	@$(CC) -o $(NAME_V) $(FLAGS) $(OPTIONS) $(OBJ_V) $(OTHER_LIB) $(INCLUDES)
-	@$(CC) -o $(NAME_V) $(FLAGS) $(OPTIONS) $(OBJ_V) $(CD_SDL_L) $(CD_SDL_I)
+	@$(CC) -o $(NAME_V) $(FLAGS) $(OPTIONS) $(OBJ_V) $(OTHER_LIB) $(INCLUDES)
+#	@$(CC) -o $(NAME_V) $(FLAGS) $(OPTIONS) $(OBJ_V) $(CD_SDL_L) $(CD_SDL_I)
 	@echo "[$(NAME_V)] compiled"
 
 debug: $(LIB)
