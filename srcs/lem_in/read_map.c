@@ -6,7 +6,7 @@
 /*   By: jhansen <jhansen@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2019/08/19 16:15:37 by cdiogo            #+#    #+#             */
-/*   Updated: 2019/09/19 11:05:29 by jhansen          ###   ########.fr       */
+/*   Updated: 2019/12/10 12:17:50 by jhansen          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -16,7 +16,7 @@ int			word_manager(char *line, int words)
 {
 	if (words == 1)
 	{
-		if (is_command(line) == 1)
+		if (is_command(line))
 			return (1);
 		else if (is_ant(line))
 			return (1);
@@ -36,7 +36,7 @@ void		check_line(char *line, t_content **file)
 	int	words;
 	int	status;
 
-	if (is_comment(line))
+	if (is_comment(line) || bad_command(line))
 		return ;
 	words = word_count(line);
 	if (words == 0)
@@ -45,9 +45,7 @@ void		check_line(char *line, t_content **file)
 	if (status == 0)
 		free_content_error(file, BAD_INPUT);
 	line = whitespace_remover(line, status, file);
-	ft_putendl_col_fd(YELLOW, line, 1);					//
 	(*file) = init_content(file, line);
-	free(line);
 }
 
 t_rooms		*read_map(void)

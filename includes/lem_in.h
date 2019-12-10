@@ -6,7 +6,7 @@
 /*   By: jhansen <jhansen@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2019/08/26 08:40:20 by cdiogo            #+#    #+#             */
-/*   Updated: 2019/12/04 11:40:39 by jhansen          ###   ########.fr       */
+/*   Updated: 2019/12/10 11:54:29 by jhansen          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -98,6 +98,7 @@ void					check_line(char *line, t_content **file);
 int						word_manager(char *line, int words);
 int						word_count(char *str);
 int						is_command(char *line);
+int						bad_command(char *line);
 int						is_comment(char *line);
 int						is_room(char *line);
 int						is_link(char *line);

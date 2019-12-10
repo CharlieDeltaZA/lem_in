@@ -6,11 +6,28 @@
 /*   By: jhansen <jhansen@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2019/08/22 08:37:21 by cdiogo            #+#    #+#             */
-/*   Updated: 2019/09/18 13:01:16 by jhansen          ###   ########.fr       */
+/*   Updated: 2019/12/10 11:57:15 by jhansen          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "../../includes/lem_in.h"
+
+int		bad_command(char *line)
+{
+	int		i;
+
+	i = 0;
+	while (line[i] != '\0' && (line[i] == ' ' || line[i] == '\t'))
+		i++;
+	if (line[i] == '#' && line[i + 1] == '#')
+	{
+		if (ft_str_contain("##start", &line[i]) || ft_str_contain("##end", &line[i]))
+			return (0);
+		else
+			return (1);
+	}
+	return (0);
+}
 
 int		word_count(char *str)
 {

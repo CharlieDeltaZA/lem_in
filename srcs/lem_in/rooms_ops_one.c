@@ -3,10 +3,10 @@
 /*                                                        :::      ::::::::   */
 /*   rooms_ops_one.c                                    :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: jhansen <jhansen@student.wethinkcode.co    +#+  +:+       +#+        */
+/*   By: jhansen <jhansen@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2019/08/22 12:20:31 by cdiogo            #+#    #+#             */
-/*   Updated: 2019/10/06 13:55:27 by jhansen          ###   ########.fr       */
+/*   Updated: 2019/12/10 12:01:47 by jhansen          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -16,8 +16,7 @@ static t_rooms		*create_node(char *line, int xcoord, int ycoord, int val)
 {
 	t_rooms	*node;
 
-	node = (t_rooms*)malloc(sizeof(t_rooms));
-	if (node)
+	if ((node = (t_rooms*)malloc(sizeof(t_rooms))))
 	{
 		node->name = line;
 		node->x = xcoord;
