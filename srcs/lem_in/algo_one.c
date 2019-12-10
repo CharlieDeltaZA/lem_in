@@ -6,7 +6,7 @@
 /*   By: jhansen <jhansen@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2019/09/19 11:27:07 by jhansen           #+#    #+#             */
-/*   Updated: 2019/12/04 12:33:18 by jhansen          ###   ########.fr       */
+/*   Updated: 2019/12/10 15:45:08 by jhansen          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -19,7 +19,7 @@ void		attack(t_ant **ants, t_rooms **rooms, int total)
 
 	i = 0;
 	end = *rooms;
-	while (end && end->end != 1)		// finds the end roo,
+	while (end && end->end != 1)		// finds the end room
 		end = end->next;
 	while (end->ant_count != total)		// executes as long as the total ants in the end room is not all ants
 	{
