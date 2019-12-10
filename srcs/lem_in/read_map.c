@@ -3,10 +3,10 @@
 /*                                                        :::      ::::::::   */
 /*   read_map.c                                         :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: jhansen <jhansen@student.42.fr>            +#+  +:+       +#+        */
+/*   By: cdiogo <cdiogo@student.42.fr>              +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2019/08/19 16:15:37 by cdiogo            #+#    #+#             */
-/*   Updated: 2019/12/10 12:26:49 by jhansen          ###   ########.fr       */
+/*   Updated: 2019/12/10 14:51:49 by cdiogo           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -33,8 +33,9 @@ int			word_manager(char *line, int words)
 
 void		check_line(char *line, t_content **file)
 {
-	int	words;
-	int	status;
+	int		words;
+	int		status;
+	char	*no_white;
 
 	if (is_comment(line) || bad_command(line))
 		return ;
@@ -44,8 +45,9 @@ void		check_line(char *line, t_content **file)
 	status = word_manager(line, words);
 	if (status == 0)
 		free_content_error(file, BAD_INPUT);
-	line = whitespace_remover(line, status, file);
-	(*file) = init_content(file, line);
+	no_white = whitespace_remover(line, status, file);
+	(*file) = init_content(file, no_white);
+	free(no_white);
 }
 
 t_rooms		*read_map(void)

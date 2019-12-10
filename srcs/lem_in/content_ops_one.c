@@ -6,12 +6,11 @@
 /*   By: cdiogo <cdiogo@student.42.fr>              +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2019/08/22 12:21:07 by cdiogo            #+#    #+#             */
-/*   Updated: 2019/12/10 14:00:02 by cdiogo           ###   ########.fr       */
+/*   Updated: 2019/12/10 14:52:40 by cdiogo           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "../../includes/lem_in.h"
-#include <stdio.h>
 
 static t_content	*create_node(char *line)
 {
@@ -19,12 +18,8 @@ static t_content	*create_node(char *line)
 
 	node = (t_content *)malloc(sizeof(t_content));
 	if (node)
-	{	
-		// printf("String: %s\n", line);
-		// printf("Address of String ^: %p\n", &line);
+	{
 		node->content = ft_strdup(line);
-		// printf("Content: %s\n", node->content);
-		// printf("Address of Content ^: %p\n", node->content);
 		node->next = NULL;
 	}
 	return (node);

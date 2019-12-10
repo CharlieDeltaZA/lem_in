@@ -6,7 +6,7 @@
 /*   By: cdiogo <cdiogo@student.42.fr>              +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2019/08/20 10:43:46 by cdiogo            #+#    #+#             */
-/*   Updated: 2019/12/10 14:16:47 by cdiogo           ###   ########.fr       */
+/*   Updated: 2019/12/10 14:52:45 by cdiogo           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -63,11 +63,7 @@ void	free_content(t_content **head)
 		{
 			next = current->next;
 			if (current->content)
-			{
-				ft_putendl_col_fd(YELLOW, current->content, 2);
 				free(current->content);
-				ft_putendl_col_fd(RED, current->content, 2);
-			}
 			free(current);
 			current = next;
 		}
