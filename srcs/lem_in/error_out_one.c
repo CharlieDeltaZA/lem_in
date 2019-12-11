@@ -3,10 +3,10 @@
 /*                                                        :::      ::::::::   */
 /*   error_out_one.c                                    :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: cdiogo <cdiogo@student.42.fr>              +#+  +:+       +#+        */
+/*   By: jhansen <jhansen@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2019/08/20 10:43:46 by cdiogo            #+#    #+#             */
-/*   Updated: 2019/12/10 14:52:45 by cdiogo           ###   ########.fr       */
+/*   Updated: 2019/12/11 11:14:12 by jhansen          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -23,9 +23,9 @@ void	error_out(int code)
 	if (code == DUP_LINK)
 		ft_putendl_col_fd(RED, "ERROR : Duplicate links", 2);
 	if (code == NO_START_OR_END)
-		ft_putendl_col_fd(RED, "ERROR : No Start OR End room has been found", 2);
+		ft_putendl_col_fd(RED, "ERROR : No start OR end room has been found", 2);
 	if (code == BAD_INPUT)
-		ft_putendl_col_fd(RED, "ERROR : Bad Input", 2);
+		ft_putendl_col_fd(RED, "ERROR : Bad input", 2);
 	if (code == BAD_COMMAND)
 		ft_putendl_col_fd(RED, "ERROR : Bad command", 2);
 	if (code == EMPTY_LINE)
@@ -40,6 +40,8 @@ void	error_out(int code)
 		ft_putendl_col_fd(RED, "ERROR : Multiple ant lines found", 2);
 	if (code == NO_LINK)
 		ft_putendl_col_fd(RED, "ERROR : No links found", 2);
+	if (code == UNDEFINED)
+		ft_putendl_col_fd(RED, "ERROR : Undefined. (This may mean several things. Please consult the map guidelines.)", 2);
 }
 
 void	free_content_error(t_content **node, int msg)

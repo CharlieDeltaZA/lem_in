@@ -3,10 +3,10 @@
 /*                                                        :::      ::::::::   */
 /*   read_map.c                                         :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: cdiogo <cdiogo@student.42.fr>              +#+  +:+       +#+        */
+/*   By: jhansen <jhansen@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2019/08/19 16:15:37 by cdiogo            #+#    #+#             */
-/*   Updated: 2019/12/10 14:51:49 by cdiogo           ###   ########.fr       */
+/*   Updated: 2019/12/11 11:09:08 by jhansen          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -72,7 +72,7 @@ t_rooms		*read_map(void)
 		{
 			if (rooms)
 				free_rooms(&rooms);
-			free_content_error(&file, 200);
+			free_content_error(&file, UNDEFINED);
 		}
 		print_content(&file);
 	}

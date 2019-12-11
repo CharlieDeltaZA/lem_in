@@ -6,7 +6,7 @@
 /*   By: jhansen <jhansen@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2019/08/26 08:40:20 by cdiogo            #+#    #+#             */
-/*   Updated: 2019/12/10 12:37:25 by jhansen          ###   ########.fr       */
+/*   Updated: 2019/12/11 11:07:39 by jhansen          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -38,7 +38,8 @@ enum					e_error_codes
 	NON_EXISTING_ROOM,
 	TOO_MANY_ANTS,
 	NO_LINK,
-	PATH_ERROR
+	PATH_ERROR,
+	UNDEFINED
 };
 
 typedef struct			s_content
