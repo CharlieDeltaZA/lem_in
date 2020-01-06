@@ -3,14 +3,13 @@
 /*                                                        :::      ::::::::   */
 /*   v_val.c                                            :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: cdiogo <marvin@42.fr>                      +#+  +:+       +#+        */
+/*   By: cdiogo <cdiogo@student.42.fr>              +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2019/07/29 13:40:52 by bmarks            #+#    #+#             */
-/*   Updated: 2019/12/08 15:41:35 by cdiogo           ###   ########.fr       */
+/*   Updated: 2020/01/06 14:39:19 by cdiogo           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-// #include "lem_in2.h"
 #include "../../includes/lem_in2.h"
 
 static int		char_jam(char *s, char brk)
@@ -99,6 +98,7 @@ void			validate(char *s, char **mappy, int mode, t_room **room)
 int				populate_map(char **mappy, t_room **room)
 {
 	char	*file;
+
 	get_next_line(0, &file);
 	validate(file, mappy, 0, room);
 	free(file);

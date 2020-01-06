@@ -3,14 +3,13 @@
 /*                                                        :::      ::::::::   */
 /*   v_path.c                                           :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: cdiogo <marvin@42.fr>                      +#+  +:+       +#+        */
+/*   By: cdiogo <cdiogo@student.42.fr>              +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2019/08/27 16:41:22 by bmarks            #+#    #+#             */
-/*   Updated: 2019/12/08 15:40:43 by cdiogo           ###   ########.fr       */
+/*   Updated: 2020/01/06 14:20:09 by cdiogo           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-// #include <lem_in2.h>
 #include "../../includes/lem_in2.h"
 
 void	free_paths(t_path **path)

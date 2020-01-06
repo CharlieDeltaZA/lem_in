@@ -3,15 +3,14 @@
 /*                                                        :::      ::::::::   */
 /*   v_parse.c                                          :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: cdiogo <marvin@42.fr>                      +#+  +:+       +#+        */
+/*   By: cdiogo <cdiogo@student.42.fr>              +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2019/09/13 09:46:46 by cdiogo            #+#    #+#             */
-/*   Updated: 2019/12/08 15:42:10 by cdiogo           ###   ########.fr       */
+/*   Updated: 2020/01/06 14:38:33 by cdiogo           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "../../includes/viz.h"
-// #include <viz.h>
 
 /*
 ** Resets the ants to the start room and ensures the move list is back
@@ -59,10 +58,7 @@ void	parse_move(t_ants **ants, t_room **info, t_viz *viz)
 				len_id--;
 			}
 			R_NAME;
-			update_ant(ants, ant_id, r_name, info);
-			free(ant_id);
-			ft_putendl_col_fd(MAGENTA, "^^^ Complete", 1);
-			i++;
+			UP_PLUS;
 		}
 		if (viz->curr_turn)
 			viz->curr_turn = viz->curr_turn->next;

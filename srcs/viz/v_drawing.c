@@ -3,15 +3,14 @@
 /*                                                        :::      ::::::::   */
 /*   v_drawing.c                                        :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: cdiogo <marvin@42.fr>                      +#+  +:+       +#+        */
+/*   By: cdiogo <cdiogo@student.42.fr>              +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2019/09/04 13:21:56 by cdiogo            #+#    #+#             */
-/*   Updated: 2019/12/08 15:42:40 by cdiogo           ###   ########.fr       */
+/*   Updated: 2020/01/06 14:39:48 by cdiogo           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "../../includes/viz.h"
-// #include <viz.h>
 
 /*
 ** Draws the links between rooms
@@ -74,7 +73,6 @@ void		draw_ants(t_viz *viz, t_ants **ants, double perc)
 	t_ants		*ant;
 	SDL_Rect	dims;
 
-	// https://stackoverflow.com/questions/22745076/libpng-warning-iccp-known-incorrect-srgb-profile
 	dims.w = 500 / 5;
 	dims.h = 500 / 5;
 	ant = *ants;

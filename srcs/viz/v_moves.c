@@ -3,15 +3,14 @@
 /*                                                        :::      ::::::::   */
 /*   v_moves.c                                          :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: cdiogo <marvin@42.fr>                      +#+  +:+       +#+        */
+/*   By: cdiogo <cdiogo@student.42.fr>              +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2019/09/10 15:59:29 by cdiogo            #+#    #+#             */
-/*   Updated: 2019/12/08 15:51:30 by cdiogo           ###   ########.fr       */
+/*   Updated: 2020/01/06 14:19:59 by cdiogo           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "../../includes/viz.h"
-// #include <viz.h>
 
 /*
 ** Creates a node and returns it

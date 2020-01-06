@@ -3,15 +3,14 @@
 /*                                                        :::      ::::::::   */
 /*   v_helpers.c                                        :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: cdiogo <marvin@42.fr>                      +#+  +:+       +#+        */
+/*   By: cdiogo <cdiogo@student.42.fr>              +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2019/09/03 09:25:16 by cdiogo            #+#    #+#             */
-/*   Updated: 2019/12/08 15:42:29 by cdiogo           ###   ########.fr       */
+/*   Updated: 2020/01/06 14:19:10 by cdiogo           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "../../includes/viz.h"
-// #include <viz.h>
 
 /*
 ** Reads in piped input, assigns to struct for later use in the visualizer
