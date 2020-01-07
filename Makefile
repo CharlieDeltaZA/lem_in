@@ -23,6 +23,9 @@ INCLUDES = -I/homes/$(USER)/.brew/include/
 # CD_SDL_L = -L/usr/local/lib -lSDL2 -lSDL2_gfx -lSDL2_ttf -lSDL2_image
 # CD_SDL_I = -I/usr/local/include/
 
+NO_COLOR=\x1b[0m
+OK_COLOR=\x1b[32;01m
+WARN_COLOR=\x1b[33;01m
 
 OBJ = $(LOBJ_DIR)lem_in.o $(LOBJ_DIR)read_map.o $(LOBJ_DIR)basic_errors_one.o
 OBJ += $(LOBJ_DIR)basic_errors_two.o $(LOBJ_DIR)error_out_one.o $(LOBJ_DIR)content_ops_one.o
@@ -38,37 +41,37 @@ OBJ_V += $(VOBJ_DIR)v_disp.o $(VOBJ_DIR)v_path.o $(VOBJ_DIR)v_room.o $(VOBJ_DIR)
 all: $(LIB) $(NAME) $(NAME_V)
 
 $(LIB): relib cleanlib
-	@echo "[$(LIB)] compiled"
+	@echo "$(OK_COLOR)[$(LIB)] compiled$(NO_COLOR)"
 
 #%.o: $(SRC_DIR)%.c $(HDR)
 #	@$(CC) $(FLAGS) $(OPTIONS) -c $< -o $@
 
 $(NAME): $(OBJ)
 	@$(CC) -o $(NAME) $(FLAGS) $(OPTIONS) $(OBJ)
-	@echo "[$(NAME)] compiled"
+	@echo "$(OK_COLOR)[$(NAME)] compiled$(NO_COLOR)"
 
 $(NAME_V): $(OBJ_V)
 	@$(CC) -o $(NAME_V) $(FLAGS) $(OTHER_LIB) $(INCLUDES) $(OPTIONS) $(OBJ_V)
 #	@$(CC) -o $(NAME_V) $(FLAGS) $(OPTIONS) $(OBJ_V) $(CD_SDL_L) $(CD_SDL_I)
-	@echo "[$(NAME_V)] compiled"
+	@echo "$(OK_COLOR)[$(NAME_V)] compiled$(NO_COLOR)"
 
 debug: $(LIB)
 	@$(CC) -o $(NAME) $(OPTIONS) ./srcs/lem_in/*.c -g
-	@echo "Debug binary compiled"
+	@echo "$(OK_COLOR)Debug binary compiled$(NO_COLOR)"
 
 cdebug:
 	@/bin/rm -rf ./lem-in.dSYM
-	@echo "Debug cleaned"
+	@echo "$(WARN_COLOR)Debug cleaned$(NO_COLOR)"
 
 clean:
 	@/bin/rm -f $(LOBJ_DIR)*.o
 	@/bin/rm -f $(VOBJ_DIR)*.o
-	@echo "Object files removed"
+	@echo "$(WARN_COLOR)Object files removed$(NO_COLOR)"
 
 fclean: clean
 	@/bin/rm -f $(NAME)
 	@/bin/rm -f $(NAME_V)
-	@echo "[$(NAME)] & [$(NAME_V)] removed"
+	@echo "$(WARN_COLOR)[$(NAME)] & [$(NAME_V)] removed$(NO_COLOR)"
 
 re: fclean all
 
