@@ -3,10 +3,10 @@
 /*                                                        :::      ::::::::   */
 /*   rooms_ops_two.c                                    :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: jhansen <jhansen@student.wethinkcode.co    +#+  +:+       +#+        */
+/*   By: cdiogo <cdiogo@student.42.fr>              +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2019/09/12 13:15:28 by jhansen           #+#    #+#             */
-/*   Updated: 2019/10/06 13:54:42 by jhansen          ###   ########.fr       */
+/*   Updated: 2020/01/07 13:42:38 by cdiogo           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -23,7 +23,7 @@ t_rooms				*find_room(t_rooms *room, char *name)
 	return (room);
 }
 
-int				dup_link_check(t_links **head, char *link)
+int					dup_link_check(t_links **head, char *link)
 {
 	t_links	*temp;
 
@@ -54,7 +54,7 @@ static t_links		*create_node(t_rooms *room, char *line)
 	return (node);
 }
 
-void			match_room(t_rooms **head, char *room, char *link)
+void				match_room(t_rooms **head, char *room, char *link)
 {
 	t_rooms	*node;
 	t_links	*tmp_link;
@@ -79,7 +79,7 @@ void			match_room(t_rooms **head, char *room, char *link)
 	}
 }
 
-void			init_links(t_content **file, t_rooms **head)
+void				init_links(t_content **file, t_rooms **head)
 {
 	t_content	*temp;
 	char		**arr;

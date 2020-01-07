@@ -3,10 +3,10 @@
 /*                                                        :::      ::::::::   */
 /*   lem_in.h                                           :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: jhansen <jhansen@student.42.fr>            +#+  +:+       +#+        */
+/*   By: cdiogo <cdiogo@student.42.fr>              +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2019/08/26 08:40:20 by cdiogo            #+#    #+#             */
-/*   Updated: 2019/12/11 11:07:39 by jhansen          ###   ########.fr       */
+/*   Updated: 2020/01/07 13:41:30 by cdiogo           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -14,12 +14,28 @@
 # define LEM_IN_H
 
 # include "../libft/libft.h"
-# define MAX 2147483647
-# define MIN -2147483648
 
 /*
 ** Macros
 */
+
+# define MAX 2147483647
+# define MIN -2147483648
+
+# define ERRNOANT {error_out(NO_ANTS);return (0);}
+# define ERR2ANT {error_out(TOO_MANY_ANTS);return (0);}
+# define ERRDUPLINK {error_out(DUP_LINK);return (0);}
+# define STARTEND {start = find_start(room_head);end = start;}
+# define QQ {temp->room->weight = queue->room->weight + 1;}
+# define QADD {queue_add(queue, temp->room);QQ}
+# define MSG1 "ERROR : No start OR end room has been found"
+# define MSG2 "ERROR : Undefined. (This may mean several things. "
+# define MSG22 "Please consult the map guidelines.)"
+# define READMAPVARS {count = 0;rooms = NULL;file = NULL;}
+# define LINEOPS {check_line(line, &file);free(line);}
+# define START_NODE {node->start = 1;node->end = 0;}
+# define END_NODE {node->start = 0;node->end = 1;}
+# define NODE {node->start = 0;node->end = 0;}
 
 enum					e_error_codes
 {

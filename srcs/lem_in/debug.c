@@ -1,3 +1,15 @@
+/* ************************************************************************** */
+/*                                                                            */
+/*                                                        :::      ::::::::   */
+/*   debug.c                                            :+:      :+:    :+:   */
+/*                                                    +:+ +:+         +:+     */
+/*   By: cdiogo <cdiogo@student.42.fr>              +#+  +:+       +#+        */
+/*                                                +#+#+#+#+#+   +#+           */
+/*   Created: 2020/01/07 12:53:52 by cdiogo            #+#    #+#             */
+/*   Updated: 2020/01/07 12:57:24 by cdiogo           ###   ########.fr       */
+/*                                                                            */
+/* ************************************************************************** */
+
 #include "../../includes/lem_in.h"
 
 void		print_rooms(t_rooms **head)
@@ -11,8 +23,7 @@ void		print_rooms(t_rooms **head)
 		while (temp != NULL)
 		{
 			ft_putstr("NAME:  ");
-			ft_putstr_col_fd(CYAN, temp->name, 1);
-			ft_putchar('\n');
+			ft_putendl_col_fd(CYAN, temp->name, 1);
 			ft_putstr("LINKS: ");
 			if (temp->links)
 			{
@@ -57,6 +68,6 @@ void		print_rooms(t_rooms **head)
 	else
 	{
 		printf("No list\n");
-		exit (1);
+		exit(1);
 	}
 }

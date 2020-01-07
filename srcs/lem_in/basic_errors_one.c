@@ -3,10 +3,10 @@
 /*                                                        :::      ::::::::   */
 /*   basic_errors_one.c                                 :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: jhansen <jhansen@student.42.fr>            +#+  +:+       +#+        */
+/*   By: cdiogo <cdiogo@student.42.fr>              +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2019/08/20 10:17:39 by cdiogo            #+#    #+#             */
-/*   Updated: 2019/12/10 12:08:38 by jhansen          ###   ########.fr       */
+/*   Updated: 2020/01/07 12:37:35 by cdiogo           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -21,7 +21,8 @@ int		is_command(char *line)
 		i++;
 	if (line[i] == '#' && line[i + 1] == '#')
 	{
-		if (ft_str_contain("##start", &line[i]) || ft_str_contain("##end", &line[i]))
+		if (ft_str_contain("##start", &line[i])
+			|| ft_str_contain("##end", &line[i]))
 			return (1);
 	}
 	return (0);

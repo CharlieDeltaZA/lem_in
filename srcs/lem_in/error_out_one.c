@@ -3,10 +3,10 @@
 /*                                                        :::      ::::::::   */
 /*   error_out_one.c                                    :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: jhansen <jhansen@student.42.fr>            +#+  +:+       +#+        */
+/*   By: cdiogo <cdiogo@student.42.fr>              +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2019/08/20 10:43:46 by cdiogo            #+#    #+#             */
-/*   Updated: 2019/12/11 11:14:12 by jhansen          ###   ########.fr       */
+/*   Updated: 2020/01/07 13:25:29 by cdiogo           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -22,8 +22,6 @@ void	error_out(int code)
 		ft_putendl_col_fd(RED, "ERROR : Duplicate x and y coordinates", 2);
 	if (code == DUP_LINK)
 		ft_putendl_col_fd(RED, "ERROR : Duplicate links", 2);
-	if (code == NO_START_OR_END)
-		ft_putendl_col_fd(RED, "ERROR : No start OR end room has been found", 2);
 	if (code == BAD_INPUT)
 		ft_putendl_col_fd(RED, "ERROR : Bad input", 2);
 	if (code == BAD_COMMAND)
@@ -40,14 +38,26 @@ void	error_out(int code)
 		ft_putendl_col_fd(RED, "ERROR : Multiple ant lines found", 2);
 	if (code == NO_LINK)
 		ft_putendl_col_fd(RED, "ERROR : No links found", 2);
+}
+
+void	error_out_two(int code)
+{
+	if (code == NO_START_OR_END)
+		ft_putendl_col_fd(RED, MSG1, 2);
 	if (code == UNDEFINED)
-		ft_putendl_col_fd(RED, "ERROR : Undefined. (This may mean several things. Please consult the map guidelines.)", 2);
+	{
+		ft_putstr_col_fd(RED, MSG2, 2);
+		ft_putendl_col_fd(RED, MSG22, 2);
+	}
 }
 
 void	free_content_error(t_content **node, int msg)
 {
 	free_content(node);
-	error_out(msg);
+	if (msg == UNDEFINED || msg == NO_START_OR_END)
+		error_out_two(msg);
+	else
+		error_out(msg);
 	exit(1);
 }
 

@@ -3,10 +3,10 @@
 /*                                                        :::      ::::::::   */
 /*   advanced_check_two.c                               :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: jhansen <jhansen@student.42.fr>            +#+  +:+       +#+        */
+/*   By: cdiogo <cdiogo@student.42.fr>              +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2019/09/06 16:09:04 by jhansen           #+#    #+#             */
-/*   Updated: 2019/12/10 12:07:59 by jhansen          ###   ########.fr       */
+/*   Updated: 2020/01/07 12:10:14 by cdiogo           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -79,13 +79,11 @@ int			duplicate_link(t_content **file)
 				current = temp->next;
 			while (current != NULL)
 			{
-				if ((word_count(current->content) == 1) && is_link(current->content))
+				if ((word_count(current->content) == 1)
+						&& is_link(current->content))
 				{
 					if (double_check(temp->content, current->content) == 0)
-					{
-						error_out(DUP_LINK);
-						return (0);
-					}
+						ERRDUPLINK;
 				}
 				current = current->next;
 			}

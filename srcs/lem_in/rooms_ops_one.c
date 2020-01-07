@@ -3,10 +3,10 @@
 /*                                                        :::      ::::::::   */
 /*   rooms_ops_one.c                                    :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: jhansen <jhansen@student.42.fr>            +#+  +:+       +#+        */
+/*   By: cdiogo <cdiogo@student.42.fr>              +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2019/08/22 12:20:31 by cdiogo            #+#    #+#             */
-/*   Updated: 2019/12/10 12:38:26 by jhansen          ###   ########.fr       */
+/*   Updated: 2020/01/07 13:41:25 by cdiogo           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -26,19 +26,14 @@ static t_rooms		*create_node(char *line, int xcoord, int ycoord, int val)
 		node->ant_count = 0;
 		if (val == 1)
 		{
-			node->start = 1;
-			node->end = 0;
+			START_NODE;
 		}
 		else if (val == 2)
 		{
-			node->start = 0;
-			node->end = 1;			
+			END_NODE;
 		}
 		else
-		{
-			node->start = 0;
-			node->end = 0;			
-		}
+			NODE;
 		node->prev = NULL;
 		node->next = NULL;
 	}
@@ -61,7 +56,7 @@ static void			add_tail(t_rooms **head, t_rooms *node)
 	}
 }
 
-t_rooms		*init_rooms(t_rooms **head, char *s, int val)
+t_rooms				*init_rooms(t_rooms **head, char *s, int val)
 {
 	t_rooms	*node;
 	char	**arr;
@@ -84,10 +79,10 @@ t_rooms		*init_rooms(t_rooms **head, char *s, int val)
 	return (*head);
 }
 
-void set_ants(t_rooms **rooms, t_content **content)
+void				set_ants(t_rooms **rooms, t_content **content)
 {
-	t_rooms *temp;
-	t_content *file;
+	t_rooms		*temp;
+	t_content	*file;
 
 	file = *content;
 	temp = *rooms;

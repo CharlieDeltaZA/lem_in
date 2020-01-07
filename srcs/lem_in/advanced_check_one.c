@@ -3,10 +3,10 @@
 /*                                                        :::      ::::::::   */
 /*   advanced_check_one.c                               :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: jhansen <jhansen@student.42.fr>            +#+  +:+       +#+        */
+/*   By: cdiogo <cdiogo@student.42.fr>              +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2019/08/30 12:45:52 by jhansen           #+#    #+#             */
-/*   Updated: 2019/12/11 11:05:04 by jhansen          ###   ########.fr       */
+/*   Updated: 2020/01/07 12:05:55 by cdiogo           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -24,7 +24,7 @@ int			is_endstart(t_rooms **head)
 		if (temp->start == 1)
 			flag++;
 		else if (temp->end == 1)
-			flag++;		
+			flag++;
 		temp = temp->next;
 	}
 	if (flag == 2)
@@ -33,9 +33,9 @@ int			is_endstart(t_rooms **head)
 	return (0);
 }
 
-int		check_for_ant(t_content **head)
+int			check_for_ant(t_content **head)
 {
-	t_content	*temp;	
+	t_content	*temp;
 	t_content	*node;
 	long		num;
 
@@ -52,16 +52,12 @@ int		check_for_ant(t_content **head)
 			{
 				node = node->next;
 				if (word_count(node->content) == 1 && is_ant(node->content))
-				{
-					error_out(TOO_MANY_ANTS);
-					return (0);
-				}
+					ERR2ANT;
 			}
 			return (1);
 		}
 	}
-	error_out(NO_ANTS);
-	return (0);
+	ERRNOANT;
 }
 
 int			check_for_link(t_content **file)
@@ -112,7 +108,7 @@ t_rooms		*filler(t_content **file, t_rooms **head)
 	return (*head);
 }
 
-int		advanced_check_and_fill(t_content **file, t_rooms **head)
+int			advanced_check_and_fill(t_content **file, t_rooms **head)
 {
 	t_content	*temp;
 
@@ -125,7 +121,8 @@ int		advanced_check_and_fill(t_content **file, t_rooms **head)
 	if (check_for_ant(file) && check_for_link(file))
 	{
 		*head = filler(file, head);
-		if (head && duplicate_rooms(head) && is_endstart(head) && duplicate_link(file))
+		if (head && duplicate_rooms(head) && is_endstart(head)
+				&& duplicate_link(file))
 		{
 			if (*head && existing_room(file, head))
 			{

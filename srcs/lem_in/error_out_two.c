@@ -3,10 +3,10 @@
 /*                                                        :::      ::::::::   */
 /*   error_out_two.c                                    :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: jhansen <jhansen@student.wethinkcode.co    +#+  +:+       +#+        */
+/*   By: cdiogo <cdiogo@student.42.fr>              +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2019/09/17 12:08:43 by jhansen           #+#    #+#             */
-/*   Updated: 2019/10/04 23:48:26 by jhansen          ###   ########.fr       */
+/*   Updated: 2020/01/07 13:28:12 by cdiogo           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -19,7 +19,7 @@ void	free_rooms_error(t_rooms **node, int msg)
 	exit(1);
 }
 
-void                free_links(t_links **links)
+void	free_links(t_links **links)
 {
 	t_links	*temp;
 	t_links	*next;
@@ -33,13 +33,13 @@ void                free_links(t_links **links)
 			next = temp->next;
 			free(temp->name);
 			free(temp);
-            temp = next;
+			temp = next;
 		}
 		*links = NULL;
 	}
 }
 
-void				free_rooms(t_rooms **head)
+void	free_rooms(t_rooms **head)
 {
 	t_rooms	*temp;
 	t_rooms	*next;

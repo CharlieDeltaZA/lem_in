@@ -3,10 +3,10 @@
 /*                                                        :::      ::::::::   */
 /*   basic_errors_two.c                                 :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: jhansen <jhansen@student.42.fr>            +#+  +:+       +#+        */
+/*   By: cdiogo <cdiogo@student.42.fr>              +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2019/08/22 08:37:21 by cdiogo            #+#    #+#             */
-/*   Updated: 2019/12/10 11:57:15 by jhansen          ###   ########.fr       */
+/*   Updated: 2020/01/07 12:45:16 by cdiogo           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -21,7 +21,8 @@ int		bad_command(char *line)
 		i++;
 	if (line[i] == '#' && line[i + 1] == '#')
 	{
-		if (ft_str_contain("##start", &line[i]) || ft_str_contain("##end", &line[i]))
+		if (ft_str_contain("##start", &line[i])
+			|| ft_str_contain("##end", &line[i]))
 			return (0);
 		else
 			return (1);
@@ -58,8 +59,8 @@ int		dash_check(char *str)
 	i = 0;
 	while (str[i] != '\0' && str[i] != '-')
 	{
-		if (((str[i] >= 'A' && str[i] <= 'Z') || (str[i] >= 'a' && str[i] <= 'z')
-				|| (str[i] >= '0' && str[i] <= '9')))
+		if (((str[i] >= 'A' && str[i] <= 'Z') ||
+		(str[i] >= 'a' && str[i] <= 'z') || (str[i] >= '0' && str[i] <= '9')))
 			i++;
 		else
 			return (0);
@@ -69,8 +70,8 @@ int		dash_check(char *str)
 		i++;
 		while (str[i] != '\0' && str[i] != ' ' && str[i] != '\t')
 		{
-			if (((str[i] >= 'A' && str[i] <= 'Z') || (str[i] >= 'a' && str[i] <= 'z')
-					|| (str[i] >= '0' && str[i] <= '9')))
+			if (((str[i] >= 'A' && str[i] <= 'Z') || (str[i] >= 'a'
+			&& str[i] <= 'z') || (str[i] >= '0' && str[i] <= '9')))
 				i++;
 			else
 				return (0);

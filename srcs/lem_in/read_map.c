@@ -3,10 +3,10 @@
 /*                                                        :::      ::::::::   */
 /*   read_map.c                                         :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: jhansen <jhansen@student.42.fr>            +#+  +:+       +#+        */
+/*   By: cdiogo <cdiogo@student.42.fr>              +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2019/08/19 16:15:37 by cdiogo            #+#    #+#             */
-/*   Updated: 2019/12/11 11:09:08 by jhansen          ###   ########.fr       */
+/*   Updated: 2020/01/07 13:33:33 by cdiogo           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -57,13 +57,10 @@ t_rooms		*read_map(void)
 	t_rooms		*rooms;
 	int			count;
 
-	count = 0;
-	rooms = NULL;
-	file = NULL;
+	READMAPVARS;
 	while (get_next_line(0, &line))
 	{
-		check_line(line, &file);
-		free(line);
+		LINEOPS;
 		count++;
 	}
 	if (count > 1)
