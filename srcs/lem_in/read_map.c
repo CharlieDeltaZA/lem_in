@@ -3,10 +3,10 @@
 /*                                                        :::      ::::::::   */
 /*   read_map.c                                         :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: jhansen <jhansen@student.42.fr>            +#+  +:+       +#+        */
+/*   By: cdiogo <cdiogo@student.42.fr>              +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2019/08/19 16:15:37 by cdiogo            #+#    #+#             */
-/*   Updated: 2020/01/14 13:40:21 by jhansen          ###   ########.fr       */
+/*   Updated: 2020/01/14 13:55:21 by cdiogo           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -48,7 +48,8 @@ void		check_line(char *line, t_content **file)
 	int		status;
 	char	*no_white;
 
-	if (is_comment(line) || bad_command(line)) {
+	if (is_comment(line) || bad_command(line))
+	{
 		(*file) = init_content(file, line);
 		return ;
 	}
