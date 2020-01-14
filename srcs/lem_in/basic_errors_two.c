@@ -3,14 +3,19 @@
 /*                                                        :::      ::::::::   */
 /*   basic_errors_two.c                                 :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: cdiogo <cdiogo@student.42.fr>              +#+  +:+       +#+        */
+/*   By: jhansen <jhansen@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2019/08/22 08:37:21 by cdiogo            #+#    #+#             */
-/*   Updated: 2020/01/07 12:45:16 by cdiogo           ###   ########.fr       */
+/*   Updated: 2020/01/14 12:33:23 by jhansen          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "../../includes/lem_in.h"
+
+/*
+** If a command type line is found it is checked if the command
+** is a valid command
+*/
 
 int		bad_command(char *line)
 {
@@ -29,6 +34,10 @@ int		bad_command(char *line)
 	}
 	return (0);
 }
+
+/*
+** Returns the word count of a line
+*/
 
 int		word_count(char *str)
 {
@@ -51,6 +60,11 @@ int		word_count(char *str)
 	}
 	return (count);
 }
+
+/*
+** A dash check is required if a link type line is found.
+** (A link must have one dash between two rooms names)
+*/
 
 int		dash_check(char *str)
 {
@@ -80,6 +94,10 @@ int		dash_check(char *str)
 	}
 	return (0);
 }
+
+/*
+** Checks that all characters in a line is as of numeric character
+*/
 
 int		all_digits_check(char *str)
 {

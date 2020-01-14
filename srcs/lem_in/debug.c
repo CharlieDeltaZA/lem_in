@@ -3,14 +3,18 @@
 /*                                                        :::      ::::::::   */
 /*   debug.c                                            :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: cdiogo <cdiogo@student.42.fr>              +#+  +:+       +#+        */
+/*   By: jhansen <jhansen@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2020/01/07 12:53:52 by cdiogo            #+#    #+#             */
-/*   Updated: 2020/01/07 12:57:24 by cdiogo           ###   ########.fr       */
+/*   Updated: 2020/01/14 11:49:04 by jhansen          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "../../includes/lem_in.h"
+
+/*
+** Prints room struct and all structs within. Used for debug purposes
+*/
 
 void		print_rooms(t_rooms **head)
 {

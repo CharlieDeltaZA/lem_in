@@ -3,14 +3,18 @@
 /*                                                        :::      ::::::::   */
 /*   error_out_one.c                                    :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: cdiogo <cdiogo@student.42.fr>              +#+  +:+       +#+        */
+/*   By: jhansen <jhansen@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2019/08/20 10:43:46 by cdiogo            #+#    #+#             */
-/*   Updated: 2020/01/07 13:25:29 by cdiogo           ###   ########.fr       */
+/*   Updated: 2020/01/14 11:47:43 by jhansen          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "../../includes/lem_in.h"
+
+/*
+** Error message function
+*/
 
 void	error_out(int code)
 {
@@ -40,6 +44,10 @@ void	error_out(int code)
 		ft_putendl_col_fd(RED, "ERROR : No links found", 2);
 }
 
+/*
+** Continuation of error function below
+*/
+
 void	error_out_two(int code)
 {
 	if (code == NO_START_OR_END)
@@ -51,6 +59,10 @@ void	error_out_two(int code)
 	}
 }
 
+/*
+** Error function
+*/
+
 void	free_content_error(t_content **node, int msg)
 {
 	free_content(node);
@@ -60,6 +72,10 @@ void	free_content_error(t_content **node, int msg)
 		error_out(msg);
 	exit(1);
 }
+
+/*
+** Free's content struct
+*/
 
 void	free_content(t_content **head)
 {

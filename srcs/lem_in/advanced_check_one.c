@@ -3,14 +3,18 @@
 /*                                                        :::      ::::::::   */
 /*   advanced_check_one.c                               :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: cdiogo <cdiogo@student.42.fr>              +#+  +:+       +#+        */
+/*   By: jhansen <jhansen@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2019/08/30 12:45:52 by jhansen           #+#    #+#             */
-/*   Updated: 2020/01/07 12:05:55 by cdiogo           ###   ########.fr       */
+/*   Updated: 2020/01/14 11:59:52 by jhansen          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "../../includes/lem_in.h"
+
+/*
+** Checks that there is a start and end room which is mandatory
+*/
 
 int			is_endstart(t_rooms **head)
 {
@@ -32,6 +36,10 @@ int			is_endstart(t_rooms **head)
 	error_out(NO_START_OR_END);
 	return (0);
 }
+
+/*
+** Checks that the input has given an ant count as the first line
+*/
 
 int			check_for_ant(t_content **head)
 {
@@ -60,6 +68,10 @@ int			check_for_ant(t_content **head)
 	ERRNOANT;
 }
 
+/*
+** Checks that there is at least one link found in the file
+*/
+
 int			check_for_link(t_content **file)
 {
 	t_content	*temp;
@@ -81,6 +93,10 @@ int			check_for_link(t_content **file)
 	}
 	return (0);
 }
+
+/*
+** Fills room struct with rooms found in the content struct
+*/
 
 t_rooms		*filler(t_content **file, t_rooms **head)
 {
@@ -107,6 +123,10 @@ t_rooms		*filler(t_content **file, t_rooms **head)
 	}
 	return (*head);
 }
+
+/*
+** Manages advanced checks and returns
+*/
 
 int			advanced_check_and_fill(t_content **file, t_rooms **head)
 {

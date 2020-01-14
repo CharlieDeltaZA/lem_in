@@ -3,14 +3,18 @@
 /*                                                        :::      ::::::::   */
 /*   queue_ops.c                                        :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: cdiogo <cdiogo@student.42.fr>              +#+  +:+       +#+        */
+/*   By: jhansen <jhansen@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2019/09/19 15:55:29 by jhansen           #+#    #+#             */
-/*   Updated: 2020/01/07 13:30:37 by cdiogo           ###   ########.fr       */
+/*   Updated: 2020/01/14 11:30:23 by jhansen          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "../../includes/lem_in.h"
+
+/*
+** Adds queue node to struct
+*/
 
 void		queue_add(t_queue *queue, t_rooms *room)
 {
@@ -28,6 +32,10 @@ void		queue_add(t_queue *queue, t_rooms *room)
 	queue->next = queue_node(room);
 }
 
+/*
+** Creates a queue node with room name
+*/
+
 t_queue		*queue_node(t_rooms *room)
 {
 	t_queue	*node;
@@ -41,6 +49,10 @@ t_queue		*queue_node(t_rooms *room)
 	}
 	return (NULL);
 }
+
+/*
+** Returns the start room from the room struct
+*/
 
 t_rooms		*find_start(t_rooms **rooms)
 {
@@ -59,6 +71,10 @@ t_rooms		*find_start(t_rooms **rooms)
 	return (NULL);
 }
 
+/*
+** Removes top node from the queue struct
+*/
+
 void		queue_remove(t_queue **queue)
 {
 	t_queue	*temp;
@@ -69,6 +85,10 @@ void		queue_remove(t_queue **queue)
 	free(*queue);
 	*queue = temp;
 }
+
+/*
+** Frees queue struct
+*/
 
 void		free_queue(t_queue **queue)
 {

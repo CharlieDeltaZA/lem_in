@@ -3,19 +3,18 @@
 /*                                                        :::      ::::::::   */
 /*   lem_in2.h                                          :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: cdiogo <marvin@42.fr>                      +#+  +:+       +#+        */
+/*   By: jhansen <jhansen@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2019/07/29 10:51:39 by bmarks            #+#    #+#             */
-/*   Updated: 2019/12/08 15:40:12 by cdiogo           ###   ########.fr       */
+/*   Updated: 2020/01/14 10:46:11 by jhansen          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#ifndef LEM_IN_H
-# define LEM_IN_H
+#ifndef LEM_IN2_H
+# define LEM_IN2_H
 
 # include <stdio.h>
 # include "../libft/libft.h"
-// # include <get_next_line.h>
 
 # define POOR_FORM {ft_putendl("Error : Map input poorly formatted."); exit(1);}
 # define MULTI_START {ft_putendl("Error : One start room allowed."); exit(1);}
@@ -97,6 +96,7 @@ typedef struct		s_queue
 /*
 ** Validation
 */
+
 void				validate(char *s, char **mappy, int mode, t_room **room);
 void				val_ants(char *s, char **mappy, t_room **room);
 t_room				*val_room(char *s, char **mappy, int type, t_room **room);
@@ -110,6 +110,7 @@ void				disp_map(char **map);
 /*
 ** List handling
 */
+
 t_room				*new_room(char **info, int type);
 t_room				*add_room(t_room **room, char **info, int type);
 void				free_rooms(t_room **room);
@@ -126,6 +127,7 @@ void				queue_remove(t_queue **queue);
 /*
 ** Room Navigation
 */
+
 t_room				*find_room(t_room *room, char *name);
 void				room_swap(t_room **rooms);
 void				bfs(t_room *start);
@@ -141,6 +143,7 @@ void				disp_ants(t_ant *ant, t_room **rooms);
 /*
 ** Misc
 */
+
 int					map_count(void);
 size_t				array_length(t_path **path);
 t_room				*find_start(t_room **rooms);

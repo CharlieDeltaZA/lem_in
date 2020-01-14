@@ -3,14 +3,18 @@
 /*                                                        :::      ::::::::   */
 /*   rooms_ops_one.c                                    :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: cdiogo <cdiogo@student.42.fr>              +#+  +:+       +#+        */
+/*   By: jhansen <jhansen@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2019/08/22 12:20:31 by cdiogo            #+#    #+#             */
-/*   Updated: 2020/01/07 13:41:25 by cdiogo           ###   ########.fr       */
+/*   Updated: 2020/01/14 12:35:02 by jhansen          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "../../includes/lem_in.h"
+
+/*
+** Creates room node from relevant data
+*/
 
 static t_rooms		*create_node(char *line, int xcoord, int ycoord, int val)
 {
@@ -40,6 +44,10 @@ static t_rooms		*create_node(char *line, int xcoord, int ycoord, int val)
 	return (node);
 }
 
+/*
+** Adds room to the bottom of the room struct
+*/
+
 static void			add_tail(t_rooms **head, t_rooms *node)
 {
 	t_rooms	*tmp;
@@ -55,6 +63,11 @@ static void			add_tail(t_rooms **head, t_rooms *node)
 		node->prev = tmp;
 	}
 }
+
+/*
+** Manages the creation of the room nodes. Retrieves relevant data
+** from each line passed as *s
+*/
 
 t_rooms				*init_rooms(t_rooms **head, char *s, int val)
 {
@@ -78,6 +91,10 @@ t_rooms				*init_rooms(t_rooms **head, char *s, int val)
 	free(arr);
 	return (*head);
 }
+
+/*
+** Puts all ants in the starting room
+*/
 
 void				set_ants(t_rooms **rooms, t_content **content)
 {
