@@ -6,11 +6,15 @@
 /*   By: cdiogo <cdiogo@student.42.fr>              +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2019/07/29 13:40:52 by bmarks            #+#    #+#             */
-/*   Updated: 2020/01/06 14:39:19 by cdiogo           ###   ########.fr       */
+/*   Updated: 2020/01/14 11:51:28 by cdiogo           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "../../includes/lem_in2.h"
+
+/*
+** Jams Chars
+*/
 
 static int		char_jam(char *s, char brk)
 {
@@ -27,6 +31,10 @@ static int		char_jam(char *s, char brk)
 	}
 	return (n);
 }
+
+/*
+** Validates commands from the map file
+*/
 
 static void		val_cmd(char *s, char **mappy, t_staend *se, t_room **room)
 {
@@ -52,6 +60,10 @@ static void		val_cmd(char *s, char **mappy, t_staend *se, t_room **room)
 	}
 }
 
+/*
+** Further validation for the map file
+*/
+
 static void		val_m1(char *s, int *roomy, char **mappy, t_room **room)
 {
 	if (char_jam(s, ' ') == 2 && *roomy == 0)
@@ -66,6 +78,10 @@ static void		val_m1(char *s, int *roomy, char **mappy, t_room **room)
 	else
 		POOR_FORM;
 }
+
+/*
+** Controls overall validation of the map file
+*/
 
 void			validate(char *s, char **mappy, int mode, t_room **room)
 {
@@ -94,6 +110,10 @@ void			validate(char *s, char **mappy, int mode, t_room **room)
 	else if (mode == 1)
 		val_m1(s, &roomy, mappy, room);
 }
+
+/*
+** Populates the main linked list
+*/
 
 int				populate_map(char **mappy, t_room **room)
 {
