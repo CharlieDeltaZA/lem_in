@@ -3,10 +3,10 @@
 /*                                                        :::      ::::::::   */
 /*   lem_in.h                                           :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: jhansen <jhansen@student.42.fr>            +#+  +:+       +#+        */
+/*   By: cdiogo <cdiogo@student.42.fr>              +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2019/08/26 08:40:20 by cdiogo            #+#    #+#             */
-/*   Updated: 2020/01/14 13:40:03 by jhansen          ###   ########.fr       */
+/*   Updated: 2020/01/14 16:22:05 by cdiogo           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -130,6 +130,7 @@ char					*whitespace_remover(char *str, int type,
 void					free_rooms_error(t_rooms **node, int msg);
 void					free_content_error(t_content **node, int msg);
 void					error_out(int code);
+void					error_out_two(int code);
 
 /*
 **	Advanced Error Checking
