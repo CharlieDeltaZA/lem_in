@@ -6,7 +6,7 @@
 /*   By: jhansen <jhansen@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2019/08/19 16:15:37 by cdiogo            #+#    #+#             */
-/*   Updated: 2020/01/14 12:34:42 by jhansen          ###   ########.fr       */
+/*   Updated: 2020/01/14 13:40:21 by jhansen          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -48,8 +48,10 @@ void		check_line(char *line, t_content **file)
 	int		status;
 	char	*no_white;
 
-	if (is_comment(line) || bad_command(line))
+	if (is_comment(line) || bad_command(line)) {
+		(*file) = init_content(file, line);
 		return ;
+	}
 	words = word_count(line);
 	if (words == 0)
 		free_content_error(file, EMPTY_LINE);
