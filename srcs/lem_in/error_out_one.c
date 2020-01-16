@@ -6,7 +6,7 @@
 /*   By: jhansen <jhansen@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2019/08/20 10:43:46 by cdiogo            #+#    #+#             */
-/*   Updated: 2020/01/16 14:22:05 by jhansen          ###   ########.fr       */
+/*   Updated: 2020/01/16 14:53:46 by jhansen          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -26,6 +26,8 @@ void	err(int code)
 		ft_putendl_col_fd(RED, "ERROR : Your ant count reached int max", 2);
 	else if (code == NON_EXISTING_LIST)
 		ft_putendl_col_fd(RED, "ERROR : Non-existing list", 2);
+	else if (code == PATH_ERROR)
+		ft_putendl_col_fd(RED, "ERROR : No path found", 2);
 }
 
 void	error_out(int code)
