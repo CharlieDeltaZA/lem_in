@@ -6,7 +6,7 @@
 /*   By: jhansen <jhansen@student.wethinkcode.co    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2019/08/19 16:15:37 by cdiogo            #+#    #+#             */
-/*   Updated: 2020/01/16 12:14:37 by jhansen          ###   ########.fr       */
+/*   Updated: 2020/01/16 13:16:31 by jhansen          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -87,8 +87,8 @@ t_rooms		*read_map(void)
 		if (advanced_check_and_fill(&file, &rooms) == 0)
 		{
 			if (rooms)
-				free_rooms(&rooms);						//
-			free_content_error(&file, UNDEFINED);		//THIS IS WHERE THE DOUBLE ERROR MSG IS OCCURING
+				free_rooms(&rooms);
+			FREEEXIT;
 		}
 		print_content(&file);
 	}

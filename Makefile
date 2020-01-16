@@ -38,8 +38,7 @@ OBJ_V += $(VOBJ_DIR)v_helpers.o $(VOBJ_DIR)v_error.o $(VOBJ_DIR)v_moves.o $(VOBJ
 OBJ_V += $(VOBJ_DIR)v_parse.o $(VOBJ_DIR)v_valf.o $(VOBJ_DIR)v_traversal.o $(VOBJ_DIR)v_val.o
 OBJ_V += $(VOBJ_DIR)v_disp.o $(VOBJ_DIR)v_path.o $(VOBJ_DIR)v_room.o $(VOBJ_DIR)v_link.o
 
-all: $(LIB) $(NAME) 
-# $(NAME_V)
+all: $(LIB) $(NAME) $(NAME_V)
 
 $(LIB): relib cleanlib
 	@echo "$(OK_COLOR)[$(LIB)] compiled$(NO_COLOR)"
@@ -51,10 +50,10 @@ $(NAME): $(OBJ)
 	@$(CC) -o $(NAME) $(FLAGS) $(OPTIONS) $(OBJ)
 	@echo "$(OK_COLOR)[$(NAME)] compiled$(NO_COLOR)"
 
-# $(NAME_V): $(OBJ_V)
-# 	@$(CC) -o $(NAME_V) $(FLAGS) $(OTHER_LIB) $(INCLUDES) $(OPTIONS) $(OBJ_V)
-# #	@$(CC) -o $(NAME_V) $(FLAGS) $(OPTIONS) $(OBJ_V) $(CD_SDL_L) $(CD_SDL_I)
-# 	@echo "$(OK_COLOR)[$(NAME_V)] compiled$(NO_COLOR)"
+$(NAME_V): $(OBJ_V)
+	@$(CC) -o $(NAME_V) $(FLAGS) $(OTHER_LIB) $(INCLUDES) $(OPTIONS) $(OBJ_V)
+#	@$(CC) -o $(NAME_V) $(FLAGS) $(OPTIONS) $(OBJ_V) $(CD_SDL_L) $(CD_SDL_I)
+	@echo "$(OK_COLOR)[$(NAME_V)] compiled$(NO_COLOR)"
 
 debug: $(LIB)
 	@$(CC) -o $(NAME) $(OPTIONS) ./srcs/lem_in/*.c -g
@@ -71,8 +70,8 @@ clean:
 
 fclean: clean
 	@/bin/rm -f $(NAME)
-	# @/bin/rm -f $(NAME_V)
-	# @echo "$(WARN_COLOR)[$(NAME)] & [$(NAME_V)] removed$(NO_COLOR)"
+	@/bin/rm -f $(NAME_V)
+	@echo "$(WARN_COLOR)[$(NAME)] & [$(NAME_V)] removed$(NO_COLOR)"
 
 re: fclean all
 

@@ -6,7 +6,7 @@
 /*   By: jhansen <jhansen@student.wethinkcode.co    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2019/08/26 08:40:20 by cdiogo            #+#    #+#             */
-/*   Updated: 2020/01/16 11:42:03 by jhansen          ###   ########.fr       */
+/*   Updated: 2020/01/16 13:28:20 by jhansen          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -25,6 +25,8 @@
 # define ERRNOANT {error_out(NO_ANTS);return (0);}
 # define ERR2ANT {error_out(TOO_MANY_ANTS);return (0);}
 # define ERRDUPLINK {error_out(DUP_LINK);return (0);}
+# define ANT_MAX {error_out(INT_MAX);return(0);}
+# define FREEEXIT {free_content(&file);exit(1);}
 # define STARTEND {start = find_start(room_head);end = start;}
 # define QQ {temp->room->weight = queue->room->weight + 1;}
 # define QADD {queue_add(queue, temp->room);QQ}
@@ -55,7 +57,8 @@ enum					e_error_codes
 	TOO_MANY_ANTS,
 	NO_LINK,
 	PATH_ERROR,
-	UNDEFINED
+	UNDEFINED,
+	INT_MAX
 };
 
 typedef struct			s_content

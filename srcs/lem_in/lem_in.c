@@ -6,7 +6,7 @@
 /*   By: jhansen <jhansen@student.wethinkcode.co    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2019/08/13 16:19:08 by cdiogo            #+#    #+#             */
-/*   Updated: 2020/01/16 11:13:03 by jhansen          ###   ########.fr       */
+/*   Updated: 2020/01/16 13:08:14 by jhansen          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -26,7 +26,7 @@ void	bigboy_algo(t_rooms **room_head)
 		generate_moves(path, room_head);
 	}
 	else
-		free_rooms_error(room_head, PATH_ERROR);		//CALLS ERROR
+		free_rooms_error(room_head, PATH_ERROR);
 	free_path(&path);
 }
 
