@@ -3,10 +3,10 @@
 /*                                                        :::      ::::::::   */
 /*   error_out_one.c                                    :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: jhansen <jhansen@student.42.fr>            +#+  +:+       +#+        */
+/*   By: jhansen <jhansen@student.wethinkcode.co    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2019/08/20 10:43:46 by cdiogo            #+#    #+#             */
-/*   Updated: 2020/01/14 11:47:43 by jhansen          ###   ########.fr       */
+/*   Updated: 2020/01/16 11:45:41 by jhansen          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -34,29 +34,14 @@ void	error_out(int code)
 		ft_putendl_col_fd(RED, "ERROR : Empty line", 2);
 	if (code == ERROR)
 		ft_putendl_col_fd(RED, "ERROR : Advanced check ERROR", 2);
-	if (code == NON_EXISTING_LIST)
-		ft_putendl_col_fd(RED, "ERROR : Non-existing list", 2);
 	if (code == NON_EXISTING_ROOM)
 		ft_putendl_col_fd(RED, "ERROR : Non-existing room found", 2);
 	if (code == TOO_MANY_ANTS)
 		ft_putendl_col_fd(RED, "ERROR : Multiple ant lines found", 2);
 	if (code == NO_LINK)
 		ft_putendl_col_fd(RED, "ERROR : No links found", 2);
-}
-
-/*
-** Continuation of error function below
-*/
-
-void	error_out_two(int code)
-{
 	if (code == NO_START_OR_END)
-		ft_putendl_col_fd(RED, MSG1, 2);
-	if (code == UNDEFINED)
-	{
-		ft_putstr_col_fd(RED, MSG2, 2);
-		ft_putendl_col_fd(RED, MSG22, 2);
-	}
+		ft_putendl_col_fd(RED, "ERROR : No start or end room found", 2);
 }
 
 /*
@@ -66,8 +51,13 @@ void	error_out_two(int code)
 void	free_content_error(t_content **node, int msg)
 {
 	free_content(node);
-	if (msg == UNDEFINED || msg == NO_START_OR_END)
-		error_out_two(msg);
+	if (msg == UNDEFINED)
+	{
+		ft_putstr_col_fd(RED, MSG2, 2);
+		ft_putendl_col_fd(RED, MSG22, 2);
+	}
+	if (msg == NON_EXISTING_LIST)
+		ft_putendl_col_fd(RED, "ERROR : Non-existing list", 2);
 	else
 		error_out(msg);
 	exit(1);
