@@ -3,14 +3,18 @@
 /*                                                        :::      ::::::::   */
 /*   algo_one.c                                         :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: cdiogo <cdiogo@student.42.fr>              +#+  +:+       +#+        */
+/*   By: jhansen <jhansen@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2019/09/19 11:27:07 by jhansen           #+#    #+#             */
-/*   Updated: 2020/01/07 12:31:25 by cdiogo           ###   ########.fr       */
+/*   Updated: 2020/01/14 12:22:46 by jhansen          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "../../includes/lem_in.h"
+
+/*
+** Moves and displays ants moves until all the ants are in the end room
+*/
 
 void		attack(t_ant **ants, t_rooms **rooms, int total)
 {
@@ -29,6 +33,11 @@ void		attack(t_ant **ants, t_rooms **rooms, int total)
 		ft_putendl("");
 	}
 }
+
+/*
+** Gives all the ants in the ant struct their correct position,
+** number and next room to move to. Then executes
+*/
 
 void		generate_moves(t_path *path, t_rooms **room_head)
 {
@@ -58,6 +67,10 @@ void		generate_moves(t_path *path, t_rooms **room_head)
 	}
 }
 
+/*
+** Generates path struct now that the correct rooms have been given a weighting
+*/
+
 t_path		*generate_path(t_rooms *start)
 {
 	t_path	*path;
@@ -85,6 +98,11 @@ t_path		*generate_path(t_rooms *start)
 	path_correction(&path);
 	return (path);
 }
+
+/*
+** Finds a correct path through the maze by adding a weight to each
+** room visited. If no path is found then error!
+*/
 
 int			path_find(t_rooms **room_head)
 {

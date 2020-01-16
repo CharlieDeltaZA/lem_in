@@ -6,7 +6,7 @@
 /*   By: cdiogo <cdiogo@student.42.fr>              +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2019/08/26 08:40:20 by cdiogo            #+#    #+#             */
-/*   Updated: 2020/01/07 13:41:30 by cdiogo           ###   ########.fr       */
+/*   Updated: 2020/01/14 16:22:05 by cdiogo           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -120,7 +120,8 @@ int						is_link(char *line);
 int						is_ant(char *line);
 int						all_digits_check(char *str);
 int						dash_check(char *str);
-char					*whitespace_remover(char *str, int type, t_content **file);
+char					*whitespace_remover(char *str, int type,
+												t_content **file);
 
 /*
 **	Erroring
@@ -129,12 +130,14 @@ char					*whitespace_remover(char *str, int type, t_content **file);
 void					free_rooms_error(t_rooms **node, int msg);
 void					free_content_error(t_content **node, int msg);
 void					error_out(int code);
+void					error_out_two(int code);
 
 /*
 **	Advanced Error Checking
 */
 
-int						advanced_check_and_fill(t_content **file, t_rooms **head);
+int						advanced_check_and_fill(t_content **file,
+												t_rooms **head);
 int						check_for_ant(t_content **head);
 int						duplicate_rooms(t_rooms **rooms);
 int						double_check(char *current, char *temp);
@@ -190,16 +193,8 @@ t_rooms					*init_rooms(t_rooms **head, char *s, int val);
 t_rooms					*find_room(t_rooms *room, char *name);
 void					match_room(t_rooms **head, char *room, char *link);
 void					init_links(t_content **file, t_rooms **head);
-void                	free_links(t_links **links);
+void					free_links(t_links **links);
 void					free_rooms(t_rooms **head);
 void					set_ants(t_rooms **rooms, t_content **content);
-
-/*
-** Debug function
-*/
-
-/*
-** void					print_rooms(t_rooms **head);
-*/
 
 #endif

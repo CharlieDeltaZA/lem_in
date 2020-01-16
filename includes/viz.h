@@ -6,16 +6,18 @@
 /*   By: jhansen <jhansen@student.wethinkcode.co    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2019/08/26 09:51:11 by cdiogo            #+#    #+#             */
+<<<<<<< HEAD
 /*   Updated: 2020/01/09 17:44:33 by jhansen          ###   ########.fr       */
+=======
+/*   Updated: 2020/01/14 14:04:02 by cdiogo           ###   ########.fr       */
+>>>>>>> bbfc1cb04bfd8e552edb4f745bd1fca9239d07c2
 /*                                                                            */
 /* ************************************************************************** */
 
 #ifndef VIZ_H
 # define VIZ_H
 
-// # include "lem_in.h"
 # include "lem_in2.h"
-// # include <lem_in.h>
 # include "/homes/cdiogo/.brew/include/SDL2/SDL.h"
 # include "/homes/cdiogo/.brew/include/SDL2/SDL_image.h"
 # include "/homes/cdiogo/.brew/include/SDL2/SDL_timer.h"

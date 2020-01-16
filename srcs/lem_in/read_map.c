@@ -6,11 +6,16 @@
 /*   By: cdiogo <cdiogo@student.42.fr>              +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2019/08/19 16:15:37 by cdiogo            #+#    #+#             */
-/*   Updated: 2020/01/07 13:33:33 by cdiogo           ###   ########.fr       */
+/*   Updated: 2020/01/14 13:55:21 by cdiogo           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "../../includes/lem_in.h"
+
+/*
+** Manual checks to see the type of line read from the file.
+** If an existing type is found the return is > 0
+*/
 
 int			word_manager(char *line, int words)
 {
@@ -31,6 +36,12 @@ int			word_manager(char *line, int words)
 	return (0);
 }
 
+/*
+** Validates each line that is read from the file.
+** If succesful all unnecesary whitespace is removed and then
+** the line is added to the struct
+*/
+
 void		check_line(char *line, t_content **file)
 {
 	int		words;
@@ -38,7 +49,10 @@ void		check_line(char *line, t_content **file)
 	char	*no_white;
 
 	if (is_comment(line) || bad_command(line))
+	{
+		(*file) = init_content(file, line);
 		return ;
+	}
 	words = word_count(line);
 	if (words == 0)
 		free_content_error(file, EMPTY_LINE);
@@ -49,6 +63,11 @@ void		check_line(char *line, t_content **file)
 	(*file) = init_content(file, no_white);
 	free(no_white);
 }
+
+/*
+** Reads all line from the file and does real time validation.
+** If successful, memory is freed and the room struct is returned.
+*/
 
 t_rooms		*read_map(void)
 {
