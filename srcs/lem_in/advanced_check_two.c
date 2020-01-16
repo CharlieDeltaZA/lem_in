@@ -3,10 +3,10 @@
 /*                                                        :::      ::::::::   */
 /*   advanced_check_two.c                               :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: jhansen <jhansen@student.wethinkcode.co    +#+  +:+       +#+        */
+/*   By: jhansen <jhansen@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2019/09/06 16:09:04 by jhansen           #+#    #+#             */
-/*   Updated: 2020/01/16 12:11:53 by jhansen          ###   ########.fr       */
+/*   Updated: 2020/01/16 14:18:45 by jhansen          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 

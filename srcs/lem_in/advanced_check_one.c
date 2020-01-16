@@ -3,10 +3,10 @@
 /*                                                        :::      ::::::::   */
 /*   advanced_check_one.c                               :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: jhansen <jhansen@student.wethinkcode.co    +#+  +:+       +#+        */
+/*   By: jhansen <jhansen@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2019/08/30 12:45:52 by jhansen           #+#    #+#             */
-/*   Updated: 2020/01/16 13:28:29 by jhansen          ###   ########.fr       */
+/*   Updated: 2020/01/16 14:17:55 by jhansen          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
