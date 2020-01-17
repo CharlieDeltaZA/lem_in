@@ -17,6 +17,8 @@ If you plan on running this on a personal machine, install brew according to the
 
 `/usr/bin/ruby -e "$(curl -fsSL https://raw.githubusercontent.com/Homebrew/install/master/install)"`
 
+Thereafter - `brew install SDL2 SDL2_ttf SDL2_gfx SDL2_image`
+
 ### Team Member
 This project was completed in collaboration with:
 - [jhansen](https://github.com/jadonhansen)
